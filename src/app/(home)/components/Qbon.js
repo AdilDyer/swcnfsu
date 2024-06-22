@@ -23,10 +23,10 @@ const Qbon = () => {
             Introducing Qbon - Your Ultimate Academic Resource Hub! The Question
             Bank of NFSU provides comprehensive access to all departmental past
             exam papers and a rich repository of study materials, tailored to
-            support your academic journey. Whether you're prepping for finals,
-            tackling assignments, or seeking to deepen your understanding of
-            course content, Qbon is your go-to destination for academic
-            excellence. Yep, here it is !
+            support your academic journey. Whether you&apos;re prepping for
+            finals, tackling assignments, or seeking to deepen your
+            understanding of course content, Qbon is your go-to destination for
+            academic excellence. Yep, here it is !
           </p>
           <br />
           <Link target="_blank" href="https://qbon.onrender.com/">

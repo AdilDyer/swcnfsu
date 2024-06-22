@@ -67,10 +67,10 @@ const SupportServices = () => {
               <h4>Health and Wellness Programs</h4>
               <br />
               <p>
-                SWC's Health and Wellness Programs are designed to support your
-                physical, mental, and emotional health, ensuring you have the
-                resources and guidance needed to thrive both inside and outside
-                the classroom.
+                SWC&apos;s Health and Wellness Programs are designed to support
+                your physical, mental, and emotional health, ensuring you have
+                the resources and guidance needed to thrive both inside and
+                outside the classroom.
               </p>
             </div>
           </div>

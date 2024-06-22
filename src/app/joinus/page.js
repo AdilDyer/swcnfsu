@@ -13,8 +13,8 @@ const page = () => {
           <div className="hrline"></div>
           <h6>Attend Our Next Event</h6>
           <p>
-            Come to our next happening event! It's the perfect opportunity to
-            see what we're all about and meet some fantastic people.
+            Come to our next happening event! It&apos;s the perfect opportunity
+            to see what we&apos;re all about and meet some fantastic people.
           </p>
         </div>
         <div className="card">
@@ -32,8 +32,9 @@ const page = () => {
           <div className="hrline"></div>
           <h6>Register Your Name</h6>
           <p>
-            Once you've mingled and got a feel for the club, simply register
-            your name with one of our coordinators. That's it! You are our buddy now!
+            Once you&apos;ve mingled and got a feel for the club, simply
+            register your name with one of our coordinators. That&apos;s it! You
+            are our buddy now!
           </p>
         </div>
       </div>

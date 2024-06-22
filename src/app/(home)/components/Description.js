@@ -34,9 +34,9 @@ const Description = () => {
           <p>
             At the heart of our SWC are our guiding principles: transparency,
             approachability, and aspiration. We believe in open communication
-            and honesty in all our actions. SWC's approachable nature ensures
-            that every student feels welcome and heard. We constantly strive for
-            better, aiming to uplift every member of our community.
+            and honesty in all our actions. SWC&apos;s approachable nature
+            ensures that every student feels welcome and heard. We constantly
+            strive for better, aiming to uplift every member of our community.
           </p>
           <br />
           <h5>
