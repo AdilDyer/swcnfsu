@@ -111,6 +111,7 @@
   align-items: center;
   height: 100vh;
   position: relative;
+  overflow-x: hidden;
 }
 .collaborationDiv h1 {
   font-size: 3rem;
@@ -136,6 +137,9 @@
   padding: 1rem;
   color: midnightblue;
   text-wrap: nowrap;
+}
+.collaborationDiv .saying-mobile {
+  display: none;
 }
 
 .announcements {
@@ -358,7 +362,7 @@
 }
 
 .footer {
-  height: 110vh;
+  height: fit-content;
   background-color: black;
   display: flex;
   align-items: center;
@@ -424,6 +428,7 @@
 }
 
 .joinUsPage {
+  margin-top: 8rem;
   background-color: black;
   height: 100vh;
   display: flex;
@@ -465,6 +470,7 @@
 }
 
 .contactPageDiv {
+  margin-top: 8rem;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -474,9 +480,12 @@
 .contactPageDiv .descriptionDiv {
   width: 100%;
 }
-.contactPageDiv i {
-  font-size: 2rem;
+.contactPageDiv .iDiv {
+  display: flex;
+}
+.contactPageDiv .iDiv i {
   margin: 1rem;
+  font-size: 2rem;
 }
 
 .grievance {
@@ -489,6 +498,9 @@
   margin-bottom: 5rem;
 }
 
+.grievancePortal {
+  margin-top: 10rem;
+}
 .grievancePortal img {
   height: 20rem;
   width: 100%;
@@ -500,6 +512,139 @@
 .grievancePortal .textBody button {
   padding: 2rem;
   font-size: 1.5rem;
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 1.4rem !important;
+  }
+  .collaborationDiv .saying {
+    display: none;
+  }
+  .collaborationDiv .saying-mobile {
+    display: inline;
+  }
+  .supportServicesDiv .outerDiv {
+    flex-wrap: wrap;
+  }
+  .nav {
+    padding: 0;
+    justify-content: center;
+  }
+  .nav .leftPart {
+    font-size: 0.8rem;
+    padding: 1rem;
+  }
+  .nav .leftPart .dropdown button {
+    font-size: 0.8rem;
+  }
+  .nav .rightPart {
+    display: none;
+  }
+  .homefirst .textDiv {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .homefirst h1 {
+    font-size: 1.9rem !important;
+    text-align: center;
+    padding-left: 0.5rem;
+  }
+  .homefirst h3 {
+    text-align: center;
+  }
+  .homefirst h3 span {
+    display: block;
+  }
+  .homefirst p {
+    padding: 2rem;
+    margin: 0;
+  }
+  .homefirst .imageDiv {
+    width: 100%;
+    border-radius: 0;
+  }
+  .collaborationDiv {
+    height: 90vh;
+  }
+  .collaborationDiv h1 {
+    padding-top: 11rem;
+  }
+  .descriptionDiv {
+    padding: 0;
+    flex-direction: column !important;
+    flex-wrap: wrap;
+    position: relative;
+    height: fit-content;
+    margin-top: 3rem;
+  }
+  .descriptionDiv .imageDiv {
+    height: 40%;
+    width: 100%;
+    padding: 0;
+  }
+  .descriptionDiv .textDiv {
+    width: 100%;
+    margin-top: 2rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  .descriptionDiv h5 {
+    width: 80%;
+  }
+  .descriptionDiv h5,
+  .descriptionDiv span {
+    font-size: 1.1rem;
+  }
+  .calendarofevents {
+    margin: 3rem 0rem;
+  }
+  .calendarofevents iframe {
+    height: 25rem;
+  }
+  .announcements {
+    padding: 0 1rem;
+  }
+  .studygroups .cardsContainer {
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+  }
+  .supportServicesDiv {
+    margin-top: 5rem;
+    height: fit-content;
+    margin-bottom: 5rem;
+  }
+  .grievance {
+    padding: 2rem;
+    overflow: hidden;
+  }
+  .grievance img {
+    margin: 1rem;
+    width: 15rem;
+  }
+  .qbon {
+    margin-bottom: 8rem;
+  }
+  .footer {
+    padding: 1rem;
+    padding-top: 5rem;
+    text-align: center;
+  }
+  .footer .bottomBox {
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .footer .bottomBox .allLinksContainer {
+    text-align: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
 }
 
 /*# sourceMappingURL=globals.css.map */

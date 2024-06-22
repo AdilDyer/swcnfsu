@@ -113,6 +113,8 @@
   @include flexCenter();
   height: 100vh;
   position: relative;
+  overflow-x: hidden;
+
   h1 {
     font-size: 3rem;
     text-align: center;
@@ -137,6 +139,9 @@
       color: midnightblue;
       text-wrap: nowrap;
     }
+  }
+  .saying-mobile {
+    display: none;
   }
 }
 
@@ -243,14 +248,12 @@
   .card {
     height: 25rem !important;
     text-align: start;
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
-
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
   }
 }
 
 .studygroups {
   text-align: center;
-
   color: black;
   margin-bottom: 2rem;
   padding: 2rem;
@@ -319,7 +322,6 @@
     background-color: white;
     border-radius: 0rem;
     // box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-
     gap: 4rem;
     @include flexCenter();
     .card {
@@ -365,7 +367,7 @@
 }
 
 .footer {
-  height: 110vh;
+  height: fit-content;
   background-color: black;
   display: flex;
   align-items: center;
@@ -373,6 +375,7 @@
   color: white;
   padding: 8rem;
   flex-direction: column;
+
   h1 {
     font-size: 3rem;
   }
@@ -387,14 +390,12 @@
     margin: 5rem;
     width: 100%;
     height: 100%;
-
     display: flex;
     align-items: start;
     justify-content: center;
     gap: 5rem;
     .imageDiv {
       width: 10rem;
-
       img {
         width: 100%;
         object-fit: cover;
@@ -434,6 +435,7 @@
 }
 
 .joinUsPage {
+  margin-top: 8rem;
   background-color: black;
   height: 100vh;
   @include flexCenter();
@@ -469,15 +471,19 @@
 }
 
 .contactPageDiv {
+  margin-top: 8rem;
   height: 100vh;
   @include flexCenter();
   flex-direction: column;
   .descriptionDiv {
     width: 100%;
   }
-  i {
-    font-size: 2rem;
-    margin: 1rem;
+  .iDiv {
+    display: flex;
+    i {
+      margin: 1rem;
+      font-size: 2rem;
+    }
   }
 }
 
@@ -489,6 +495,7 @@
   margin-bottom: 5rem;
 }
 .grievancePortal {
+  margin-top: 10rem;
   img {
     height: 20rem;
     width: 100%;
@@ -499,6 +506,151 @@
     button {
       padding: 2rem;
       font-size: 1.5rem;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 1.4rem !important;
+  }
+  .collaborationDiv {
+    .saying {
+      display: none;
+    }
+    .saying-mobile {
+      display: inline;
+    }
+  }
+  .supportServicesDiv {
+    .outerDiv {
+      flex-wrap: wrap;
+    }
+  }
+
+  .nav {
+    padding: 0;
+    justify-content: center;
+    .leftPart {
+      font-size: 0.8rem;
+      padding: 1rem;
+      .dropdown {
+        button {
+          font-size: 0.8rem;
+        }
+      }
+    }
+    .rightPart {
+      display: none;
+    }
+  }
+  .homefirst {
+    .textDiv {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.9rem !important;
+      text-align: center;
+      padding-left: 0.5rem;
+    }
+    h3 {
+      span {
+        display: block;
+      }
+      text-align: center;
+    }
+    p {
+      padding: 2rem;
+      margin: 0;
+    }
+    .imageDiv {
+      width: 100%;
+      border-radius: 0;
+    }
+  }
+  .collaborationDiv {
+    height: 90vh;
+    h1 {
+      padding-top: 11rem;
+    }
+  }
+  .descriptionDiv {
+    padding: 0;
+    flex-direction: column !important;
+    flex-wrap: wrap;
+    position: relative;
+    height: fit-content;
+    margin-top: 3rem;
+    .imageDiv {
+      height: 40%;
+      width: 100%;
+      padding: 0;
+    }
+    .textDiv {
+      width: 100%;
+      margin-top: 2rem;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+    }
+    h5 {
+      width: 80%;
+    }
+    h5,
+    span {
+      font-size: 1.1rem;
+    }
+  }
+  .calendarofevents {
+    margin: 3rem 0rem;
+    iframe {
+      height: 25rem;
+    }
+  }
+  .announcements {
+    padding: 0 1rem;
+  }
+  .studygroups {
+    .cardsContainer {
+      padding: 0;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .supportServicesDiv {
+    margin-top: 5rem;
+    height: fit-content;
+    margin-bottom: 5rem;
+  }
+  .grievance {
+    padding: 2rem;
+    overflow: hidden;
+    img {
+      margin: 1rem;
+      width: 15rem;
+    }
+  }
+  .qbon {
+    margin-bottom: 8rem;
+  }
+  .footer {
+    padding: 1rem;
+    padding-top: 5rem;
+    text-align: center;
+    .bottomBox {
+      align-items: center;
+      flex-direction: column;
+      gap: 3rem;
+      .allLinksContainer {
+        text-align: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+      }
     }
   }
 }

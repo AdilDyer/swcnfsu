@@ -26,9 +26,11 @@ const Contact = () => {
           <h5>Assistant Professor</h5>
           <br />
 
-          <i style={{ color: "	#1877F2" }} class="fa-brands fa-facebook"></i>
-          <i style={{ color: "	#E1306C" }} class="fa-brands fa-instagram"></i>
-          <i style={{ color: "	#0A66C2" }} class="fa-brands fa-linkedin"></i>
+          <div className="iDiv">
+            <i style={{ color: "	#1877F2" }} class="fa-brands fa-facebook"></i>
+            <i style={{ color: "	#E1306C" }} class="fa-brands fa-instagram"></i>
+            <i style={{ color: "	#0A66C2" }} class="fa-brands fa-linkedin"></i>
+          </div>
           <br />
           <br />
           <h6>Phone No. : 9824210500</h6>

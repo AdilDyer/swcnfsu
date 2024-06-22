@@ -12,7 +12,7 @@ const Collaboration = () => {
           I love and will love SWCian.
         </span>
       </div>
-      <div className="saying" style={{ top: "7rem", right: "30rem" }}>
+      <div className="saying" style={{ top: "8rem", right: "30rem" }}>
         <img
           src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1712930506/IMG-20240305-WA0052_-_Tanish_Thakare_alkeim.jpg"
           alt=""
@@ -21,7 +21,49 @@ const Collaboration = () => {
           Thanks to the SWC, So kind of them.
         </span>
       </div>
+      <div
+        className=" saying saying-mobile"
+        style={{ top: "10rem", left: "-2rem" }}
+      >
+        <img
+          src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1712930506/IMG-20240305-WA0052_-_Tanish_Thakare_alkeim.jpg"
+          alt=""
+        />
+        <span style={{ backgroundColor: "lightblue", left: "7.5rem" }}>
+          So Gratefull.
+        </span>
+      </div>
+      <div
+        className=" saying saying-mobile"
+        style={{ top: "16rem", right: "-1rem" }}
+      >
+        <img
+          src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1712930506/IMG-20240305-WA0052_-_Tanish_Thakare_alkeim.jpg"
+          alt=""
+        />
+        <span style={{ backgroundColor: "lightcoral", left: "-7rem" }}>
+          Thanks <br /> to them.
+        </span>
+      </div>
       <div className="saying" style={{ top: "26rem", right: "21rem" }}>
+        <img
+          src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1712930506/IMG-20240305-WA0052_-_Tanish_Thakare_alkeim.jpg"
+          alt=""
+        />
+        <span
+          style={{
+            top: "3.5rem",
+            backgroundColor: "midnightBlue",
+            color: "white",
+          }}
+        >
+          they just rocks, always.
+        </span>
+      </div>
+      <div
+        className="saying saying-mobile"
+        style={{ top: "27rem", right: "19rem", bottom: "0rem" }}
+      >
         <img
           src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1712930506/IMG-20240305-WA0052_-_Tanish_Thakare_alkeim.jpg"
           alt=""

@@ -6,7 +6,9 @@ const HomeFirst = () => {
       <div className="textDiv">
         <p>Greetings from</p>
         <br />
+
         <h1>The Student Welfare Committee</h1>
+
         <br />
         <h3>
           <span>
