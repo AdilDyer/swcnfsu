@@ -111,10 +111,10 @@
 
 .collaborationDiv {
   @include flexCenter();
-  height: 100vh;
   position: relative;
   overflow-x: hidden;
-
+  //
+  padding: 5rem;
   h1 {
     font-size: 3rem;
     text-align: center;
@@ -510,7 +510,7 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 1024px) {
   h1 {
     font-size: 1.4rem !important;
   }
@@ -572,7 +572,7 @@
     }
   }
   .collaborationDiv {
-    height: 90vh;
+    padding: 3rem 0;
     h1 {
       padding-top: 11rem;
     }

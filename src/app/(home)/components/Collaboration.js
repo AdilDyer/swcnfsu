@@ -1,9 +1,8 @@
 import React from "react";
-
 const Collaboration = () => {
   return (
     <div className="collaborationDiv">
-      <div className="saying" style={{ top: "10rem", left: "18rem" }}>
+      {/* <div className="saying" style={{ top: "10rem", left: "18rem" }}>
         <img
           src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1712930506/IMG-20240305-WA0052_-_Tanish_Thakare_alkeim.jpg"
           alt=""
@@ -112,7 +111,12 @@ const Collaboration = () => {
         We Believe In Collaboration.
         <br />
         Period.
-      </h1>
+      </h1> */}
+      <img
+        src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1719134293/Screenshot_2024-06-23_at_2.48.06_PM_tiwuun.png"
+        alt="We believe in collaboration.Period."
+        style={{ width: "100%", height: "100%", objectFit: "contain" }}
+      />
     </div>
   );
 };
