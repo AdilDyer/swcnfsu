@@ -4,6 +4,20 @@
   font-family: "Poppins", sans-serif;
 }
 
+@keyframes popoutOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.popoutOpacity {
+  animation: popoutOpacity linear both;
+  animation-timeline: view();
+  animation-range: entry 50% cover 50%;
+}
+
 .nav {
   height: 8rem;
   width: 100%;
@@ -248,10 +262,15 @@
   color: black;
   margin-bottom: 2rem;
 }
+.pastevents a {
+  text-decoration: none;
+}
 .pastevents .card {
   height: 25rem !important;
   text-align: start;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+  background-color: pink !important;
+  color: midnightblue;
 }
 
 .studygroups {
@@ -417,6 +436,7 @@
   color: white;
   text-decoration: underline white;
   transition: 0.2s ease-in-out;
+  cursor: cell;
 }
 .footer .heart {
   color: red;
@@ -425,6 +445,7 @@
 .footer .adildyer:hover {
   color: yellow;
   transition: 0.2s ease-in;
+  cursor: cell;
 }
 
 .joinUsPage {
@@ -512,6 +533,55 @@
 .grievancePortal .textBody button {
   padding: 2rem;
   font-size: 1.5rem;
+}
+
+.ourTeamDiv {
+  margin-top: 10rem;
+  text-align: center;
+}
+.ourTeamDiv hr {
+  border-top: 4px dashed darkcyan;
+}
+.ourTeamDiv h1 {
+  color: #071952;
+  padding-bottom: 1rem;
+  border-bottom: #071952 solid thick;
+}
+.ourTeamDiv h2 {
+  padding: 2rem 5rem;
+  margin-bottom: 3rem;
+  text-align: start;
+  border-bottom: 4px dotted pink;
+  color: #071952;
+}
+.ourTeamDiv h3 {
+  padding: 1rem 5rem;
+  background-color: pink;
+  color: #071952;
+  text-align: start;
+  margin: 3rem 0;
+}
+.ourTeamDiv .announcements {
+  height: fit-content;
+}
+.ourTeamDiv .announcements .cardsAnnoun {
+  overflow: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0rem 5rem;
+  padding-bottom: 2rem;
+}
+.ourTeamDiv .announcements .cardsAnnoun .card {
+  height: 25rem;
+  width: 25rem;
+  background-color: rgba(0, 0, 255, 0.229);
+  background-color: rgba(162, 232, 255, 0.661);
+  color: midnightblue;
+  border-radius: 3rem;
+}
+.ourTeamDiv .announcements .cardsAnnoun .card .imageDiv {
+  border-radius: 2.2rem;
+  overflow: hidden;
 }
 
 @media (max-width: 1024px) {
@@ -644,6 +714,23 @@
     flex-direction: column;
     align-items: center;
     gap: 3rem;
+  }
+  .ourTeamDiv h2,
+  .ourTeamDiv h3 {
+    text-align: center;
+  }
+  .ourTeamDiv .announcements {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .ourTeamDiv .cardsAnnoun {
+    overflow: hidden !important;
+  }
+  .ourTeamDiv .cardsAnnoun .card {
+    border-radius: 0 !important;
+  }
+  .ourTeamDiv .cardsAnnoun .card .imageDiv {
+    border-radius: 0 !important;
   }
 }
 

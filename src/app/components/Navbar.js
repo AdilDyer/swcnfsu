@@ -48,6 +48,7 @@ const Navbar = () => {
           <Dropdown.Item href="#/action-1">Counselling</Dropdown.Item>
           <Dropdown.Item href="#/action-1">Contact Team</Dropdown.Item>
           <Dropdown.Item href="#/action-1">Socials</Dropdown.Item>
+          <Dropdown.Item href="/ourteam">Our Team</Dropdown.Item>
         </DropdownButton>
       </div>
       <div className="rightPart">

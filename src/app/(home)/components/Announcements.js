@@ -1,5 +1,5 @@
 import React from "react";
-
+import Button from "react-bootstrap/Button";
 const Announcements = () => {
   return (
     <div className="announcements">
@@ -7,11 +7,14 @@ const Announcements = () => {
         Join us for our upcoming events and be a part of something special.
         Check out our calendar and register today!
       </h6>
+      <Button style={{ marginTop: "2rem" }} variant="primary">
+        Suggestion Box and Voting
+      </Button>{" "}
       <div className="cardsAnnoun">
         <div className="card">
           <div className="imageDiv">
             <img
-              src="https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-4.1.0&q=45&auto=format&w=1356&h=668&fit=crop"
+              src="https://cdn.pixabay.com/photo/2015/11/19/21/10/glasses-1052010_640.jpg"
               alt=""
             />
           </div>

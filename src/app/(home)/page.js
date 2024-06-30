@@ -9,6 +9,7 @@ import StudyGroups from "./components/StudyGroups";
 import SupportServices from "./components/SupportServices";
 import Qbon from "./components/Qbon";
 import Grievance from "./components/Grievance";
+import RisingStar from "./components/RisingStar";
 const Home = () => {
   return (
     <>
@@ -17,6 +18,7 @@ const Home = () => {
       <Description />
       <Calendar />
       <Announcements />
+      <RisingStar />
       <PastEvents />
       <StudyGroups />
       <SupportServices />

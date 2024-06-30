@@ -25,11 +25,9 @@ const Footer = () => {
           <div className="linksDiv">
             <span>SWC</span>
             <Link href="#">About</Link>
-            <Link href="#">Our Team</Link>
+            <Link href="/ourteam">Our Team</Link>
             <Link href="#">Privacy</Link>
-            <Link href="/grievance">
-         GRP
-            </Link>
+            <Link href="/grievance">GRP</Link>
             <Link href="/grievance">Forum</Link>
             <Link href="/grievance">Feedback</Link>
           </div>

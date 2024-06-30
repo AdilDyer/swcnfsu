@@ -1,5 +1,6 @@
 import React from "react";
-
+import Button from "react-bootstrap/Button";
+import Link from "next/link";
 const Description = () => {
   return (
     <>
@@ -82,7 +83,10 @@ const Description = () => {
             welfare. Together, we strive to create an environment where every
             student feels supported and empowered.
           </p>
-          <br />
+          <Link href="/ourteam">
+            <Button variant="success">Our Team</Button>
+          </Link>
+
           {/* <h5>
             <span style={{ backgroundColor: "powderblue" }}>
               &nbsp;Our Dedication&nbsp;

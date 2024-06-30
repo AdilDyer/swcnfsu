@@ -7,7 +7,7 @@ const HomeFirst = () => {
         <p>Greetings from</p>
         <br />
 
-        <h1>The Student Welfare Committee</h1>
+        <h1 className="popoutOpacity">The Student Welfare Committee</h1>
 
         <br />
         <h3>
@@ -24,6 +24,8 @@ const HomeFirst = () => {
         <p style={{ fontWeight: "600" }}>
           Of Students, by Students, for Students, Always ❤️
         </p>
+        <br />
+        <p style={{ fontWeight: "600", fontSize:"1.5rem" }}>राष्ट्र सर्वोपरि, छात्र सर्वप्रथम |</p>
         <br />
         <p style={{ fontStyle: "italic", fontWeight: "300" }}>
           We are here to support you, foster a sense of community, and ensure

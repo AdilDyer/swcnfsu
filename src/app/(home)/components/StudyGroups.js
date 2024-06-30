@@ -52,7 +52,7 @@ const StudyGroups = () => {
           <div
             className="card"
             style={{
-              background: `url(https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-4.1.0&q=45&auto=format&w=1356&h=668&fit=crop)`,
+              background: `url(https://cdn.pixabay.com/photo/2015/11/19/21/10/glasses-1052010_640.jpg)`,
               backgroundPosition: "center",
               backgroundSize: "cover",
             }}
@@ -60,7 +60,7 @@ const StudyGroups = () => {
             <div className="symbol">
               <i style={{ color: "black" }} class="fa-solid fa-book"></i>
             </div>
-            <p>Book Club</p>
+            <p>Book</p>
           </div>
         </Link>
         <Link href="#">
@@ -76,6 +76,66 @@ const StudyGroups = () => {
               <i class="fa-solid fa-pen-nib"></i>
             </div>
             <p>Poetry</p>
+          </div>
+        </Link>
+        <Link href="#">
+          <div
+            className="card"
+            style={{
+              background: `url(${"https://res.cloudinary.com/ddxv0iwcs/image/upload/v1719142213/WhatsApp_Image_2024-06-23_at_16.59.53_ke6hqq.jpg"})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+            }}
+          >
+            <div className="symbol">
+              <i class="fa-solid fa-pen-nib"></i>
+            </div>
+            <p>Cinematography</p>
+          </div>
+        </Link>
+        <Link href="#">
+          <div
+            className="card"
+            style={{
+              background: `url(${"https://cdn.shopify.com/s/files/1/0036/8757/9760/files/82.jpg?v=1604230225"})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+            }}
+          >
+            <div className="symbol">
+              <i class="fa-solid fa-pen-nib"></i>
+            </div>
+            <p>Art &amp; Craft</p>
+          </div>
+        </Link>
+        <Link href="#">
+          <div
+            className="card"
+            style={{
+              background: `url(${"https://facts.net/wp-content/uploads/2023/09/8-astonishing-facts-about-journalist-1695689126.jpg"})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+            }}
+          >
+            <div className="symbol">
+              <i class="fa-solid fa-pen-nib"></i>
+            </div>
+            <p>Journaling & Politics</p>
+          </div>
+        </Link>
+        <Link href="#">
+          <div
+            className="card"
+            style={{
+              background: `url(${"https://document360.com/wp-content/uploads/2022/08/internal_documentation_guide.jpg"})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+            }}
+          >
+            <div className="symbol">
+              <i class="fa-solid fa-pen-nib"></i>
+            </div>
+            <p>Documentation</p>
           </div>
         </Link>
         <div className="" style={{ fontWeight: "500" }}>

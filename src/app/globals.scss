@@ -9,6 +9,19 @@
   justify-content: center;
   align-items: center;
 }
+@keyframes popoutOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.popoutOpacity {
+  animation: popoutOpacity linear both;
+  animation-timeline: view();
+  animation-range: entry 50% cover 50%;
+}
 
 .nav {
   height: 8rem;
@@ -245,10 +258,15 @@
   text-align: center;
   color: black;
   margin-bottom: 2rem;
+  a {
+    text-decoration: none;
+  }
   .card {
     height: 25rem !important;
     text-align: start;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+    background-color: pink !important;
+    color: midnightblue;
   }
 }
 
@@ -419,6 +437,7 @@
           color: white;
           text-decoration: underline white;
           transition: 0.2s ease-in-out;
+          cursor: cell;
         }
       }
     }
@@ -429,8 +448,8 @@
   }
   .adildyer:hover {
     color: yellow;
-
     transition: 0.2s ease-in;
+    cursor: cell;
   }
 }
 
@@ -506,6 +525,58 @@
     button {
       padding: 2rem;
       font-size: 1.5rem;
+    }
+  }
+}
+
+.ourTeamDiv {
+  margin-top: 10rem;
+  text-align: center;
+
+  hr {
+    border-top: 4px dashed darkcyan;
+  }
+  h1 {
+    color: #071952;
+    padding-bottom: 1rem;
+    border-bottom: #071952 solid thick;
+  }
+  h2 {
+    padding: 2rem 5rem;
+    margin-bottom: 3rem;
+    text-align: start;
+    border-bottom: 4px dotted pink;
+    color: #071952;
+  }
+  h3 {
+    padding: 1rem 5rem;
+    // background-color: rgba(162, 255, 255, 0.286);
+    background-color: pink;
+    color: #071952;
+    text-align: start;
+    margin: 3rem 0;
+  }
+  .announcements {
+    height: fit-content;
+    .cardsAnnoun {
+      overflow: auto;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0rem 5rem;
+      padding-bottom: 2rem;
+
+      .card {
+        height: 25rem;
+        width: 25rem;
+        background-color: rgba(0, 0, 255, 0.229);
+        background-color: rgba(162, 232, 255, 0.661);
+        color: midnightblue;
+        border-radius: 3rem;
+        .imageDiv {
+          border-radius: 2.2rem;
+          overflow: hidden;
+        }
+      }
     }
   }
 }
@@ -650,6 +721,25 @@
         flex-direction: column;
         align-items: center;
         gap: 3rem;
+      }
+    }
+  }
+  .ourTeamDiv {
+    h2,
+    h3 {
+      text-align: center;
+    }
+    .announcements {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .cardsAnnoun {
+      overflow: hidden !important;
+      .card {
+        border-radius: 0 !important;
+        .imageDiv {
+          border-radius: 0 !important;
+        }
       }
     }
   }
