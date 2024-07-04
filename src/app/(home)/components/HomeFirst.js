@@ -2,7 +2,7 @@ import React from "react";
 
 const HomeFirst = () => {
   return (
-    <div className="homefirst">
+    <div className="homefirst" >
       <div className="textDiv">
         <p>Greetings from</p>
         <br />
@@ -25,7 +25,9 @@ const HomeFirst = () => {
           Of Students, by Students, for Students, Always ❤️
         </p>
         <br />
-        <p style={{ fontWeight: "600", fontSize:"1.5rem" }}>राष्ट्र सर्वोपरि, छात्र सर्वप्रथम |</p>
+        <p style={{ fontWeight: "600", fontSize: "1.5rem" }}>
+          राष्ट्र सर्वोपरि, छात्र सर्वप्रथम |
+        </p>
         <br />
         <p style={{ fontStyle: "italic", fontWeight: "300" }}>
           We are here to support you, foster a sense of community, and ensure

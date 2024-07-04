@@ -18,6 +18,15 @@
   animation-range: entry 50% cover 50%;
 }
 
+.BigScrollContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
 .nav {
   height: 8rem;
   width: 100%;
