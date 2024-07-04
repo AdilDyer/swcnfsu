@@ -30,6 +30,7 @@ const Footer = () => {
             <Link href="/grievance">GRP</Link>
             <Link href="/grievance">Forum</Link>
             <Link href="/grievance">Feedback</Link>
+            <Link href="/grievance">Gallery</Link>
           </div>
           <div className="linksDiv">
             <span>Divisions</span>
@@ -52,6 +53,9 @@ const Footer = () => {
             <Link href="#">Study Groups</Link>
             <Link href="#">Video Guide</Link>
             <Link href="#">Blog</Link>
+            <Link href="/grievance">
+              Download  Certificate
+            </Link>
             <Link href="/contact">Contact Us</Link>
           </div>
         </div>
