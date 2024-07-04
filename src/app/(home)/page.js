@@ -19,7 +19,7 @@ const Home = () => {
   const scrollContainer = useRef();
 
   const skewConfigs = {
-    ease: 0.05,
+    ease: 0.06,
     //ease : default :: 0.1 :: given
     // adjust this downwards to have more auto slide after the scroll down , more smoothening
     current: 0,
