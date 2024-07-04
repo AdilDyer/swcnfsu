@@ -163,7 +163,12 @@
   background-color: white;
   margin-bottom: 5rem;
 }
+.announcements .cardsAnnoun::-webkit-scrollbar {
+  display: none;
+}
 .announcements .cardsAnnoun {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
   display: flex;
   padding: 3rem;
   padding-top: 3rem;
@@ -269,7 +274,7 @@
   height: 25rem !important;
   text-align: start;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
-  background-color: pink !important;
+  background-color: rgb(255, 242, 221) !important;
   color: midnightblue;
 }
 
@@ -577,10 +582,10 @@
   background-color: rgba(0, 0, 255, 0.229);
   background-color: rgba(162, 232, 255, 0.661);
   color: midnightblue;
-  border-radius: 3rem;
+  border-radius: 1.5rem;
 }
 .ourTeamDiv .announcements .cardsAnnoun .card .imageDiv {
-  border-radius: 2.2rem;
+  border-radius: 1.5rem;
   overflow: hidden;
 }
 

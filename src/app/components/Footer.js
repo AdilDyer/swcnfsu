@@ -53,9 +53,7 @@ const Footer = () => {
             <Link href="#">Study Groups</Link>
             <Link href="#">Video Guide</Link>
             <Link href="#">Blog</Link>
-            <Link href="/grievance">
-              Download  Certificate
-            </Link>
+            <Link href="/grievance">Download Certificate</Link>
             <Link href="/contact">Contact Us</Link>
           </div>
         </div>
