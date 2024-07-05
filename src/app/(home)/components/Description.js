@@ -4,7 +4,7 @@ import Link from "next/link";
 const Description = () => {
   return (
     <>
-      <div className="descriptionDiv" id="about">
+      <div className="descriptionDiv" id="aboutRedirectsHere">
         <div className="imageDiv">
           <div className="imgContainerDiv">
             <img

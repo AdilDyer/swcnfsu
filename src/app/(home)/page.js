@@ -12,7 +12,7 @@ import Qbon from "./components/Qbon";
 import Grievance from "./components/Grievance";
 import RisingStar from "./components/RisingStar";
 import useWindowSize from "../components/useWindowSize";
-
+import Footer from "../components/Footer";
 const Home = () => {
   const size = useWindowSize();
   const app = useRef();
@@ -70,6 +70,7 @@ const Home = () => {
         <SupportServices />
         <Grievance />
         <Qbon />
+        <Footer />
       </div>
     </div>
   );

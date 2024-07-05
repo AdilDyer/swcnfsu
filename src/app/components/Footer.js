@@ -24,7 +24,7 @@ const Footer = () => {
         <div className="allLinksContainer">
           <div className="linksDiv">
             <span>SWC</span>
-            <Link href="#">About</Link>
+            <Link href="#aboutRedirectsHere">About</Link>
             <Link href="/ourteam">Our Team</Link>
             <Link href="#">Privacy</Link>
             <Link href="/grievance">GRP</Link>

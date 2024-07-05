@@ -403,6 +403,7 @@
   color: white;
   padding: 8rem;
   flex-direction: column;
+  padding-bottom: min(20rem, 50%);
 }
 .footer h1 {
   font-size: 3rem;
@@ -716,6 +717,7 @@
     padding: 1rem;
     padding-top: 5rem;
     text-align: center;
+    padding-bottom: min(30rem, 50%);
   }
   .footer .bottomBox {
     align-items: center;
