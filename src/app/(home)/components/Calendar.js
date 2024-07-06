@@ -2,8 +2,8 @@ import React from "react";
 
 const Calendar = () => {
   return (
-    <div className="calendarofevents">
-      <h1>Calendar of Events</h1>
+    <div className="calendarofevents ">
+      <h1 >Calendar of Events</h1>
       <br />
       <div>
         <iframe

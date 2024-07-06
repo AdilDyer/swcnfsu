@@ -11,7 +11,7 @@ import SupportServices from "./components/SupportServices";
 import Qbon from "./components/Qbon";
 import Grievance from "./components/Grievance";
 import RisingStar from "./components/RisingStar";
-import useWindowSize from "../components/useWindowSize";
+import useWindowSize from "../utils/useWindowSize";
 import Footer from "../components/Footer";
 const Home = () => {
   const size = useWindowSize();

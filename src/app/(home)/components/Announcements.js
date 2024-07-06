@@ -2,7 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 const Announcements = () => {
   return (
-    <div className="announcements">
+    <div className="announcements ">
       <h6>
         Join us for our upcoming events and be a part of something special.
         Check out our calendar and register today!

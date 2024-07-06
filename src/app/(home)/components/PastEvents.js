@@ -3,7 +3,7 @@ import Link from "next/link";
 const PastEvents = () => {
   return (
     <div className="pastevents">
-      <h1 className="popoutOpacity">Previous Events</h1>
+      <h1 className="">Previous Events</h1>
       <br />
       <div className="announcements">
         <div className="cardsAnnoun">

@@ -15,7 +15,7 @@ const Description = () => {
           </div>
         </div>
         <div className="textDiv">
-          <h1>Guiding Principles and Objectives</h1>
+          <h1 className="popoutOpacity">Guiding Principles and Objectives</h1>
           <br />
           <h5>
             <span style={{ backgroundColor: "pink" }}>
