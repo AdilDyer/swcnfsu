@@ -1,11 +1,15 @@
 import React from "react";
 import Link from "next/link";
+import FadeInSection from "@/app/components/FadeInSection";
 const SupportServices = () => {
   return (
     <div className="supportServicesDiv">
+      <FadeInSection>
       <h1>Services and Support</h1>
+    </FadeInSection>
       <br />
       <br />
+      <FadeInSection>
       <div className="outerDiv">
         <Link href="#">
           <div className="card">
@@ -76,6 +80,7 @@ const SupportServices = () => {
           </div>
         </Link>
       </div>
+    </FadeInSection>
     </div>
   );
 };

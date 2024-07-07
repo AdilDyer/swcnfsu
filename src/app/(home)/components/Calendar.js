@@ -1,9 +1,11 @@
 import React from "react";
-
+import FadeInSection from "@/app/components/FadeInSection";
 const Calendar = () => {
   return (
     <div className="calendarofevents ">
-      <h1 >Calendar of Events</h1>
+      <FadeInSection>
+        <h1>Calendar of Events</h1>
+      </FadeInSection>
       <br />
       <div>
         <iframe

@@ -1,8 +1,10 @@
 import React from "react";
 import Link from "next/link";
+import FadeInSection from "@/app/components/FadeInSection";
 const StudyGroups = () => {
   return (
     <div className="studygroups">
+        <FadeInSection>
       <h1>
         <span>
           <img src="https://3axis.co/user-images/d1l8d67m.jpg" alt="" />
@@ -13,10 +15,12 @@ const StudyGroups = () => {
             style={{ transform: "scale(-1) rotate(-110deg)" }}
             src="https://3axis.co/user-images/d1l8d67m.jpg"
             alt=""
-          />
+            />
         </span>
       </h1>
+            </FadeInSection>
       <br />
+      <FadeInSection>
       <div className="cardsContainer">
         <Link href="#">
           <div
@@ -143,6 +147,7 @@ const StudyGroups = () => {
           ... and more coming soon.
         </div>
       </div>
+      </FadeInSection>
     </div>
   );
 };

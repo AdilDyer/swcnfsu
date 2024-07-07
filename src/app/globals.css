@@ -4,7 +4,15 @@
   font-family: "Poppins", sans-serif;
 }
 
-@keyframes popoutOpacity {}
+.fadeInSection {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.isVisible {
+  opacity: 1;
+}
+
 .BigScrollContainer {
   position: fixed;
   top: 0;
