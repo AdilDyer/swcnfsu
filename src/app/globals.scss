@@ -587,6 +587,18 @@
   }
 }
 
+.bookClubDiv {
+  .firstCover {
+    background-color: black;
+    img {
+      height: 100vh;
+      width: 100%;
+      object-fit: cover;
+      opacity: 0.6;
+    }
+  }
+}
+
 @media (max-width: 1024px) {
   h1 {
     font-size: 1.4rem !important;
