@@ -596,12 +596,38 @@
 
 .bookClubDiv .firstCover {
   background-color: black;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bookClubDiv .firstCover .textDiv {
+  text-align: center;
+  position: absolute;
+  color: black;
+}
+.bookClubDiv .firstCover .textDiv h1 {
+  color: white;
+  font-size: 13rem;
+  font-family: "Kristi", cursive;
+}
+.bookClubDiv .firstCover .textDiv h6 {
+  background-color: yellow;
+  display: inline;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+}
+.bookClubDiv .firstCover .textDiv p {
+  background-color: black;
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.6rem;
 }
 .bookClubDiv .firstCover img {
   height: 100vh;
   width: 100%;
   object-fit: cover;
-  opacity: 0.6;
+  opacity: 0.4;
 }
 
 @media (max-width: 1024px) {

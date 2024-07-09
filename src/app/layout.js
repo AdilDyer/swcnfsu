@@ -39,6 +39,16 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         ></link>
+        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin
+        ></link>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Kristi&display=swap"
+          rel="stylesheet"
+        ></link>
         <link
           rel="icon"
           href="https://upload.wikimedia.org/wikipedia/en/9/96/National_Forensic_Sciences_University_Logo.png"
