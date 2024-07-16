@@ -10,6 +10,7 @@ const SecondCover = ({ coverUrl }) => {
     "https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630",
   ];
   const [selectedImage, setSelectedImage] = useState(images[0]);
+
   const handleImageClick = (image) => {
     setSelectedImage(image);
   };
@@ -46,18 +47,16 @@ const SecondCover = ({ coverUrl }) => {
             className="announcements"
           >
             <div className="cardsAnnoun">
-              <Link href="#">
-                <div className="card">
-                  <div className="imageDiv">
-                    <img alt={`Thumbnail ${index}`} src={image} />
-                  </div>
-                  <br />
-                  <div className="textBody">
-                    <h5>Next Meeting :</h5>
-                    <p>Upper Audi, 23-June-2024</p>
-                  </div>
+              <div className="card">
+                <div className="imageDiv">
+                  <img alt={`Thumbnail ${index}`} src={image} />
                 </div>
-              </Link>
+                <br />
+                <div className="textBody">
+                  <h5>Meeting {images.length - index} </h5>
+                  <p>Discovering new Genres !</p>
+                </div>
+              </div>
             </div>
           </div>
         ))}

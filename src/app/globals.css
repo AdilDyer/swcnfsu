@@ -652,6 +652,9 @@
 .bookClubDiv .secondCover .oneCardDiv .announcements {
   background: transparent;
 }
+.bookClubDiv .secondCover .oneCardDiv .announcements a {
+  text-decoration: none;
+}
 .bookClubDiv .secondCover .oneCardDiv .announcements .card {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   height: 30rem;
@@ -666,17 +669,14 @@
   align-items: center;
   flex-direction: column;
 }
-.bookClubDiv .secondCover .oneCardDiv .announcements .card .textBody a {
-  text-decoration: none;
-}
 .bookClubDiv .secondCover .scroll-menu {
   width: 100%;
   overflow-x: scroll;
   white-space: nowrap;
   display: flex;
   padding: 10px 0;
-  padding-left: 35%;
-  padding-right: 35%;
+  padding-left: calc(50% - 13.2rem);
+  padding-right: calc(50% - 13.2rem);
 }
 .bookClubDiv .secondCover .scroll-menu .announcements {
   all: initial;
