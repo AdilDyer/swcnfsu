@@ -650,6 +650,8 @@
   padding: 5rem;
 }
 .bookClubDiv .secondCover .oneCardDiv .announcements {
+  height: fit-content;
+  margin: 0;
   background: transparent;
 }
 .bookClubDiv .secondCover .oneCardDiv .announcements a {
@@ -695,6 +697,67 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.eventPage .imageDiv {
+  width: 100%;
+  height: 30rem;
+  padding: 0.5rem;
+}
+.eventPage .imageDiv img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  box-shadow: 0 0px 20px grey;
+  border-radius: 0.7rem;
+}
+.eventPage .contentDiv {
+  padding: 5rem;
+  text-align: center;
+  background-color: rgba(112, 41, 25, 0.053);
+}
+.eventPage .contentDiv h1,
+.eventPage .contentDiv h4 {
+  font-family: "Kristi", cursive;
+  font-weight: 100;
+  font-size: 4rem;
+  letter-spacing: 0.3rem;
+  box-shadow: rgba(42, 67, 165, 0.217) 0 3px 10px;
+  box-shadow: rgba(165, 42, 42, 0.19) 0 2px 7px;
+  padding: 0.2rem;
+  border-radius: 1rem;
+  background-color: rgba(112, 41, 25, 0.6);
+}
+.eventPage .contentDiv p {
+  text-align: justify;
+  font-size: 1rem;
+}
+.eventPage .contentDiv p span {
+  display: block;
+  font-weight: 900;
+  margin: 2rem 0;
+  font-size: 1.3rem;
+  border-bottom: thin brown dashed;
+}
+.eventPage .contentDiv .eventGallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.eventPage .contentDiv .eventGallery img {
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0.7rem;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.327);
+  transition: all 0.5s;
+}
+.eventPage .contentDiv .eventGallery img:hover {
+  width: min(30rem, 100%);
 }
 
 @media (max-width: 1024px) {

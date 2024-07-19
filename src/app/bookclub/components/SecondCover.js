@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 const SecondCover = ({ coverUrl }) => {
   const images = [
-    "https://htmlcolorcodes.com/assets/images/colors/yellow-orange-color-solid-background-1920x1080.png",
+    "https://sc0.blr1.digitaloceanspaces.com/inline/864062-ydtpxgavpm-1515235604.jpg",
     "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg",
     "https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630",
     "https://img.freepik.com/premium-photo/house-with-pink-house-top_874813-1429.jpg",
@@ -13,7 +13,7 @@ const SecondCover = ({ coverUrl }) => {
 
   const handleImageClick = (image) => {
     setSelectedImage(image);
-  };
+  };  
 
   const handleCenterImageClick = () => {
     // router.push(`/`);
@@ -24,7 +24,7 @@ const SecondCover = ({ coverUrl }) => {
       <div className="oneCardDiv">
         <div className="announcements">
           <div className="cardsAnnoun">
-            <Link href="#">
+            <Link href="/bookclub/123">
               <div className="card">
                 <div className="imageDiv">
                   <img src={selectedImage} alt="" />
