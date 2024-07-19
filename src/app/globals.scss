@@ -270,8 +270,13 @@
     height: 25rem !important;
     text-align: start;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
-    background-color: rgb(255, 242, 221) !important;
+    // background-color: rgb(255, 242, 221) !important;
     color: midnightblue;
+  }
+}
+.risingStarDiv {
+  .card {
+    width: 25rem;
   }
 }
 
@@ -717,10 +722,11 @@
       letter-spacing: 0.3rem;
 
       box-shadow: rgba(42, 67, 165, 0.217) 0 3px 10px;
-      box-shadow: rgba(165, 42, 42, 0.19) 0 2px 7px;
+      box-shadow: rgba(165, 42, 42, 0.4) 0 2px 20px inset;
       padding: 0.2rem;
       border-radius: 1rem;
       background-color: rgba(112, 41, 25, 0.6);
+      color: bisque;
     }
     p {
       text-align: justify;
@@ -749,6 +755,73 @@
       }
       img:hover {
         width: min(30rem, 100%);
+      }
+    }
+  }
+}
+
+.loginPage {
+  width: 100%;
+  height: 100vh;
+  @include flexCenter();
+  background-image: url("https://res.cloudinary.com/ddxv0iwcs/image/upload/v1711016540/NFSU_10_Upper_Auditorium_asamvx.jpg");
+  background-position: center;
+  background-size: cover;
+  .inputBoxContainer {
+    height: 90%;
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.85);
+    // box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.884);
+    border-radius: 0rem;
+    text-align: center;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    .logoDiv {
+      width: 100%;
+      margin-top: 1rem;
+      height: 5rem;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+      }
+    }
+    .headingText {
+      margin: 0.5rem 0;
+      border-bottom: solid thick black;
+    }
+    .loginCredentials {
+      width: 80%;
+      input {
+        text-align: center;
+        margin: 1rem 0;
+        height: 3rem;
+        border: 0;
+        width: 100%;
+      }
+    }
+    .forgotPasswordLinkDiv {
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+    .captchaBox {
+      width: 50%;
+      height: 5rem;
+      background-color: black;
+      color: white;
+    }
+
+    .registerLink {
+      a {
+        text-decoration: none;
+        color: black;
       }
     }
   }

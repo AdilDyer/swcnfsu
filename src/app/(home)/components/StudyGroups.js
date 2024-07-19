@@ -3,7 +3,7 @@ import Link from "next/link";
 import FadeInSection from "@/app/components/FadeInSection";
 const StudyGroups = () => {
   return (
-    <div className="studygroups">
+    <div className="studygroups" id="studygroups">
       <FadeInSection>
         <h1>
           <span>

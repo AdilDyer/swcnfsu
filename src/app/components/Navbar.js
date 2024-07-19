@@ -42,15 +42,16 @@ const Navbar = () => {
           title="Quick Links"
         >
           <Dropdown.Item href="#/action-1">Calendar of Events</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Study Groups</Dropdown.Item>
+          <Dropdown.Item href="#studygroups">Study Groups</Dropdown.Item>
           <Dropdown.Item href="#/action-3">Grievance</Dropdown.Item>
           <Dropdown.Item href="#/action-1">Qbon</Dropdown.Item>
-          <Dropdown.Item href="#/action-1">Counselling</Dropdown.Item>
+          <Dropdown.Item href="#/actison-1">Counselling</Dropdown.Item>
           <Dropdown.Item href="#/action-1">Contact Team</Dropdown.Item>
           <Dropdown.Item href="#/action-1">Socials</Dropdown.Item>
           <Dropdown.Item href="/ourteam">Our Team</Dropdown.Item>
           <Dropdown.Item href="/ourteam">Download Certificate</Dropdown.Item>
         </DropdownButton>
+        <Link href="/login">Sign-In</Link>
       </div>
       <div className="rightPart">
         <img src="https://guwahati.nfsu.ac.in/img/logo.png" alt="" />
