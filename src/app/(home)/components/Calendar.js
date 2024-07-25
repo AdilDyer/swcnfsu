@@ -11,7 +11,7 @@ const Calendar = () => {
         <iframe
           src="https://embed.styledcalendar.com/#kpAH9ZejhNCifPj6nHdW"
           title="Styled Calendar"
-          class="styled-calendar-container"
+          className="styled-calendar-container"
           style={{ width: "100%", border: "none" }}
           data-cy="calendar-embed-iframe"
         ></iframe>
