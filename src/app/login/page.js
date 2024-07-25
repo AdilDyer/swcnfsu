@@ -5,6 +5,16 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 const Login = () => {
+  const handleSubmit = async () => {
+    let res = await fetch("http://localhost:3000/api/login");
+    let data = res.json();
+    if (data) {
+      console.log("logged in successfully");
+      console.log(data);
+    } else {
+      console.log("login failed"); 
+    }
+  };
   return (
     <>
       <div div className="loginPage">
@@ -27,7 +37,7 @@ const Login = () => {
           </div>
           <div className="captchaBox">captcha div</div>
           <div className="loginButton">
-            <Button variant="danger" size="lg">
+            <Button variant="danger" size="lg" onClick={handleSubmit}>
               Sign-In
             </Button>
           </div>
