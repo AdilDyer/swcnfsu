@@ -7,7 +7,7 @@ const FirstCover = ({ coverUrl }) => {
       <div className="textDiv">
         <h1>Book Club</h1>
         <h6>Motto</h6>
-        <p>"Turning Pages, Tuning Life"</p>
+        <p>&quot;Turning Pages, Tuning Life&quot;</p>
         <br />
         <h6>Monthly Challenge ( 20 - 07 )</h6>
         <p>

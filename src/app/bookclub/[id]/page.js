@@ -66,10 +66,10 @@ const EventPage = () => {
               <p>
                 <span>Introduction</span>
                 The latest book club meeting was held under the expansive sky of
-                our college's open area, setting the perfect backdrop for an
-                enriching discussion on "Discovering New Genres." The session
-                was filled with excitement as members gathered to explore the
-                vast and diverse world of literary genres.
+                our college&apos;s open area, setting the perfect backdrop for
+                an enriching discussion on &quot;Discovering New Genres.&quot;
+                The session was filled with excitement as members gathered to
+                explore the vast and diverse world of literary genres.
                 <span>Agenda</span>
                 <ol>
                   <li>Introduction to Literary Genres</li>
@@ -136,7 +136,7 @@ const EventPage = () => {
                 <span>3. Personal Experiences and Insights</span>
                 Members shared their personal experiences with the new genres
                 they explored. This was a highly interactive session where we
-                learned from each other's reading journeys.
+                learned from each other&apos;s reading journeys.
                 <span>Insights:</span>
                 <ul>
                   <li>
@@ -155,8 +155,8 @@ const EventPage = () => {
                     appreciation for the genre.
                   </li>
                   <li>
-                    Cli-Fi: Discussions highlighted the genre's ability to raise
-                    awareness about environmental issues through engaging
+                    Cli-Fi: Discussions highlighted the genre&apos;s ability to
+                    raise awareness about environmental issues through engaging
                     storytelling.
                   </li>
                 </ul>
@@ -194,7 +194,8 @@ const EventPage = () => {
                   </li>
                   <li>
                     Continuous Exploration: Literature is vast and
-                    ever-evolving; there's always something new to discover.
+                    ever-evolving; there&apos;s always something new to
+                    discover.
                   </li>
                   <li>
                     Community Learning: Sharing and discussing books within a
