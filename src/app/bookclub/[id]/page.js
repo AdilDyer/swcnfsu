@@ -1,7 +1,8 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import Footer from "@/app/components/Footer";
-import useWindowSize from "@/app/utils/useWindowSize";
+import Footer from "../../components/Footer";
+import useWindowSize from "../../utils/useWindowSize";
+
 const EventPage = () => {
   const size = useWindowSize();
   const app = useRef();
