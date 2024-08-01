@@ -780,27 +780,28 @@
 
 .loginPage {
   width: 100%;
-   @include flexCenter();
+  @include flexCenter();
   background-image: url("https://res.cloudinary.com/ddxv0iwcs/image/upload/v1711016540/NFSU_10_Upper_Auditorium_asamvx.jpg");
   background-position: center;
   background-size: cover;
+  height: 100vh;
+
   .inputBoxContainer {
-    padding: 2rem;
     height: 100%;
     width: 60%;
     background-color: rgba(255, 255, 255, 0.8);
-    // box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.884);
-    // border-radius: 1rem;
+
     text-align: center;
     color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
+
     gap: 2rem;
 
     .logoDiv {
       width: 100%;
-      margin-top: 1rem;
+      margin-top: 10rem;
       height: 5rem;
       img {
         width: 100%;
@@ -811,7 +812,8 @@
     }
     .headingText {
       margin: 0.5rem 0;
-      border-bottom: solid thick black;
+      border-bottom: dotted thick darkred;
+      color: darkred;
     }
     .loginCredentials {
       width: 80%;
@@ -824,9 +826,16 @@
       }
     }
     .otherLogins {
+      color: darkred;
+
+      border-bottom: dotted thick darkred;
+
       .imgsDiv {
         display: flex;
         gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
         button {
           width: 3rem;
           border-radius: 50%;
@@ -857,6 +866,23 @@
         color: black;
       }
     }
+  }
+}
+
+.accountBig {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h1 {
+    margin: 0;
+    text-align: center;
+    color: black;
+    font-size: 2rem;
   }
 }
 

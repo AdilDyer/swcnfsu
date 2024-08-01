@@ -1,11 +1,13 @@
 "use client";
-import Link from "next/link";
 import React from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import { signIn, useSession } from "next-auth/react";
-
+import { redirect } from "next/navigation";
 const Login = () => {
+  const { data: session } = useSession();
+  if (session) {
+    redirect("/");
+  }
+
   return (
     <>
       <div div className="loginPage">
@@ -17,15 +19,15 @@ const Login = () => {
             />
           </div>
           <div className="headingText">
-            <h2>Sign-in to NFSU SWC Portal</h2>
+            <h2>Sign-In to NFSU SWC Portal</h2>
           </div>
-          <div className="loginCredentials">
+          {/* <div className="loginCredentials">
             <Form.Control placeholder="Username" />
             <Form.Control placeholder="Password" />
-          </div>
+          </div> */}
           <div className="otherLogins">
             <p>
-              Or <br />
+              Kindly use the following accounts : <br />
             </p>
             <div className="imgsDiv">
               <button onClick={() => signIn("google")}>
@@ -40,26 +42,26 @@ const Login = () => {
                   alt="Github"
                 />
               </button>
-              <button onClick={() => signIn("facebook")}>
+              {/* <button onClick={() => signIn("facebook")}>
                 <img
                   src="https://cdn.pixabay.com/photo/2021/06/15/12/51/facebook-6338507_1280.png"
                   alt="Facebook"
                 />
-              </button>
+              </button> */}
             </div>
           </div>
-          <div className="forgotPasswordLinkDiv">
+          {/* <div className="forgotPasswordLinkDiv">
             <Link href="#">Forgot Password ? </Link>
-          </div>
-          <div className="captchaBox">captcha div</div>
-          <div className="loginButton">
+          </div> */}
+          {/* <div className="captchaBox">captcha div</div> */}
+          {/* <div className="loginButton">
             <Button variant="danger" size="lg">
               Sign-In
             </Button>
           </div>
           <div className="registerLink">
             <Link href="/register">Register Here</Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
