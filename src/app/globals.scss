@@ -519,12 +519,23 @@
 }
 
 .contactPageDiv {
-  margin-top: 8rem;
-  height: 100vh;
+  padding-top: 10rem;
+
+  background-color: mistyrose;
   @include flexCenter();
   flex-direction: column;
+
+  font-weight: bolder;
+
   .descriptionDiv {
     width: 100%;
+    .imgContainerDiv {
+      overflow: hidden;
+      border-radius: 1.5rem;
+      img {
+        object-fit: cover;
+      }
+    }
   }
   .iDiv {
     display: flex;
@@ -780,11 +791,11 @@
 
 .loginPage {
   width: 100%;
+  height: 100vh;
   @include flexCenter();
   background-image: url("https://res.cloudinary.com/ddxv0iwcs/image/upload/v1711016540/NFSU_10_Upper_Auditorium_asamvx.jpg");
   background-position: center;
   background-size: cover;
-  height: 100vh;
 
   .inputBoxContainer {
     height: 100%;
@@ -879,10 +890,77 @@
   flex-direction: column;
 
   h1 {
-    margin: 0;
     text-align: center;
     color: black;
     font-size: 2rem;
+  }
+}
+
+.votingBig {
+  height: 100vh;
+  .upperColorDiv {
+    width: 100%;
+    height: 70%;
+    background-color: mistyrose;
+    position: absolute;
+    z-index: -1;
+  }
+  .leftPart {
+    position: absolute;
+    left: 0;
+    display: flex;
+    padding: 12rem 4rem;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 50%;
+    .textDiv {
+      @include flexCenter();
+      flex-direction: column;
+      gap: 2rem;
+      text-align: justify;
+
+      align-items: start;
+
+      h2 {
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.285);
+      }
+    }
+    .formButtons {
+      display: flex;
+      align-items: start;
+      justify-content: start;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 2rem;
+      width: 100%;
+
+      button {
+        padding: 1rem;
+        width: 25rem;
+        font-size: 1.2rem;
+      }
+    }
+  }
+  .rightPart {
+    position: absolute;
+    left: 50%;
+    @include flexCenter();
+    height: 100%;
+    width: 50%;
+    .imgDiv {
+      height: 100%;
+      width: 100%;
+
+      @include flexCenter();
+      img {
+        width: 90%;
+        object-fit: contain;
+        border-radius: 1rem;
+        box-shadow: 0px 2px 50px rgba(0, 0, 0, 0.15);
+      }
+    }
   }
 }
 

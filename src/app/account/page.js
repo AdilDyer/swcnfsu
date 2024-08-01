@@ -13,7 +13,9 @@ const Account = () => {
           <p>Your email: {session.user.email}</p>
           <p>
             Your image: <img src={session.user.image} alt="Profile Pic" />
+            <br />
           </p>
+          <p>Session Expires at : {session.expires}</p>
         </div>
       ) : (
         <>

@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-
+import Link from "next/link";
 import FadeInSection from "../../components/FadeInSection";
 const Announcements = () => {
   return (
@@ -10,9 +10,11 @@ const Announcements = () => {
           Join us for our upcoming events and be a part of something special.
           Check out our calendar and register today!
         </h6>
-        <Button style={{ marginTop: "2rem" }} variant="primary">
-          Suggestion Box and Voting
-        </Button>{" "}
+        <Link href={"/voting"}>
+          <Button style={{ marginTop: "2rem" }} variant="primary">
+            Voting and Suggestion Box
+          </Button>{" "}
+        </Link>
       </FadeInSection>
       <FadeInSection>
         <div className="cardsAnnoun">
