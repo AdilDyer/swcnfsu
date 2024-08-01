@@ -4,7 +4,11 @@ import Link from "next/link";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import { useState, useEffect } from "react";
+import { signOut, useSession } from "next-auth/react";
+
 const Navbar = () => {
+  const { data: session } = useSession();
+
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -51,7 +55,32 @@ const Navbar = () => {
           <Dropdown.Item href="/ourteam">Our Team</Dropdown.Item>
           <Dropdown.Item href="/ourteam">Download Certificate</Dropdown.Item>
         </DropdownButton>
-        <Link href="/login">Sign-In</Link>
+
+        <div className="profileImgDiv">
+          {session ? (
+            <>
+              <Dropdown>
+                <Dropdown.Toggle variant="light" id="dropdown-basic">
+                  <img src={session.user?.image} alt="" />
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item
+                    href="#/action-1"
+                    onClick={() => signOut({ callbackUrl: "/" })}
+                  >
+                    Logout
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">See Account</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            </>
+          ) : (
+            <>
+              <Link href="/login">SignIn</Link>
+            </>
+          )}
+        </div>
       </div>
       <div className="rightPart">
         <img src="https://guwahati.nfsu.ac.in/img/logo.png" alt="" />

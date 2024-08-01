@@ -3,18 +3,9 @@ import Link from "next/link";
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { signIn, useSession } from "next-auth/react";
 
 const Login = () => {
-  const handleSubmit = async () => {
-    let res = await fetch("http://localhost:3000/api/login");
-    let data = res.json();
-    if (data) {
-      console.log("logged in successfully");
-      console.log(data);
-    } else {
-      console.log("login failed"); 
-    }
-  };
   return (
     <>
       <div div className="loginPage">
@@ -32,12 +23,37 @@ const Login = () => {
             <Form.Control placeholder="Username" />
             <Form.Control placeholder="Password" />
           </div>
+          <div className="otherLogins">
+            <p>
+              Or <br />
+            </p>
+            <div className="imgsDiv">
+              <button onClick={() => signIn("google")}>
+                <img
+                  src="https://1000logos.net/wp-content/uploads/2016/11/New-Google-Logo.jpg"
+                  alt="Google"
+                />
+              </button>
+              <button onClick={() => signIn("github")}>
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                  alt="Github"
+                />
+              </button>
+              <button onClick={() => signIn("facebook")}>
+                <img
+                  src="https://cdn.pixabay.com/photo/2021/06/15/12/51/facebook-6338507_1280.png"
+                  alt="Facebook"
+                />
+              </button>
+            </div>
+          </div>
           <div className="forgotPasswordLinkDiv">
             <Link href="#">Forgot Password ? </Link>
           </div>
           <div className="captchaBox">captcha div</div>
           <div className="loginButton">
-            <Button variant="danger" size="lg" onClick={handleSubmit}>
+            <Button variant="danger" size="lg">
               Sign-In
             </Button>
           </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import FadeInSection from "@/app/components/FadeInSection";
+
+import FadeInSection from "../../components/FadeInSection";
 const Announcements = () => {
   return (
     <div className="announcements ">

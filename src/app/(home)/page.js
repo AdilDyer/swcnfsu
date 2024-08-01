@@ -13,6 +13,7 @@ import Grievance from "./components/Grievance";
 import RisingStar from "./components/RisingStar";
 import useWindowSize from "../utils/useWindowSize";
 import Footer from "../components/Footer";
+import { useSession } from "next-auth/react";
 const Home = () => {
   const size = useWindowSize();
   const app = useRef();
@@ -56,10 +57,16 @@ const Home = () => {
     //loop vai raf
     requestAnimationFrame(() => skewScrolling());
   };
+
+  const { data: session } = useSession();
+
   return (
     <div ref={app} className="BigScrollContainer">
       <div className="scrollContainer" ref={scrollContainer}>
         <HomeFirst />
+
+        <p>{JSON.stringify(session)}</p>
+
         <Collaboration />
         <Description />
         <Calendar />

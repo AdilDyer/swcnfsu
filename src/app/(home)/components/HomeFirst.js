@@ -1,5 +1,6 @@
 import React from "react";
-import FadeInSection from "@/app/components/FadeInSection";
+import FadeInSection from "../../components/FadeInSection";
+
 const HomeFirst = () => {
   return (
     <div className="homefirst">

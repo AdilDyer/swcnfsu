@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import FadeInSection from "@/app/components/FadeInSection";
+import FadeInSection from "../../components/FadeInSection";
+
 const SupportServices = () => {
   return (
     <div className="supportServicesDiv">

@@ -30,7 +30,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 4rem;
   position: fixed;
   top: -8rem;
   transition: 0.4s ease-in-out;
@@ -38,6 +37,7 @@
 
   background-color: rgba(255, 255, 255, 0.146);
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.01);
+  padding: 0 4rem !important;
   a {
     text-decoration: none;
     color: black;
@@ -46,13 +46,31 @@
     display: flex;
     vertical-align: middle;
     align-items: center;
+
     .dropdown-menu {
       overflow: hidden;
+      border: none;
+      box-shadow: 0 0 5px rgba(83, 83, 83, 0.141);
+      margin-top: 1rem;
     }
     a {
       margin: 1rem;
       &:hover {
         color: darkred;
+      }
+    }
+    .profileImgDiv {
+      margin: 1rem;
+      .dropdown {
+        border: none;
+        button {
+          background-color: transparent;
+          border: none;
+        }
+      }
+      img {
+        width: 3rem;
+        border-radius: 1rem;
       }
     }
   }
@@ -111,7 +129,7 @@
   .imageDiv {
     background-color: black;
     height: 60vh;
-    width: 70vw;
+    width: 75vw;
     border-top-right-radius: 4rem;
     border-top-left-radius: 4rem;
     overflow: hidden;
@@ -762,17 +780,17 @@
 
 .loginPage {
   width: 100%;
-  height: 100vh;
-  @include flexCenter();
+   @include flexCenter();
   background-image: url("https://res.cloudinary.com/ddxv0iwcs/image/upload/v1711016540/NFSU_10_Upper_Auditorium_asamvx.jpg");
   background-position: center;
   background-size: cover;
   .inputBoxContainer {
-    height: 90%;
-    width: 50%;
-    background-color: rgba(255, 255, 255, 0.85);
+    padding: 2rem;
+    height: 100%;
+    width: 60%;
+    background-color: rgba(255, 255, 255, 0.8);
     // box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.884);
-    border-radius: 0rem;
+    // border-radius: 1rem;
     text-align: center;
     color: black;
     display: flex;
@@ -803,6 +821,21 @@
         height: 3rem;
         border: 0;
         width: 100%;
+      }
+    }
+    .otherLogins {
+      .imgsDiv {
+        display: flex;
+        gap: 1rem;
+        button {
+          width: 3rem;
+          border-radius: 50%;
+          border: none;
+          overflow: hidden;
+          img {
+            width: inherit;
+          }
+        }
       }
     }
     .forgotPasswordLinkDiv {

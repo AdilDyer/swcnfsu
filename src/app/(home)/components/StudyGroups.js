@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import FadeInSection from "@/app/components/FadeInSection";
+import FadeInSection from "../../components/FadeInSection";
+
 const StudyGroups = () => {
   return (
     <div className="studygroups" id="studygroups">

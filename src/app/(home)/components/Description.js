@@ -1,7 +1,8 @@
 "use client";
 import Button from "react-bootstrap/Button";
 import Link from "next/link";
-import FadeInSection from "@/app/components/FadeInSection";
+import FadeInSection from "../../components/FadeInSection";
+
 const Description = () => {
   return (
     <>
