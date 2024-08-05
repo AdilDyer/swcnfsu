@@ -32,9 +32,11 @@
   top: -8rem;
   transition: 0.4s ease-in-out;
   z-index: 40;
-  background-color: rgba(255, 255, 255, 0.146);
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.01);
   padding: 0 4rem !important;
+  backdrop-filter: blur(3px); /* Adjust the blur radius as needed */
+  -webkit-backdrop-filter: blur(3px); /* For Safari */
+  z-index: 1000;
 }
 .nav a {
   text-decoration: none;

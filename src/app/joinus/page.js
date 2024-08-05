@@ -17,6 +17,9 @@ const page = () => {
             to see what we&apos;re all about and meet some fantastic people.
           </p>
         </div>
+        <p>
+          your journey to becoming a member of the SWC community starts here.
+        </p>
         <div className="card">
           <h1>Step : 2</h1>
           <div className="hrline"></div>
