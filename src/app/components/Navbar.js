@@ -71,7 +71,7 @@ const Navbar = () => {
                   >
                     Logout
                   </Dropdown.Item>
-                  <Dropdown.Item href="/account">See Account</Dropdown.Item>
+                  <Dropdown.Item href="/account">Account</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </>

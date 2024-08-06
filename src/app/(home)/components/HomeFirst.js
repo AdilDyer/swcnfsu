@@ -1,11 +1,61 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FadeInSection from "../../components/FadeInSection";
+import { useSession } from "next-auth/react";
 
 const HomeFirst = () => {
+  const { data: session } = useSession();
+  const [isUserRegistered, setIsUserRegistered] = useState(null);
+
+  useEffect(() => {
+    const fetchUserRegistrationStatus = async () => {
+      if (session?.user?.email) {
+        try {
+          const response = await fetch(
+            `http://localhost:3000/api/getUser?email=${session.user.email}`
+          );
+          const data = await response.json();
+          if (data.status === 200) {
+            setIsUserRegistered(true);
+          } else {
+            setIsUserRegistered(false);
+          }
+        } catch (error) {
+          console.error("Error fetching user registration status:", error);
+        }
+      }
+    };
+
+    fetchUserRegistrationStatus();
+  });
+
   return (
     <div className="homefirst">
       <FadeInSection>
         <div className="textDiv">
+          {session ? (
+            <>
+              {isUserRegistered ? (
+                <></>
+              ) : (
+                <>
+                  <h6
+                    style={{
+                      backgroundColor: "midnightblue",
+                      padding: "1rem",
+                      width: "100%",
+                      color: "white",
+                      textAlign: "center",
+                    }}
+                  >
+                    Please Register Yourself First in the Account Page.
+                  </h6>
+                  <br />
+                </>
+              )}
+            </>
+          ) : (
+            <></>
+          )}
           <p>Greetings from</p>
           <br />
 

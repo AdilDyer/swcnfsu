@@ -2,7 +2,7 @@ import { NextAuthOptions } from "next-auth";
 
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
-import FacebookProvider from "next-auth/providers/facebook";
+
 export const authOptions = {
   providers: [
     GithubProvider({
@@ -16,7 +16,6 @@ export const authOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
-      scopes: ["profile", "user.birthday"],
     }),
   ],
 };
