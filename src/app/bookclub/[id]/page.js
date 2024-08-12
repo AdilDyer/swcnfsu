@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import Footer from "../../components/Footer";
+
 
 
 const EventPage = () => {
@@ -204,7 +204,7 @@ const EventPage = () => {
               </div>
             </div>
           </div>
-          <Footer></Footer>
+
 
     </>
   );

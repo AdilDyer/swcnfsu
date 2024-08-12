@@ -1,17 +1,17 @@
 import dbConnect from "../../../lib/db";
-import User from "../../../lib/modals/user";
+import Event from "../../../lib/modals/event";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
   try {
     await dbConnect();
     const data = await req.json();
-    const user = new User(data);
-    await user.save();
+    const event = new Event(data);
+    await event.save();
 
     return NextResponse.json({
-      message: "User created successfully",
-      user,
+      message: "Event created successfully",
+      event,
       status: 200,
     });
   } catch (error) {

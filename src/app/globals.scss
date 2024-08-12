@@ -65,6 +65,9 @@
     }
     .profileImgDiv {
       margin: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       .dropdown {
         border: none;
         button {
@@ -182,7 +185,7 @@
 }
 
 .announcements {
-  height: 60vh;
+  height: fit-content;
   color: black;
   text-align: center;
   background-color: white;
@@ -200,7 +203,7 @@
     overflow: scroll;
     .card {
       min-width: 25rem;
-      height: 20rem;
+      height: fit-content;
       background-color: white;
       border: none;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
@@ -209,7 +212,7 @@
       padding: 1rem;
 
       .imageDiv {
-        height: 60%;
+        height: 15rem;
         background-color: black;
         width: 100%;
         img {
@@ -998,6 +1001,41 @@
         box-shadow: 0px 2px 50px rgba(0, 0, 0, 0.15);
       }
     }
+  }
+}
+.adminBig {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  gap: 2rem;
+  h1 {
+    margin: 2rem;
+    margin-top: 10rem;
+  }
+  .adminAddEvent {
+    background-color: cornflowerblue;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1rem;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+  .adminDownloadEventInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 4rem;
   }
 }
 

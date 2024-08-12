@@ -19,7 +19,7 @@ const Login = () => {
             />
           </div>
           <div className="headingText">
-            <h2>Sign-In to NFSU SWC Portal</h2>
+            <h2>Continue to NFSU SWC Portal</h2>
           </div>
           {/* <div className="loginCredentials">
             <Form.Control placeholder="Username" />

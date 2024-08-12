@@ -2,7 +2,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import FirstCover from "./components/FirstCover";
 import SecondCover from "./components/SecondCover";
-import Footer from "../components/Footer";
 
 
 const BookClub = () => {
@@ -22,7 +21,7 @@ const BookClub = () => {
               }
             />
           </div>
-          <Footer></Footer>
+
 
     </>
   );

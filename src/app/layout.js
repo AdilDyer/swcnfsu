@@ -1,10 +1,16 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import SessionWrapper from "../app/utils/SessionWrapper";
 const inter = Inter({ subsets: ["latin"] });
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+
 export const metadata = {
   title: "The Student Welfare Club, NFSU",
   description: "Of Students, by Students, for Students. Always.",
@@ -64,6 +70,7 @@ export default function RootLayout({ children }) {
         <body className={inter.className}>
           <Navbar />
           {children}
+          <Footer/>
         </body>
       </html>
     </SessionWrapper>

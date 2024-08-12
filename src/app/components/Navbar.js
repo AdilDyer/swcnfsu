@@ -74,6 +74,14 @@ const Navbar = () => {
                   <Dropdown.Item href="/account">Account</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
+              {session.user?.email == process.env.NEXT_PUBLIC_ADMIN_EMAIL && (
+                <Link href="/admin">
+                  <img
+                    src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1712834949/admin_rsgkmd"
+                    alt="Admin Dashboard"
+                  />
+                </Link>
+              )}
             </>
           ) : (
             <>

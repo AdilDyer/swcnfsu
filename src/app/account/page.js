@@ -57,6 +57,11 @@ const Account = () => {
     });
 
     const data = await response.json();
+    if (data.status != 200) {
+      alert("Error registering user : \n" + data.error);
+    } else {
+      setIsUserRegistered(true);
+    }
   };
 
   return (

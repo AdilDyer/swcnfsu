@@ -61,6 +61,9 @@
 }
 .nav .leftPart .profileImgDiv {
   margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .nav .leftPart .profileImgDiv .dropdown {
   border: none;
@@ -180,7 +183,7 @@
 }
 
 .announcements {
-  height: 60vh;
+  height: fit-content;
   color: black;
   text-align: center;
   background-color: white;
@@ -200,7 +203,7 @@
 }
 .announcements .cardsAnnoun .card {
   min-width: 25rem;
-  height: 20rem;
+  height: fit-content;
   background-color: white;
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
@@ -208,7 +211,7 @@
   padding: 1rem;
 }
 .announcements .cardsAnnoun .card .imageDiv {
-  height: 60%;
+  height: 15rem;
   background-color: black;
   width: 100%;
 }
@@ -989,6 +992,42 @@
   object-fit: contain;
   border-radius: 1rem;
   box-shadow: 0px 2px 50px rgba(0, 0, 0, 0.15);
+}
+
+.adminBig {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  gap: 2rem;
+}
+.adminBig h1 {
+  margin: 2rem;
+  margin-top: 10rem;
+}
+.adminBig .adminAddEvent {
+  background-color: cornflowerblue;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1rem;
+}
+.adminBig .adminAddEvent form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.adminBig .adminDownloadEventInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 4rem;
 }
 
 @media (max-width: 1024px) {
