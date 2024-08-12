@@ -39,6 +39,7 @@ const Account = () => {
     const course = document.querySelector("#courseinput").value;
     const enrollNo = document.querySelector("#enrollinput").value;
     const birthdate = document.querySelector("#dobinput").value;
+    const bloodGroup = document.querySelector("#bloodGroup").value;
 
     const response = await fetch("http://localhost:3000/api/createUser", {
       method: "POST",
@@ -53,6 +54,7 @@ const Account = () => {
         course,
         enrollNo,
         birthdate,
+        bloodGroup,
       }),
     });
 
@@ -114,6 +116,14 @@ const Account = () => {
                       placeholder="Birthdate"
                       type="date"
                       name="birthdate"
+                    />
+                  </div>
+                  <div className="inputField">
+                    5.{" "}
+                    <Form.Control
+                      id="bloodGroup"
+                      placeholder="Blood Group"
+                      name="bloodGroup"
                     />
                   </div>
                   <Button

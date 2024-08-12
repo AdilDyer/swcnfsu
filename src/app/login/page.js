@@ -36,12 +36,12 @@ const Login = () => {
                   alt="Google"
                 />
               </button>
-              <button onClick={() => signIn("github")}>
+              {/* <button onClick={() => signIn("github")}>
                 <img
                   src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
                   alt="Github"
                 />
-              </button>
+              </button> */}
               {/* <button onClick={() => signIn("facebook")}>
                 <img
                   src="https://cdn.pixabay.com/photo/2021/06/15/12/51/facebook-6338507_1280.png"

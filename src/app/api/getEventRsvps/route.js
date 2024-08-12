@@ -35,6 +35,7 @@ export async function GET(request) {
       course: rsvp.course,
       enrollNo: rsvp.enrollNo,
       birthdate: rsvp.birthdate.toISOString().slice(0, 10), // Format birthdate as YYYY-MM-DD
+      bloodGroup: rsvp.bloodGroup,
     }));
 
     // Convert to CSV
@@ -46,6 +47,7 @@ export async function GET(request) {
         "course",
         "enrollNo",
         "birthdate",
+        "bloodGroup",
       ],
     });
 

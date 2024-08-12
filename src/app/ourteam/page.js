@@ -4,7 +4,7 @@ const OurTeam = () => {
   return (
     <div className="ourTeamDiv">
       <div className="announcements">
-        <h1>SWC Team</h1>
+        <h1>Team of SWC</h1>
         {/* <hr />
         <hr />
         <hr /> */}
