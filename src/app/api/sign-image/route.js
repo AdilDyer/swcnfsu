@@ -1,5 +1,5 @@
 import { v2 as cloudinary } from "cloudinary";
-// const cloudinary = require('cloudinary').v2;
+import { NextResponse } from "next/server";
 
 export async function POST(request) {
   const body = await request.json();
@@ -9,7 +9,5 @@ export async function POST(request) {
     process.env.CLOUDINARY_API_SECRET
   );
 
-  return {
-    signature,
-  };
+  return NextResponse.json({ signature });
 }

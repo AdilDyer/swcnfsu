@@ -185,9 +185,6 @@ const Admin = () => {
             name="description"
             required
           />
-          <p>
-            #uncomment the cloudinary api key envi and upload from localhost
-          </p>
           <CldUploadWidget
             signatureEndpoint="/api/sign-image"
             onSuccess={(result, { widget }) => {
