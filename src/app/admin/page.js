@@ -229,7 +229,9 @@ const Admin = () => {
             Select Event
           </option>
           {allEvents.map((event) => (
-            <option value={event._id}>{event.name}</option>
+            <option key={event._id} value={event._id}>
+              {event.name}
+            </option>
           ))}
         </Form.Select>
         <Button variant="primary" onClick={handleEventRsvpCheck}>
