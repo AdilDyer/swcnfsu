@@ -36,7 +36,7 @@ const Qbon = () => {
               destination for academic excellence. Yep, here it is !
             </p>
             <br />
-            <Link target="_blank" href="https://qbon.onrender.com/">
+            <Link target="_blank" href="https://qbon.vercel.app/">
               <Button variant="light">
                 Visit Qbon <i class="fa-solid fa-diamond-turn-right"></i>
               </Button>{" "}
