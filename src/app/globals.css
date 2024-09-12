@@ -5,6 +5,14 @@
   /* font-family: Calibri, "Trebuchet MS", sans-serif; */
 }
 
+html {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+
 .fadeInSection {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
@@ -153,6 +161,7 @@
   position: relative;
   overflow-x: hidden;
   padding: 5rem;
+  padding-bottom: 0;
 }
 .collaborationDiv h1 {
   font-size: 3rem;
@@ -224,7 +233,6 @@
 .announcements .cardsAnnoun .card .textBody {
   height: 40%;
   width: 100%;
-  overflow: scroll;
 }
 
 .descriptionDiv {
@@ -232,6 +240,7 @@
   justify-content: center;
   align-items: center;
   height: 80vh;
+
   padding: 0rem 0;
 }
 .descriptionDiv .imageDiv {
@@ -311,8 +320,9 @@
 .studygroups {
   text-align: center;
   color: black;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   padding: 2rem;
+  padding-top: 0;
 }
 .studygroups h1 span {
   vertical-align: middle;
@@ -366,7 +376,6 @@
   padding: 2rem;
   padding-top: 0;
   text-align: center;
-  margin-bottom: 10rem;
 }
 .supportServicesDiv .outerDiv {
   height: 100%;
@@ -589,13 +598,13 @@
 .ourTeamDiv h1 {
   color: #071952;
   padding-bottom: 1rem;
-  border-bottom: #071952 solid thick;
+  border-bottom: 4px dashed midnightblue;
 }
 .ourTeamDiv h2 {
   padding: 2rem 5rem;
   margin-bottom: 3rem;
+  background-color: lightskyblue;
   text-align: start;
-  border-bottom: 4px dotted pink;
   color: #071952;
 }
 .ourTeamDiv h3 {
@@ -619,12 +628,15 @@
   height: 25rem;
   width: 25rem;
   background-color: rgba(0, 0, 255, 0.229);
-  background-color: rgba(162, 232, 255, 0.661);
+  background-color: rgba(30, 143, 255, 0.271);
   color: midnightblue;
   border-radius: 1.5rem;
+  padding: 0;
 }
 .ourTeamDiv .announcements .cardsAnnoun .card .imageDiv {
-  border-radius: 1.5rem;
+  /* border-radius: 0.8rem; */
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
   overflow: hidden;
 }
 
@@ -936,8 +948,8 @@
 }
 .votingBig .upperColorDiv {
   width: 100%;
-  height: 70%;
-  background-color: mistyrose;
+  height: 100%;
+  background-color: #a2d2ff;
   position: absolute;
   z-index: -1;
 }
@@ -962,7 +974,7 @@
   align-items: start;
 }
 .votingBig .leftPart .textDiv h2 {
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.285);
+  color: #000;
 }
 .votingBig .leftPart .formButtons {
   display: flex;
@@ -970,12 +982,15 @@
   justify-content: start;
   flex-direction: column;
   gap: 2rem;
-  padding: 2rem;
   width: 100%;
 }
 .votingBig .leftPart .formButtons button {
   padding: 1rem;
   width: 25rem;
+  box-shadow: 0px 2px 50px rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+  border: none;
+  color: white;
   font-size: 1.2rem;
 }
 .votingBig .rightPart {

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Link from "next/link";
 import FadeInSection from "../../components/FadeInSection";
@@ -29,8 +29,10 @@ const Announcements = ({ allEvents }) => {
 
             const rsvpData = await rsvpResponse.json();
             if (rsvpData.status === 200) {
+
               alert("RSVP Successfull !");
             } else {
+
               alert(rsvpData.message);
             }
           } catch (error) {
@@ -51,6 +53,7 @@ const Announcements = ({ allEvents }) => {
   return (
     <div className="announcements ">
       <FadeInSection>
+        <br />
         <h6>
           Join us for our upcoming events and be a part of something special.
           Check out our calendar and register today!

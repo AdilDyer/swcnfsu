@@ -9,7 +9,7 @@ const Calendar = () => {
       </FadeInSection>
       <br />
       <div>
-        <iframe
+        {/* <iframe
           src="https://embed.styledcalendar.com/#kpAH9ZejhNCifPj6nHdW"
           title="Styled Calendar"
           className="styled-calendar-container"
@@ -20,7 +20,19 @@ const Calendar = () => {
           async
           type="module"
           src="https://embed.styledcalendar.com/assets/parent-window.js"
-        ></scripts>
+        ></scripts> */}
+        <iframe
+          src="https://embed.styledcalendar.com/#oE33p70wdpD5w82hNY6A"
+          title="Styled Calendar"
+          class="styled-calendar-container"
+          style={{ width: "100%", border: "none" }}
+          data-cy="calendar-embed-iframe"
+        ></iframe>
+        <script
+          async
+          type="module"
+          src="https://embed.styledcalendar.com/assets/parent-window.js"
+        ></script>
       </div>
     </div>
   );

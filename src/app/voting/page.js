@@ -30,7 +30,7 @@ const Voting = () => {
       <div className="rightPart">
         <div className="imgDiv">
           <img
-            src="https://quotelar.com/wp-content/uploads/2023/09/Teamwork-Quotes.jpg"
+            src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1726130479/Screenshot_2024-09-12_at_2.11.08_PM_umiah9.png"
             alt=""
           />
         </div>

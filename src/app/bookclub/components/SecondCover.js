@@ -13,7 +13,7 @@ const SecondCover = ({ coverUrl }) => {
 
   const handleImageClick = (image) => {
     setSelectedImage(image);
-  };  
+  };
 
   const handleCenterImageClick = () => {
     // router.push(`/`);
@@ -32,12 +32,13 @@ const SecondCover = ({ coverUrl }) => {
                 <br />
                 <div className="textBody">
                   <h5>Next Meeting :</h5>
-                  <p>Upper Audi, 23-June-2024</p>
+                  <p>Poolside, 23-September-2024</p>
                 </div>
               </div>
             </Link>
           </div>
         </div>
+        
       </div>
       <div className="scroll-menu">
         {images.map((image, index) => (

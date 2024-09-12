@@ -9,7 +9,7 @@ const FirstCover = ({ coverUrl }) => {
         <h6>Motto</h6>
         <p>&quot;Turning Pages, Tuning Life&quot;</p>
         <br />
-        <h6>Monthly Challenge ( 20 - 07 )</h6>
+        <h6>Monthly Challenge ( September )</h6>
         <p>
           Share atleast 1 book with other person of club and discuss over
           insights

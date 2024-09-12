@@ -39,7 +39,7 @@ const Home = () => {
       <PastEvents allEvents={allEvents} />
       <StudyGroups />
       <SupportServices />
-      <Grievance />
+      {/* <Grievance /> */}
       <Qbon />
     </>
   );

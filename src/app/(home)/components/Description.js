@@ -42,9 +42,9 @@ const Description = () => {
           <br />
           <FadeInSection>
             <p>
-              At the heart of our SWC are our guiding principles: transparency,
+              At the heart of our SWC lies NSS : National Service Scheme, with its guiding principles: transparency,
               approachability, and aspiration. We believe in open communication
-              and honesty in all our actions. SWC&apos;s approachable nature
+              and honesty in all our actions. NSS&apos;s approachable nature
               ensures that every student feels welcome and heard. We constantly
               strive for better, aiming to uplift every member of our community.
             </p>
@@ -62,10 +62,10 @@ const Description = () => {
           <br />
           <FadeInSection>
             <p>
-              Our SWC is committed to fostering a supportive and inclusive
-              environment where every student can thrive. SWC is passionate
+              Our NSS is committed to fostering a supportive and inclusive
+              environment where every student can thrive. NSS is passionate
               about creating a space where you can grow, connect, and succeed.
-              We at SWC are the dedicated individuals who are working tirelessly
+              We at NSS are the dedicated individuals who are working tirelessly
               to make our community a hub of support and positivity. Your
               well-being is our priority.
             </p>

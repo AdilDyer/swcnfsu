@@ -228,7 +228,7 @@ const Admin = () => {
           <option value="" selected disabled>
             Select Event
           </option>
-          {allEvents.map((event) => (
+          {allEvents?.map((event) => (
             <option key={event._id} value={event._id}>
               {event.name}
             </option>

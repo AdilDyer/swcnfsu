@@ -15,7 +15,7 @@ const OurTeam = () => {
           <div className="card">
             <div className="imageDiv">
               <img
-                src="https://media.licdn.com/dms/image/C4E03AQGRn_r5cvA5Uw/profile-displayphoto-shrink_800_800/0/1617124876715?e=1724889600&v=beta&t=sPw8QdGhaSmkaJGFImJ-h8kMTrWCn7akCWYAH2hv1xY"
+                src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1726137186/1617124876715_o9mes1.jpg"
                 alt=""
               />
             </div>
