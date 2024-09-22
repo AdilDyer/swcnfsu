@@ -1,17 +1,66 @@
-import React from "react";
+"use client";
+import React, { useRef } from "react";
 import Link from "next/link";
 import FadeInSection from "../../components/FadeInSection";
 
 const PastEvents = ({ allEvents }) => {
+  //left right scroll btns
+  const containerRef = useRef(null);
+  const scrollLeft = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollLeft -= 400; // Adjust scroll amount as needed
+    }
+  };
+  const scrollRight = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollLeft += 400; // Adjust scroll amount as needed
+    }
+  };
   return (
     <div className="pastevents">
       <FadeInSection>
-        <h1 className="">Previous Events</h1>
+        <h1 className="">
+          {" "}
+          <span style={{ verticalAlign: "middle" }}>
+            <img
+              style={{
+                width: "2.5rem",
+              }}
+              src="https://3axis.co/user-images/d1l8d67m.jpg"
+              alt=""
+            />
+          </span>
+          &nbsp; <span className="homePageHeading">Previous Events</span> &nbsp;
+          <span style={{ verticalAlign: "middle" }}>
+            <img
+              style={{
+                transform: "scale(-1) rotate(-110deg)",
+                width: "2.5rem",
+              }}
+              src="https://3axis.co/user-images/d1l8d67m.jpg"
+              alt=""
+            />
+          </span>
+        </h1>
       </FadeInSection>
+      <br />
+      <br />
       <br />
       <FadeInSection>
         <div className="announcements">
-          <div className="cardsAnnoun">
+          <div
+            className="cardsAnnoun"
+            style={{ backgroundColor: "pink" }}
+            ref={containerRef}
+          >
+            <div className="scrollBtnDiv scrollBtnDivLeft" onClick={scrollLeft}>
+              <div className="imgDiv">
+                <img
+                  src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1726216763/left-arrow_exqxhq.png"
+                  alt=""
+                />
+              </div>
+            </div>
             {allEvents
               .filter((event) => {
                 const eventDate = new Date(event.date);
@@ -30,6 +79,7 @@ const PastEvents = ({ allEvents }) => {
                       <br />
                       <div className="textBody">
                         <h5>{event.name}</h5>
+                        <br />
                         <p>
                           Date:{" "}
                           {eventDate.toLocaleDateString("en-GB", {
@@ -38,12 +88,23 @@ const PastEvents = ({ allEvents }) => {
                             year: "numeric",
                           })}
                         </p>
-                        <h6>{event.description}</h6>
+                        <h6>{event.description} </h6>
                       </div>
                     </div>
                   </Link>
                 );
               })}
+            <div
+              className="scrollBtnDiv scrollBtnDivRight"
+              onClick={scrollRight}
+            >
+              <div className="imgDiv">
+                <img
+                  src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1726216784/right-arrow_k1jiu2.png"
+                  alt=""
+                />
+              </div>
+            </div>
           </div>
         </div>
       </FadeInSection>

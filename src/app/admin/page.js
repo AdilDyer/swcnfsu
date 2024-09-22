@@ -150,6 +150,59 @@ const Admin = () => {
     }
   };
 
+  // Add Rising Star
+  const [formData, setFormData] = useState({
+    email: "",
+    reasonForListing: "",
+  });
+  const handleAddRisingStar = async (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+
+    try {
+      const response = await fetch("/api/addRisingStar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert("Rising star added successfully!");
+        setFormData({
+          email: "",
+          reasonForListing: "",
+        });
+      } else {
+        alert("Failed to add rising star.");
+      }
+    } catch (error) {
+      alert("An error occurred. Please try again." + error);
+    }
+  };
+
+  const handleRemoveRisingStar = async (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+
+    const formData = new FormData(e.target);
+
+    const email = formData.get("email");
+
+    try {
+      const response = await fetch("/api/removeRisingStar?email=" + email, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        alert("Rising star removed successfully!");
+      } else {
+        alert("Failed to remove rising star.");
+      }
+    } catch (error) {
+      alert("An error occurred. Please try again." + error);
+    }
+  };
+
   return (
     <div className="adminBig">
       <h1>Welcome to the Admin Dashboard!</h1>
@@ -237,6 +290,48 @@ const Admin = () => {
         <Button variant="primary" onClick={handleEventRsvpCheck}>
           Show Event RSVPs
         </Button>
+      </div>
+      <div className="adminRisingStarAddOrRemove">
+        <div className="adminAddRisingStar">
+          <h2>Add a Rising Star</h2>
+          <Form onSubmit={handleAddRisingStar}>
+            <Form.Control
+              placeholder="Email"
+              type="email"
+              name="email"
+              required
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
+            />
+            <Form.Control
+              placeholder="Reason for Listing"
+              type="text"
+              name="reasonForListing"
+              required
+              onChange={(e) =>
+                setFormData({ ...formData, reasonForListing: e.target.value })
+              }
+            />
+            <Button variant="primary" type="submit">
+              Add Rising Star
+            </Button>
+          </Form>
+        </div>
+        <div className="adminRemoveRisingStar">
+          <h2>Remove a Rising Star</h2>
+          <Form onSubmit={handleRemoveRisingStar}>
+            <Form.Control
+              placeholder="Email"
+              type="email"
+              name="email"
+              required
+            />
+            <Button variant="danger" type="submit">
+              Remove Rising Star
+            </Button>
+          </Form>
+        </div>
       </div>
     </div>
   );

@@ -5,7 +5,28 @@ const Calendar = () => {
   return (
     <div className="calendarofevents ">
       <FadeInSection>
-        <h1>Calendar of Events</h1>
+        <h1>
+          <span style={{ verticalAlign: "middle" }}>
+            <img
+              style={{
+                width: "2.5rem",
+              }}
+              src="https://3axis.co/user-images/d1l8d67m.jpg"
+              alt=""
+            />
+          </span>
+          &nbsp; <span className="homePageHeading"> Calendar of Events</span>&nbsp;
+          <span style={{ verticalAlign: "middle" }}>
+            <img
+              style={{
+                transform: "scale(-1) rotate(-110deg)",
+                width: "2.5rem",
+              }}
+              src="https://3axis.co/user-images/d1l8d67m.jpg"
+              alt=""
+            />
+          </span>
+        </h1>
       </FadeInSection>
       <br />
       <div>

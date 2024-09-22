@@ -12,14 +12,20 @@ const Qbon = () => {
             <img
               src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1707926485/qbon_DEV/Screenshot_2024-02-07_at_10.01.59_AM_mbeifo.png"
               alt=""
-              style={{ objectFit: "contain", backgroundColor: "white" }}
+              style={{
+                objectFit: "contain",
+                backgroundColor: "white",
+              }}
             />
           </div>
         </div>
         <div className="textDiv">
           <FadeInSection>
-            <h1>Qbon</h1>
+            <h1>
+              <span className="">Qbon</span>
+            </h1>
           </FadeInSection>
+          <br />
           <br />
           <FadeInSection>
             <h5>The Question Bank Of NFSU</h5>

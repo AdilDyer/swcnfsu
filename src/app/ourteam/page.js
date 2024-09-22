@@ -5,9 +5,6 @@ const OurTeam = () => {
     <div className="ourTeamDiv">
       <div className="announcements">
         <h1>Team of SWC</h1>
-        {/* <hr />
-        <hr />
-        <hr /> */}
         <br />
         <br />
         <h2>Faculty Coordinators</h2>

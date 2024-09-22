@@ -42,11 +42,12 @@ const Description = () => {
           <br />
           <FadeInSection>
             <p>
-              At the heart of our SWC lies NSS : National Service Scheme, with its guiding principles: transparency,
-              approachability, and aspiration. We believe in open communication
-              and honesty in all our actions. NSS&apos;s approachable nature
-              ensures that every student feels welcome and heard. We constantly
-              strive for better, aiming to uplift every member of our community.
+              At the heart of our SWC lies NSS : National Service Scheme, with
+              its guiding principles: transparency, approachability, and
+              aspiration. We believe in open communication and honesty in all
+              our actions. NSS&apos;s approachable nature ensures that every
+              student feels welcome and heard. We constantly strive for better,
+              aiming to uplift every member of our community.
             </p>
           </FadeInSection>
 
@@ -69,6 +70,11 @@ const Description = () => {
               to make our community a hub of support and positivity. Your
               well-being is our priority.
             </p>
+            <Link href="/ourteam">
+              <Button variant="danger">
+                NSS Portal &nbsp; <i class="fa-solid fa-diamond-turn-right"></i>
+              </Button>
+            </Link>
           </FadeInSection>
         </div>
       </div>
@@ -107,7 +113,9 @@ const Description = () => {
               environment where every student feels supported and empowered.
             </p>
             <Link href="/ourteam">
-              <Button variant="success">Our Team</Button>
+              <Button variant="success">
+                Our Team &nbsp; <i class="fa-solid fa-diamond-turn-right"></i>
+              </Button>
             </Link>
           </FadeInSection>
 

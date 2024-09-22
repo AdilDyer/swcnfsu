@@ -1,6 +1,28 @@
 import React from "react";
+import { Button } from "react-bootstrap";
+const FirstCover = ({
+  coverUrl,
+  thisMonthMotto,
+  nextMeeting,
+  nextMeetingLocation,
+}) => {
+  const nextMeetingDate = new Date(nextMeeting);
+  const formattedDate = nextMeetingDate.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+  const formattedTime = nextMeetingDate.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
 
-const FirstCover = ({ coverUrl }) => {
+  const getCurrentMonth = () => {
+    const date = new Date();
+    return date.toLocaleString("en-GB", { month: "long" });
+  };
+  const currentMonth = getCurrentMonth();
+
   return (
     <div className="firstCover">
       <img src={coverUrl} alt="Cover Picture..." />
@@ -9,11 +31,16 @@ const FirstCover = ({ coverUrl }) => {
         <h6>Motto</h6>
         <p>&quot;Turning Pages, Tuning Life&quot;</p>
         <br />
-        <h6>Monthly Challenge ( September )</h6>
-        <p>
-          Share atleast 1 book with other person of club and discuss over
-          insights
-        </p>
+        <h6>Monthly Challenge ({currentMonth})</h6>
+        <p>{thisMonthMotto}</p>
+        <div>
+          <h6>Next Meeting on : </h6>
+          <p>
+            {formattedDate} <br />
+            {formattedTime}, {nextMeetingLocation}
+          </p>
+          <Button variant="primary">RSVP for {formattedDate}</Button>
+        </div>
       </div>
     </div>
   );

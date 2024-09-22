@@ -15,19 +15,22 @@ const Footer = () => {
         <Button variant="danger">Join Us</Button>
       </Link>{" "}
       <div className="bottomBox">
-        <div className="imageDiv">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/en/9/96/National_Forensic_Sciences_University_Logo.png"
-            alt=""
-          />
-        </div>
+        <Link href={"https://www.nfsu.ac.in/"} target="_blank">
+          <div className="imageDiv">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/en/9/96/National_Forensic_Sciences_University_Logo.png"
+              alt=""
+            />
+          </div>
+        </Link>
         <div className="allLinksContainer">
           <div className="linksDiv">
             <span>SWC</span>
+            <Link href="https://www.nfsu.ac.in/" target="_blank">NFSU Main Page</Link>
+            <Link href="#">NSS</Link>
             <Link href="#aboutRedirectsHere">About</Link>
             <Link href="/ourteam">Our Team</Link>
             <Link href="#">Privacy</Link>
-            <Link href="/grievance">GRP</Link>
             <Link href="/grievance">Forum</Link>
             <Link href="/grievance">Feedback</Link>
             <Link href="/grievance">Gallery</Link>

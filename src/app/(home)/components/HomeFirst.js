@@ -59,7 +59,7 @@ const HomeFirst = () => {
           <p>Greetings from</p>
           <br />
 
-          <h1 className="popoutOpacity">The Student Welfare Committee</h1>
+          <h1 className="popoutOpacity"> <div className="homePageHeading">The Student Welfare Committee</div></h1>
 
           <br />
           <h3>
@@ -78,7 +78,26 @@ const HomeFirst = () => {
           </p>
           <br />
           <p style={{ fontWeight: "600", fontSize: "1.5rem" }}>
-            राष्ट्र सर्वोपरि, छात्र सर्वप्रथम |
+            <span style={{ verticalAlign: "middle" }}>
+              <img
+                style={{
+                  width: "2.5rem",
+                }}
+                src="https://3axis.co/user-images/d1l8d67m.jpg"
+                alt=""
+              />
+            </span>
+            &nbsp; राष्ट्र सर्वोपरि, छात्र सर्वप्रथम | &nbsp;
+            <span style={{ verticalAlign: "middle" }}>
+              <img
+                style={{
+                  transform: "scale(-1) rotate(-110deg)",
+                  width: "2.5rem",
+                }}
+                src="https://3axis.co/user-images/d1l8d67m.jpg"
+                alt=""
+              />
+            </span>
           </p>
           <br />
           <p style={{ fontStyle: "italic", fontWeight: "300" }}>
