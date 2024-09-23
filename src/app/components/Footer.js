@@ -1,7 +1,14 @@
+"use client"
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 const Footer = () => {
+    const pathname = usePathname();
+    if (pathname === "/report") {
+      return null;
+    }
   return (
     <div className="footer">
       <h1>Join the SWC Club today ! </h1>

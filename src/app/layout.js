@@ -66,11 +66,15 @@ export default function RootLayout({ children }) {
             href="https://upload.wikimedia.org/wikipedia/en/9/96/National_Forensic_Sciences_University_Logo.png"
             sizes="any"
           ></link>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap"
+            rel="stylesheet"
+          />
         </head>
         <body className={inter.className}>
           <Navbar />
           {children}
-          <Footer/>
+          <Footer />
         </body>
       </html>
     </SessionWrapper>

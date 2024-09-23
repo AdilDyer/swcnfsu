@@ -1,7 +1,7 @@
 import GoogleProvider from "next-auth/providers/google";
 import User from "../../../../lib/modals/user";
 import dbConnect from "../../../../lib/db";
-
+import ClubCoordinator from "../../../../lib/modals/clubcoordinator";
 // Function to check if the user is registered
 const checkIsRegistered = async (email) => {
   try {
@@ -26,6 +26,29 @@ const addCourseIfAvailable = async (email) => {
   }
 };
 
+// Function to check if the user is a club coordinator
+const checkIsClubCoordinator = async (email) => {
+  try {
+    await dbConnect(); // Ensure DB connection
+
+    // Fetch coordinator by user email
+    const result = await ClubCoordinator.findOne({}).populate({
+      path: "userId", // Populates the user data
+      match: { email }, // Filters by the user's email
+    });
+
+    // If userId is populated and found, the user is a club coordinator
+    if (result && result.userId) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (error) {
+    console.error("Error checking club coordinator status:", error);
+    return false; // Return false in case of an error
+  }
+};
+
 // NextAuth configuration
 export const authOptions = {
   providers: [
@@ -45,6 +68,10 @@ export const authOptions = {
 
         // Add course information if available
         session.user.course = await addCourseIfAvailable(session.user.email);
+
+        session.user.isClubCoordinator = await checkIsClubCoordinator(
+          session.user.email
+        );
 
         return session; // Return modified session
       } catch (error) {

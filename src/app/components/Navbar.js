@@ -7,10 +7,14 @@ import { useState, useEffect } from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const { data: session } = useSession();
-
+  const pathname = usePathname();
+  if (pathname === "/report") {
+    return null;
+  }
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -69,7 +73,7 @@ const Navbar = () => {
               <>
                 <Dropdown>
                   <Dropdown.Toggle variant="light" id="dropdown-basic">
-                    <img src={session.user?.image} alt="" />
+                    <img src={session?.user?.image} alt="" />
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
@@ -82,11 +86,19 @@ const Navbar = () => {
                     <Dropdown.Item href="/account">Account</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
-                {session.user?.email == process.env.NEXT_PUBLIC_ADMIN_EMAIL && (
+                {session?.user?.isAdmin && (
                   <Link href="/admin">
                     <img
                       src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1712834949/admin_rsgkmd"
                       alt="Admin Dashboard"
+                    />
+                  </Link>
+                )}
+                {session?.user?.isClubCoordinator && (
+                  <Link href="/clubCoordinator">
+                    <img
+                      src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1727087388/adult-3d-render-icon-illustration-png_ujyhgf.webp"
+                      alt="Coordinator Dashboard"
                     />
                   </Link>
                 )}

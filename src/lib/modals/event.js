@@ -31,6 +31,23 @@ const EventSchema = new mongoose.Schema(
       ],
       default: [],
     },
+    attendees: {
+      type: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+        },
+      ],
+      default: [],
+    },
+    eventGalleryImages: {
+      type: [
+        {
+          type: String,
+        },
+      ],
+      default: [],
+    },
   },
   { timestamps: true }
 );
