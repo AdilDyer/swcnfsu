@@ -36,7 +36,6 @@ export async function GET(req) {
 
   // Keep connection open for SSE (do not close stream unless the client disconnects)
   req.signal.addEventListener("abort", () => {
-    console.log(`Client ${clientId} disconnected`);
     removeClient(clientId);
     writer.close();
   });
@@ -54,9 +53,7 @@ export async function POST(req) {
   try {
     const { user, course, message, club, image } = await req.json();
 
-    console.log(user, course, message, club, image);
     const formattedMessage = JSON.stringify({ user, course, message, image });
-    // Send message to all connected clients
     clients.forEach((client) => {
       client.res.write(
         new TextEncoder().encode(`data: ${formattedMessage}\n\n`)

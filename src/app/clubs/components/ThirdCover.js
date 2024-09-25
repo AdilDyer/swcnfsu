@@ -3,18 +3,29 @@ import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useSession } from "next-auth/react";
+import {
+  RegExpMatcher,
+  TextCensor,
+  englishDataset,
+  englishRecommendedTransformers,
+} from "obscenity";
+import profanity from "profanity-hindi";
+const matcher = new RegExpMatcher({
+  ...englishDataset.build(),
+  ...englishRecommendedTransformers,
+});
 
-const badWords = [
-  "badword1",
-  "badword2", // English bad words
-  "गाली1",
-  "गाली2", // Hindi bad words
-  "hinglish1",
-  "hinglish2", // Hinglish bad words
-];
 const containsBadWords = (message) => {
   const lowerCaseMessage = message.toLowerCase();
-  return badWords.some((badWord) => lowerCaseMessage.includes(badWord));
+  //english and hindi profanity checkers are used
+  if (
+    matcher.hasMatch(lowerCaseMessage) ||
+    profanity.isMessageDirty(lowerCaseMessage)
+  ) {
+    return true;
+  } else {
+    return false;
+  }
 };
 const ThirdCover = ({ clubName }) => {
   const [messages, setMessages] = useState([]);
@@ -36,6 +47,7 @@ const ThirdCover = ({ clubName }) => {
     // Handle incoming messages from the server
     eventSource.onmessage = (event) => {
       const newMessage = JSON.parse(event.data); // Ensure the message is of type Message
+      //to not display the message if it is sent by the same user
       if (newMessage.image != session?.user?.image) {
         setMessages((prevMessages) => [...prevMessages, newMessage]);
       }
@@ -74,7 +86,7 @@ const ThirdCover = ({ clubName }) => {
     };
 
     try {
-      const response = await fetch("/api/serverSideMessage", {
+      const response = await fetch(`/api/serverSideMessage?club=${clubName}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -107,27 +119,28 @@ const ThirdCover = ({ clubName }) => {
     <div className="thirdCover">
       <div className="headingLines">
         <h1>
-          Chat-Box
-          {/* <svg
+          Open Chat-Box
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1213 73"
             fill="#FFF12C"
           >
             <path d="M1212.41 5.51c3.05 12.87-22.36 11.93-30.26 15.68-94.32 20.51-269.09 32.42-365.48 37.51-77.91 3.82-155.66 9.93-233.67 11.67-57.49 2.56-115.05-.19-172.57 1.58-121.28.91-243.17 1.88-363.69-13.33-12.51-2.64-25.8-2.92-37.77-7.45-30.66-21.42 26.02-21.53 38.52-19.26 359.95 29.05 364.68 27.36 638.24 17.85 121-3.78 241.22-19.21 426.76-41.46 4.72-.65 9.18 3.56 8.45 8.36a941.74 941.74 0 0 0 54.29-9.21c9.33-2.33 18.7-4.56 27.95-7.19a7.59 7.59 0 0 1 9.23 5.24Z"></path>
-          </svg> */}
-          <svg
+          </svg>
+          {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1213 73"
             fill="#FFFFFF"
           >
             <path d="M1212.41 5.51c3.05 12.87-22.36 11.93-30.26 15.68-94.32 20.51-269.09 32.42-365.48 37.51-77.91 3.82-155.66 9.93-233.67 11.67-57.49 2.56-115.05-.19-172.57 1.58-121.28.91-243.17 1.88-363.69-13.33-12.51-2.64-25.8-2.92-37.77-7.45-30.66-21.42 26.02-21.53 38.52-19.26 359.95 29.05 364.68 27.36 638.24 17.85 121-3.78 241.22-19.21 426.76-41.46 4.72-.65 9.18 3.56 8.45 8.36a941.74 941.74 0 0 0 54.29-9.21c9.33-2.33 18.7-4.56 27.95-7.19a7.59 7.59 0 0 1 9.23 5.24Z"></path>
-          </svg>
+          </svg> */}
         </h1>
 
         <p>
-          Join the conversation in our real-time chat box, where every club gets
-          a vibrant space to share ideas—just remember to not spread bad or
-          misleading info, because we’re keeping the chat fun and friendly!
+          Join the conversation in our real-time chat box, where every NFSU
+          Student gets a vibrant space to share ideas—just remember to not
+          spread bad or misleading info, because we’re keeping the chat fun and
+          friendly!
         </p>
       </div>
       <br />
@@ -136,24 +149,30 @@ const ThirdCover = ({ clubName }) => {
           <div className="receivedMsg">
             <div className="imgPart">
               <img
-                src="https://lh3.googleusercontent.com/a/ACg8ocIiyyS-J8QIYD7ri4PD6BLtOHgz9UPsDhHwZ5w-l21XT-3SBVVA=s96-c"
+                src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1727087388/adult-3d-render-icon-illustration-png_ujyhgf.webp"
                 alt=""
               />
             </div>
             <div className="textPart">
               <div className="userDetail">
-                <h6>Adil Dyer</h6>
-                <h6 style={{ opacity: "0.5" }}>Btech-Mtech Cybersecurity</h6>
+                <h6>Admin SWC</h6>
+                <h6 style={{ opacity: "0.5" }}>Student Welfare Committee</h6>
               </div>
               <div className="messageDetail">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-                recusandae, nemo explicabo delectus molestiae asperiores amet
-                maxime culpa velit illo deleniti ad rem magni ea eos quaerat.
-                Earum, laboriosam autem.
+                Welcome to the Chat! 🎉 <br />
+                <br />
+                Hey everyone! This is a space where We, The Students of NFSU can
+                share ideas, collaborate, and stay connected all at a real-time.
+                Feel free to post your thoughts, suggestions, or any questions
+                you have. Let’s keep it respectful and fun! <br />
+                <br />
+                Friendly reminder: Please abstain from using inappropriate
+                language to avoid blacklisting. Let’s keep the conversation
+                productive and positive! Enjoy !
               </div>
             </div>
           </div>
-          <div className="receivedMsg">
+          {/* <div className="receivedMsg">
             <div className="imgPart">
               <img
                 src="https://lh3.googleusercontent.com/a/ACg8ocIiyyS-J8QIYD7ri4PD6BLtOHgz9UPsDhHwZ5w-l21XT-3SBVVA=s96-c"
@@ -312,11 +331,11 @@ const ThirdCover = ({ clubName }) => {
                 alt=""
               />
             </div>
-          </div>
+          </div> */}
           {messages?.map((message, index) => {
             if (message.sent) {
               return (
-                <div className="sentMsg">
+                <div key={index} className="sentMsg">
                   <div className="textPart">
                     <div className="userDetail">
                       <h6>{message.user}</h6>

@@ -79,7 +79,9 @@ const PastEvents = ({ allEvents }) => {
                       <br />
                       <div className="textBody">
                         <h5>{event.name}</h5>
-                        <br />
+                        <p>
+                          <i>{event.clubName} Club Event</i>
+                        </p>
                         <p>
                           Date:{" "}
                           {eventDate.toLocaleDateString("en-GB", {
@@ -88,7 +90,7 @@ const PastEvents = ({ allEvents }) => {
                             year: "numeric",
                           })}
                         </p>
-                        <h6>{event.description} </h6>
+                        <h6>{event.description.Introduction} </h6>
                       </div>
                     </div>
                   </Link>

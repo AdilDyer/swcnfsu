@@ -30,6 +30,7 @@ const UserSchema = new mongoose.Schema(
     enrollNo: {
       type: Number,
       required: true,
+      unique: true,
     },
     birthdate: {
       type: Date,
@@ -38,6 +39,9 @@ const UserSchema = new mongoose.Schema(
     bloodGroup: {
       type: String,
       required: true,
+    },
+    gender: {
+      type: String,
     },
   },
   { timestamps: true }

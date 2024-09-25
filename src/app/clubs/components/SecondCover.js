@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useRef } from "react";
 import Link from "next/link";
-const SecondCover = ({ coverUrl, pastMeetings }) => {
+const SecondCover = ({ coverUrl, pastMeetings, clubName }) => {
   const images = [
     "https://res.cloudinary.com/ddxv0iwcs/image/upload/v1726897433/Screenshot_2024-09-21_at_11.13.46_AM_lfw6zk.png",
     "https://sc0.blr1.digitaloceanspaces.com/inline/864062-ydtpxgavpm-1515235604.jpg",
@@ -11,7 +11,9 @@ const SecondCover = ({ coverUrl, pastMeetings }) => {
     "https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630",
   ];
 
-  const [selectedMeeting, setSelectedMeeting] = useState(pastMeetings[0] || "");
+  const [selectedMeeting, setSelectedMeeting] = useState(
+    pastMeetings ? pastMeetings[0] : null
+  );
 
   const handleImageClick = (meeting) => {
     setSelectedMeeting(meeting);
@@ -29,17 +31,22 @@ const SecondCover = ({ coverUrl, pastMeetings }) => {
       containerRef.current.scrollLeft += 400; // Adjust scroll amount as needed
     }
   };
+
+  pastMeetings = pastMeetings?.sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
+
   return (
     <div className="secondCover">
       <img src={coverUrl} id="coverImg" alt="Cover Picture..." />
       <div className="oneCardDiv">
         <div className="announcements">
           <div className="cardsAnnoun">
-            <Link href="/bookclub/123">
+            <Link href={`/clubs/${clubName}/${selectedMeeting?._id}`}>
               <div className="card">
                 <div className="imageDiv">
                   <img
-                    src={selectedMeeting?.eventImageUrl || images[0]}
+                    src={selectedMeeting?.eventImageUrl || images[1]}
                     alt=""
                   />
                 </div>
@@ -66,7 +73,7 @@ const SecondCover = ({ coverUrl, pastMeetings }) => {
             />
           </div>
         </div>
-        {pastMeetings.map((meeting, index) => {
+        {pastMeetings?.map((meeting, index) => {
           const nextMeetingDate = new Date(meeting.date);
           const formattedDate = nextMeetingDate.toLocaleDateString("en-GB", {
             day: "numeric",
@@ -102,7 +109,7 @@ const SecondCover = ({ coverUrl, pastMeetings }) => {
             </>
           );
         })}
-        {images.map((image, index) => (
+        {/* {images.map((image, index) => (
           <div
             onClick={() => handleImageClick(image)}
             key={index}
@@ -121,7 +128,7 @@ const SecondCover = ({ coverUrl, pastMeetings }) => {
               </div>
             </div>
           </div>
-        ))}
+        ))} */}
         <div className="scrollBtnDiv scrollBtnDivRight" onClick={scrollRight}>
           <div className="imgDiv">
             <img

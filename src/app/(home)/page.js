@@ -11,6 +11,7 @@ import Qbon from "./components/Qbon";
 import RisingStar from "./components/RisingStar";
 import Gallery from "./components/Gallery";
 import { useEffect, useState } from "react";
+import ThirdCover from "../clubs/components/ThirdCover";
 
 const Home = () => {
   const [allEvents, setAllEvents] = useState([]);
@@ -19,7 +20,7 @@ const Home = () => {
   useEffect(() => {
     const fetchAllEvents = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/getEvents");
+        const response = await fetch("/api/getEvents");
         const data = await response.json();
         setAllEvents(data.result);
       } catch (error) {
@@ -33,10 +34,9 @@ const Home = () => {
     const fetchAllRisingStars = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3000/api/getAllRisingStars"
+          "/api/getAllRisingStars"
         );
         const data = await response.json();
-        console.log(data.result);
         setAllRisingStars(data.result);
       } catch (error) {
         console.error("Error fetching all rising stars:", error);
@@ -45,7 +45,7 @@ const Home = () => {
 
     const fetchAllClubs = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/getClubs");
+        const response = await fetch("/api/getClubs");
         const data = await response.json();
         setAllClubs(data.result);
       } catch (error) {
@@ -68,6 +68,7 @@ const Home = () => {
       <RisingStar allRisingStars={allRisingStars} />
       <PastEvents allEvents={allEvents} />
       <StudyGroups allClubs={allClubs} />
+      <ThirdCover clubName={"Book"} />
       <SupportServices />
       <Qbon />
     </>

@@ -12,11 +12,10 @@ import { usePathname } from "next/navigation";
 const Navbar = () => {
   const { data: session } = useSession();
   const pathname = usePathname();
-  if (pathname === "/report") {
-    return null;
-  }
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [showModal, setShowModal] = useState(false);
+
 
   const controlNavbar = () => {
     if (window.scrollY > lastScrollY) {
@@ -40,11 +39,12 @@ const Navbar = () => {
     };
   }, [lastScrollY]);
 
-  const [showModal, setShowModal] = useState(false);
 
   const handleCloseModal = () => setShowModal(false);
   const handleShowModal = () => setShowModal(true);
-
+  if (pathname === "/report") {
+    return null;
+  }
   return (
     <>
       <div className={`nav active ${show && "hidden"}`}>

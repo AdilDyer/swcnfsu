@@ -10,11 +10,7 @@ const Announcements = ({ allEvents }) => {
   const handleRSVP = async (eventId) => {
     if (session?.user?.email) {
       try {
-        const response = await fetch(
-          `http://localhost:3000/api/getUser?email=${session.user.email}`
-        );
-        const data = await response.json();
-        if (data.status === 200) {
+        if (session?.user?.isRegistered) {
           // RSVP the user
           try {
             const rsvpResponse = await fetch("/api/makeRsvp", {
@@ -91,48 +87,49 @@ const Announcements = ({ allEvents }) => {
             </div>
           </div>
 
-            {allEvents
-              .filter((event) => {
-                const eventDate = new Date(event.date);
-                return eventDate > new Date(); // Filter events that will occur in the future
-              })
-              .sort((a, b) => new Date(a.date) - new Date(b.date)) // Sort by date, earliest first
-              .map((event) => {
-                const eventDate = new Date(event.date); // Convert date to Date object
-                const eventTime = eventDate.toLocaleTimeString("en-GB", {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                }); // Extract the time
+          {allEvents
+            .filter((event) => {
+              const eventDate = new Date(event.date);
+              return eventDate > new Date(); // Filter events that will occur in the future
+            })
+            .sort((a, b) => new Date(a.date) - new Date(b.date)) // Sort by date, earliest first
+            .map((event) => {
+              const eventDate = new Date(event.date); // Convert date to Date object
+              const eventTime = eventDate.toLocaleTimeString("en-GB", {
+                hour: "2-digit",
+                minute: "2-digit",
+              }); // Extract the time
 
-                return (
-                  <div className="card" key={event._id}>
-                    <div className="imageDiv">
-                      <img src={event.eventImageUrl} alt={event.name} />
-                    </div>
-                    <br />
-                    <Button
-                      variant="primary"
-                      onClick={() => handleRSVP(event._id)}
-                    >
-                      RSVP
-                    </Button>
-                    <br />
-                    <div className="textBody">
-                      <h5>{event.name}</h5>
-                      <p>
-                        Date:{" "}
-                        {eventDate.toLocaleDateString("en-GB", {
-                          day: "2-digit",
-                          month: "long",
-                          year: "numeric",
-                        })}
-                      </p>
-                      <h6>Time: {eventTime}</h6>
-                      <h6>{event.description}</h6>
-                    </div>
+              return (
+                <div className="card" key={event._id}>
+                  <div className="imageDiv">
+                    <img src={event.eventImageUrl} alt={event.name} />
                   </div>
-                );
-              })}
+                  <br />
+                  <Button
+                    variant="primary"
+                    onClick={() => handleRSVP(event._id)}
+                  >
+                    RSVP
+                  </Button>
+                  <br />
+                  <div className="textBody">
+                    <h5>{event.name}</h5>
+                    <p>
+                      Date:{" "}
+                      {eventDate.toLocaleDateString("en-GB", {
+                        day: "2-digit",
+                        month: "long",
+                        year: "numeric",
+                      })}
+                    </p>
+                    <p>{event.clubName} Club Event</p>
+                    <h6>Time: {eventTime}</h6>
+                    <h6>{event.description.Introduction}</h6>
+                  </div>
+                </div>
+              );
+            })}
 
           <div className="scrollBtnDiv scrollBtnDivRight" onClick={scrollRight}>
             <div className="imgDiv">

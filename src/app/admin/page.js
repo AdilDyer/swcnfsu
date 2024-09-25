@@ -19,250 +19,18 @@ import {
 } from "chart.js";
 import { Doughnut, Bar } from "react-chartjs-2";
 
-ChartJS.register(ArcElement, Tooltip, Legend);
-
-function YourChartComponentDoughnut() {
-  let data = [
-    {
-      label: "Girls",
-      value: 55,
-      color: "rgba(0, 43, 73, 1)",
-      cutout: "50%",
-    },
-    {
-      label: "Boys",
-      value: 80,
-      color: "rgba(83, 217, 217, 1)",
-      cutout: "50%",
-    },
-    {
-      label: "Others",
-      value: 10,
-      color: "rgba(0, 103, 160, 1)",
-      cutout: "50%",
-    },
-  ];
-
-  const options = {
-    plugins: {
-      responsive: true,
-    },
-    cutout: data.map((item) => item.cutout),
-  };
-
-  const finalData = {
-    labels: data.map((item) => item.label),
-    datasets: [
-      {
-        data: data.map((item) => Math.round(item.value)),
-        backgroundColor: data.map((item) => item.color),
-        borderColor: data.map((item) => item.color),
-        borderWidth: 1,
-        dataVisibility: new Array(data.length).fill(true),
-      },
-    ],
-  };
-
-  return <Doughnut data={finalData} options={options} />;
-}
-function YourChartComponentDoughnut2() {
-  let data = [
-    {
-      label: "Btech Mtech Cybersecurity",
-      value: 55,
-      color: "#0082c5",
-      cutout: "50%",
-    },
-    {
-      label: "Law and Forensic Science",
-      value: 80,
-      color: "#6bcffe",
-      cutout: "50%",
-    },
-    {
-      label: "Bsc Msc Cybersecurity",
-      value: 10,
-      color: "#c4edff",
-      cutout: "50%",
-    },
-    {
-      label: "Mtech Cybersecurity",
-      value: 50,
-      color: "#aa5e32",
-      cutout: "50%",
-    },
-    {
-      label: "Pyschology",
-      value: 30,
-      color: "#f3e8d7",
-      cutout: "50%",
-    },
-  ];
-
-  const options = {
-    plugins: {
-      responsive: true,
-    },
-    cutout: data.map((item) => item.cutout),
-  };
-
-  const finalData = {
-    labels: data.map((item) => item.label),
-    datasets: [
-      {
-        data: data.map((item) => Math.round(item.value)),
-        backgroundColor: data.map((item) => item.color),
-        borderColor: data.map((item) => item.color),
-        borderWidth: 1,
-        dataVisibility: new Array(data.length).fill(true),
-      },
-    ],
-  };
-
-  return <Doughnut data={finalData} options={options} />;
-}
-
 ChartJS.register(
+  ArcElement,
+  Tooltip,
+  Legend,
   CategoryScale,
   LinearScale,
   PointElement,
   BarElement,
   Title,
-  Tooltip,
-  Legend,
   Filler
 );
 
-const MyBarChart = () => {
-  const labels = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "April",
-    "May",
-    "June",
-    "July",
-    "Aug",
-    "Sep",
-  ];
-  const datasets = [12, 45, 67, 43, 89, 34, 67, 43, 55];
-  const data = {
-    labels: labels,
-    datasets: [
-      {
-        // Title of Graph
-        label: "Number of Events",
-        data: datasets,
-        backgroundColor: [
-          "rgba(255, 99, 132, 02)",
-          "rgba(255, 159, 64, 02)",
-          "rgba(255, 205, 86, 02)",
-          "rgba(75, 192, 192, 02)",
-        ],
-        borderColor: [
-          "rgb(255, 99, 132)",
-          "rgb(255, 159, 64)",
-          "rgb(255, 205, 86)",
-          "rgb(75, 192, 192)",
-        ],
-        borderWidth: 1,
-        barPercentage: 1,
-        borderRadius: {
-          topLeft: 5,
-          topRight: 50,
-        },
-      },
-      // insert similar in dataset object for making multi bar chart
-    ],
-  };
-  const options = {
-    scales: {
-      y: {
-        title: {
-          display: true,
-          text: "Number of Events",
-        },
-        display: true,
-        beginAtZero: true,
-        max: 100,
-      },
-      x: {
-        title: {
-          display: true,
-          text: "Months",
-        },
-        display: true,
-      },
-    },
-  };
-  return <Bar data={data} options={options} />;
-};
-
-const MyBarChart2 = () => {
-  const labels = [
-    "Book",
-    "Debate",
-    "Civil Services",
-    "Music",
-    "Sports",
-    "Drama",
-    "Yoga",
-    "Cinematography",
-    "Content Writing",
-    "Vlogging",
-  ];
-  const datasets = [89, 67, 67, 55, 45, 43, 43, 34, 12];
-  const data = {
-    labels: labels,
-    datasets: [
-      {
-        // Title of Graph
-        label: "Number of Meetings",
-        data: datasets,
-        backgroundColor: [
-          "rgba(255, 99, 132, 02)",
-          "rgba(255, 159, 64, 02)",
-          "rgba(255, 205, 86, 02)",
-          "rgba(75, 192, 192, 02)",
-        ],
-        borderColor: [
-          "rgb(255, 99, 132)",
-          "rgb(255, 159, 64)",
-          "rgb(255, 205, 86)",
-          "rgb(75, 192, 192)",
-        ],
-        borderWidth: 1,
-        barPercentage: 1,
-        borderRadius: {
-          topLeft: 5,
-          topRight: 50,
-        },
-      },
-      // insert similar in dataset object for making multi bar chart
-    ],
-  };
-  const options = {
-    scales: {
-      y: {
-        title: {
-          display: true,
-          text: "Number of Meetings",
-        },
-        display: true,
-        beginAtZero: true,
-        max: 100,
-      },
-      x: {
-        title: {
-          display: true,
-          text: "Months",
-        },
-        display: true,
-      },
-    },
-  };
-  return <Bar data={data} options={options} />;
-};
 const Admin = () => {
   // Add event
 
@@ -271,6 +39,30 @@ const Admin = () => {
   const [isImageUploaded, setIsImageUploaded] = useState(false);
   const [clubCoordinators, setClubCoordinators] = useState([]);
   const [clubs, setClubs] = useState([]);
+  const [maleStudents, setMaleStudents] = useState(0);
+  const [femaleStudents, setFemaleStudents] = useState(0);
+  const [otherStudents, setOtherStudents] = useState(0);
+  const [totalStudents, setTotalStudents] = useState(0);
+  const [totalFaculties, setTotalFaculties] = useState(0);
+  const [currentRightSide, setCurrentRightSide] = useState("Dashboard");
+
+  //get student ration of genders
+  const fetchStudentGenderRatio = async () => {
+    try {
+      const response = await fetch("/api/getUser/gender");
+      let data = await response.json();
+      setMaleStudents(data?.genderCount[0]?.count);
+      setFemaleStudents(data?.genderCount[1]?.count);
+      setOtherStudents(data?.genderCount[2]?.count);
+      setTotalStudents(
+        data?.genderCount[0]?.count +
+          data?.genderCount[1]?.count +
+          data?.genderCount[2]?.count
+      );
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   //function to fetch club coordinator details in club details section
   const fetchClubCoordinators = async () => {
@@ -297,7 +89,242 @@ const Admin = () => {
   useEffect(() => {
     fetchClubCoordinators();
     fetchClubs();
+    fetchStudentGenderRatio();
   }, []);
+
+  console.log(maleStudents, femaleStudents, otherStudents);
+  //graphs
+  function YourChartComponentDoughnut() {
+    let data = [
+      {
+        label: "Girls",
+        value: femaleStudents,
+        color: "rgba(0, 43, 73, 1)",
+        cutout: "50%",
+      },
+      {
+        label: "Boys",
+        value: maleStudents,
+        color: "rgba(83, 217, 217, 1)",
+        cutout: "50%",
+      },
+      {
+        label: "Others",
+        value: otherStudents,
+        color: "rgba(0, 103, 160, 1)",
+        cutout: "50%",
+      },
+    ];
+
+    const options = {
+      plugins: {
+        responsive: true,
+      },
+      cutout: data.map((item) => item.cutout),
+    };
+
+    const finalData = {
+      labels: data.map((item) => item.label),
+      datasets: [
+        {
+          data: data.map((item) => Math.round(item.value)),
+          backgroundColor: data.map((item) => item.color),
+          borderColor: data.map((item) => item.color),
+          borderWidth: 1,
+          dataVisibility: new Array(data.length).fill(true),
+        },
+      ],
+    };
+
+    return <Doughnut data={finalData} options={options} />;
+  }
+  function YourChartComponentDoughnut2() {
+    let data = [
+      {
+        label: "Btech Mtech Cybersecurity",
+        value: 55,
+        color: "#0082c5",
+        cutout: "50%",
+      },
+      {
+        label: "Law and Forensic Science",
+        value: 80,
+        color: "#6bcffe",
+        cutout: "50%",
+      },
+      {
+        label: "Bsc Msc Cybersecurity",
+        value: 10,
+        color: "#c4edff",
+        cutout: "50%",
+      },
+      {
+        label: "Mtech Cybersecurity",
+        value: 50,
+        color: "#aa5e32",
+        cutout: "50%",
+      },
+      {
+        label: "Pyschology",
+        value: 30,
+        color: "#f3e8d7",
+        cutout: "50%",
+      },
+    ];
+
+    const options = {
+      plugins: {
+        responsive: true,
+      },
+      cutout: data.map((item) => item.cutout),
+    };
+
+    const finalData = {
+      labels: data.map((item) => item.label),
+      datasets: [
+        {
+          data: data.map((item) => Math.round(item.value)),
+          backgroundColor: data.map((item) => item.color),
+          borderColor: data.map((item) => item.color),
+          borderWidth: 1,
+          dataVisibility: new Array(data.length).fill(true),
+        },
+      ],
+    };
+
+    return <Doughnut data={finalData} options={options} />;
+  }
+
+  const MyBarChart = () => {
+    const labels = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "April",
+      "May",
+      "June",
+      "July",
+      "Aug",
+      "Sep",
+    ];
+    const datasets = [12, 45, 67, 43, 89, 34, 67, 43, 55];
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          // Title of Graph
+          label: "Number of Events",
+          data: datasets,
+          backgroundColor: [
+            "rgba(255, 99, 132, 02)",
+            "rgba(255, 159, 64, 02)",
+            "rgba(255, 205, 86, 02)",
+            "rgba(75, 192, 192, 02)",
+          ],
+          borderColor: [
+            "rgb(255, 99, 132)",
+            "rgb(255, 159, 64)",
+            "rgb(255, 205, 86)",
+            "rgb(75, 192, 192)",
+          ],
+          borderWidth: 1,
+          barPercentage: 1,
+          borderRadius: {
+            topLeft: 5,
+            topRight: 50,
+          },
+        },
+        // insert similar in dataset object for making multi bar chart
+      ],
+    };
+    const options = {
+      scales: {
+        y: {
+          title: {
+            display: true,
+            text: "Number of Events",
+          },
+          display: true,
+          beginAtZero: true,
+          max: 100,
+        },
+        x: {
+          title: {
+            display: true,
+            text: "Months",
+          },
+          display: true,
+        },
+      },
+    };
+    return <Bar data={data} options={options} />;
+  };
+
+  const MyBarChart2 = () => {
+    const labels = [
+      "Book",
+      "Debate",
+      "Civil Services",
+      "Music",
+      "Sports",
+      "Drama",
+      "Yoga",
+      "Cinematography",
+      "Content Writing",
+      "Vlogging",
+    ];
+    const datasets = [89, 67, 67, 55, 45, 43, 43, 34, 12];
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          // Title of Graph
+          label: "Number of Meetings",
+          data: datasets,
+          backgroundColor: [
+            "rgba(255, 99, 132, 02)",
+            "rgba(255, 159, 64, 02)",
+            "rgba(255, 205, 86, 02)",
+            "rgba(75, 192, 192, 02)",
+          ],
+          borderColor: [
+            "rgb(255, 99, 132)",
+            "rgb(255, 159, 64)",
+            "rgb(255, 205, 86)",
+            "rgb(75, 192, 192)",
+          ],
+          borderWidth: 1,
+          barPercentage: 1,
+          borderRadius: {
+            topLeft: 5,
+            topRight: 50,
+          },
+        },
+        // insert similar in dataset object for making multi bar chart
+      ],
+    };
+    const options = {
+      scales: {
+        y: {
+          title: {
+            display: true,
+            text: "Number of Meetings",
+          },
+          display: true,
+          beginAtZero: true,
+          max: 100,
+        },
+        x: {
+          title: {
+            display: true,
+            text: "Months",
+          },
+          display: true,
+        },
+      },
+    };
+    return <Bar data={data} options={options} />;
+  };
 
   const handleCoordinatorAdding = async (clubId) => {
     const email = prompt("Enter the New coordinator's email:");
@@ -382,51 +409,11 @@ const Admin = () => {
     // Format the IST date if needed
     let formattedISTDate = istDate.toISOString().slice(0, 19).replace("T", " "); // Format as "YYYY-MM-DD HH:MM:SS"
 
-    if (posterLink == "") {
-      let clubName = formData.get("clubName");
-      switch (clubName) {
-        case "general":
-          posterLink =
-            "https://img.freepik.com/free-vector/happy-diverse-students-celebrating-graduation-from-school_74855-5853.jpg";
-          break;
-        case "cybersecurityclub":
-          posterLink =
-            "https://www.rowse.co.uk/static/images/blog/posts/open-graph/why-is-cybersecurity-important-open-graph.jpg";
-          break;
-        case "bookclub":
-          posterLink =
-            "https://cdn.pixabay.com/photo/2015/11/19/21/10/glasses-1052010_640.jpg";
-          break;
-        case "civilservicesclub":
-          posterLink =
-            "https://images.indianexpress.com/2024/04/National-Civil-Services-Day-2024-Atal-Bihari-Vajpayee-4.jpg";
-          break;
-        case "poetryclub":
-          posterLink =
-            "https://images.news18.com/ibnlive/uploads/2021/03/1616316963_world-poetry-day-5-poets-shutterstock.jpg ";
-          break;
-        case "cinematographyclub":
-          posterLink =
-            "https://res.cloudinary.com/ddxv0iwcs/image/upload/v1719142213/WhatsApp_Image_2024-06-23_at_16.59.53_ke6hqq.jpg";
-          break;
-        case "artandcraftclub":
-          posterLink =
-            "https://cdn.shopify.com/s/files/1/0036/8757/9760/files/82.jpg?v=1604230225";
-          break;
-        case "journalingclub":
-          posterLink =
-            "https://facts.net/wp-content/uploads/2023/09/8-astonishing-facts-about-journalist-1695689126.jpg";
-          break;
-        case "documentationclub":
-          posterLink =
-            "https://document360.com/wp-content/uploads/2022/08/internal_documentation_guide.jpg";
-      }
-    }
-
     const eventData = {
       name: formData.get("name"),
       date: formattedISTDate,
       clubName: formData.get("clubName"),
+      location: formData.get("venue"),
       description: formData.get("description"),
       eventImageUrl: posterLink,
     };
@@ -470,6 +457,10 @@ const Admin = () => {
 
     fetchAllEvents();
   }, []);
+
+  const handleTabClick = (tabName) => {
+    setCurrentRightSide(tabName); // Change the state based on clicked tab
+  };
   const handleEventRsvpCheck = async () => {
     if (!eventForRsvpId) {
       alert("Please select an event");
@@ -600,7 +591,6 @@ const Admin = () => {
       "https://res.cloudinary.com/ddxv0iwcs/image/upload/v1726216784/right-arrow_k1jiu2.png",
     eventTime: "12:00 PM",
   };
-
 
   return (
     // <div className="adminBig">
@@ -742,368 +732,616 @@ const Admin = () => {
             </h3>
           </div>
           <div className="tabs">
-            <div className="tab">
+            <div className="tab" onClick={() => handleTabClick("Dashboard")}>
               <h4>Dashboard</h4>
             </div>
-            <div className="tab">
+            <div className="tab" onClick={() => handleTabClick("Students")}>
               <h4>Students</h4>
             </div>
-            <div className="tab">
+            <div className="tab" onClick={() => handleTabClick("Faculties")}>
               <h4>Faculties</h4>
             </div>
-            <div className="tab">
+            <div className="tab" onClick={() => handleTabClick("Events")}>
               <h4>Events</h4>
             </div>
-            <div className="tab">
+            <div className="tab" onClick={() => handleTabClick("Planner")}>
               <h4>Planner</h4>
             </div>
-            <div className="tab">
+            <div className="tab" onClick={() => handleTabClick("Gallery")}>
               <h4>Gallery</h4>
             </div>
-            <div className="tab">
+            <div className="tab" onClick={() => handleTabClick("Rising Stars")}>
               <h4>Rising Stars</h4>
             </div>
           </div>
         </div>
         <div className="rightPart">
-          <div className="topRoundDivs">
-            <div className="noOfMeetings">
-              Total Students <i class="fa-brands fa-connectdevelop"></i> 498
-            </div>
-            <div className="noOfMeetings">
-              Total Faculties <i class="fa-brands fa-connectdevelop"></i> 59
-            </div>
-            <div className="noOfMeetings">
-              Total Upcoming Events
-              <i class="fa-brands fa-connectdevelop"></i> 12
-            </div>
-            <div className="noOfMeetings">
-              Total Moments Captured
-              <i class="fa-brands fa-connectdevelop"></i> 1230
-            </div>
-            <div className="noOfMeetings">
-              Total Previous Events
-              <i class="fa-brands fa-connectdevelop"></i> 42
-            </div>
-          </div>
-          <div className="lineTwo">
-            <div className="leftPart">
-              <div className="roundDiv genderDoughnutChart">
-                <h4>Total Students by Gender</h4>
-                <YourChartComponentDoughnut />
+          {currentRightSide === "Dashboard" && (
+            <div className="Dashboard rightSideView">
+              <div className="topRoundDivs">
+                <div className="noOfMeetings">
+                  Total Students <i class="fa-brands fa-connectdevelop"></i>
+                  {totalStudents}
+                </div>
+                <div className="noOfMeetings">
+                  Total Faculties <i class="fa-brands fa-connectdevelop"></i>
+                  {totalFaculties}
+                </div>
+                <div className="noOfMeetings">
+                  Total Upcoming Events
+                  <i class="fa-brands fa-connectdevelop"></i> 12
+                </div>
+                <div className="noOfMeetings">
+                  Total Moments Captured
+                  <i class="fa-brands fa-connectdevelop"></i> 1230
+                </div>
+                <div className="noOfMeetings">
+                  Total Previous Events
+                  <i class="fa-brands fa-connectdevelop"></i> 42
+                </div>
               </div>
-            </div>
-            <div className="rightPart">
-              <div className="roundDiv previousMeetingDetailsDiv">
-                <h4>Previous Events History</h4>
-                <MyBarChart />
-              </div>
-            </div>
-          </div>
-          <div className="lineTwo">
-            <div className="rightPart">
-              <div className="roundDiv previousMeetingDetailsDiv">
-                <h4>Top Performing Clubs</h4>
-                <MyBarChart2 />
-              </div>
-            </div>
-            <div className="leftPart">
-              <div className="roundDiv genderDoughnutChart">
-                <h4>Course-wise Student Ratio</h4>
-                <YourChartComponentDoughnut2 />
-              </div>
-            </div>
-          </div>{" "}
-          <div className="upcomingEvents">
-            <div className="titleLine">
-              <h4>Upcoming Events</h4>
-            </div>
-            <div className="upcomingEventsCards">
-              <div className="cardsAnnoun" ref={containerRef}>
-                <div
-                  className="scrollBtnDiv scrollBtnDivLeft"
-                  onClick={scrollLeft}
-                >
-                  <div className="imgDiv">
-                    <img
-                      src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1726216763/left-arrow_exqxhq.png"
-                      alt=""
-                    />
+              <div className="lineTwo">
+                <div className="leftPart">
+                  <div className="roundDiv genderDoughnutChart">
+                    <h4>Total Students by Gender</h4>
+                    <YourChartComponentDoughnut />
                   </div>
                 </div>
+                <div className="rightPart">
+                  <div className="roundDiv previousMeetingDetailsDiv">
+                    <h4>Previous Events History</h4>
+                    <MyBarChart />
+                  </div>
+                </div>
+              </div>
+              <div className="lineTwo">
+                <div className="rightPart">
+                  <div className="roundDiv previousMeetingDetailsDiv">
+                    <h4>Top Performing Clubs</h4>
+                    <MyBarChart2 />
+                  </div>
+                </div>
+                <div className="leftPart">
+                  <div className="roundDiv genderDoughnutChart">
+                    <h4>Course-wise Student Ratio</h4>
+                    <YourChartComponentDoughnut2 />
+                  </div>
+                </div>
+              </div>{" "}
+              <div className="upcomingEvents">
+                <div className="titleLine">
+                  <h4>Upcoming Events</h4>
+                </div>
+                <div className="upcomingEventsCards">
+                  <div className="cardsAnnoun" ref={containerRef}>
+                    <div
+                      className="scrollBtnDiv scrollBtnDivLeft"
+                      onClick={scrollLeft}
+                    >
+                      <div className="imgDiv">
+                        <img
+                          src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1726216763/left-arrow_exqxhq.png"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                    {allEvents
+                      .filter((event) => {
+                        const eventDate = new Date(event.date);
+                        return eventDate > new Date(); // Filter events that will occur in the future
+                      })
+                      .sort((a, b) => new Date(a.date) - new Date(b.date)) // Sort by date, earliest first
+                      .map((event) => {
+                        const eventDate = new Date(event.date); // Convert date to Date object
+                        const eventTime = eventDate.toLocaleTimeString(
+                          "en-GB",
+                          {
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          }
+                        ); // Extract the time
 
-                <div className="card" key={event._id}>
-                  <div className="imageDiv">
-                    <img src={event.eventImageUrl} alt={event.name} />
-                  </div>
-                  <br />
-                  <Button variant="primary">RSVP Received : 105</Button>
-                  <br />
-                  <Button variant="dark">Get Excel</Button>
-                  <br />
-                  <div className="textBody">
-                    <h5>{event.name}</h5>
-                    <p>Date: {event.date}</p>
-                    <h6>Time: {event.eventTime}</h6>
-                    <h6>{event.description}</h6>
-                  </div>
-                </div>
-                <div className="card" key={event._id}>
-                  <div className="imageDiv">
-                    <img src={event.eventImageUrl} alt={event.name} />
-                  </div>
-                  <br />
-                  <Button variant="primary">RSVP Received : 105</Button>
-                  <br />
-                  <Button variant="dark">Get Excel</Button>
-                  <br />
-                  <div className="textBody">
-                    <h5>{event.name}</h5>
-                    <p>Date: {event.date}</p>
-                    <h6>Time: {event.eventTime}</h6>
-                    <h6>{event.description}</h6>
-                  </div>
-                </div>
-                <div className="card" key={event._id}>
-                  <div className="imageDiv">
-                    <img src={event.eventImageUrl} alt={event.name} />
-                  </div>
-                  <br />
-                  <Button variant="primary">RSVP Received : 105</Button>
-                  <br />
-                  <Button variant="dark">Get Excel</Button>
+                        return (
+                          <div className="card" key={event._id}>
+                            <div className="imageDiv">
+                              <img src={event.eventImageUrl} alt={event.name} />
+                            </div>
+                            <br />
+                            <Button variant="primary">
+                              RSVP Received : 105
+                            </Button>
+                            <br />
+                            <Button variant="dark">Get Excel</Button>
+                            <br />
+                            <div className="textBody">
+                              <h5>{event.name}</h5>
 
-                  <br />
-                  <div className="textBody">
-                    <h5>{event.name}</h5>
-                    <p>Date: {event.date}</p>
-                    <h6>Time: {event.eventTime}</h6>
-                    <h6>{event.description}</h6>
-                  </div>
-                </div>
-
-                <div
-                  className="scrollBtnDiv scrollBtnDivRight"
-                  onClick={scrollRight}
-                >
-                  <div className="imgDiv">
-                    <img
-                      src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1726216784/right-arrow_k1jiu2.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="previousEvents">
-            <br />
-            <div className="titleLine">
-              <h4>Previous Events</h4>
-            </div>
-            {/* using the above template again  */}
-            <div className="upcomingEventsCards">
-              <div
-                className="cardsAnnoun"
-                style={{ backgroundColor: "#b88ea6" }}
-                ref={containerRef2}
-              >
-                <div
-                  className="scrollBtnDiv scrollBtnDivLeft"
-                  onClick={scrollLeft2}
-                >
-                  <div className="imgDiv">
-                    <img
-                      src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1726216763/left-arrow_exqxhq.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-
-                <div className="card" key={event._id}>
-                  <div className="imageDiv">
-                    <img src={event.eventImageUrl} alt={event.name} />
-                  </div>
-                  <br />
-                  <Button variant="dark">Event Synopsis</Button>
-                  <br />
-                  <div className="textBody">
-                    <h5>{event.name}</h5>
-                    <p>Date: {event.date}</p>
-                    <h6>Time: {event.eventTime}</h6>
-                    <h6>{event.description}</h6>
-                  </div>
-                </div>
-                <div className="card" key={event._id}>
-                  <div className="imageDiv">
-                    <img src={event.eventImageUrl} alt={event.name} />
-                  </div>
-                  <br />
-                  <Button variant="dark">Event Synopsis</Button>
-                  <br />
-                  <div className="textBody">
-                    <h5>{event.name}</h5>
-                    <p>Date: {event.date}</p>
-                    <h6>Time: {event.eventTime}</h6>
-                    <h6>{event.description}</h6>
-                  </div>
-                </div>
-                <div className="card" key={event._id}>
-                  <div className="imageDiv">
-                    <img src={event.eventImageUrl} alt={event.name} />
-                  </div>
-                  <br />
-                  <Button variant="dark">Event Synopsis</Button>
-                  <br />
-                  <div className="textBody">
-                    <h5>{event.name}</h5>
-                    <p>Date: {event.date}</p>
-                    <h6>Time: {event.eventTime}</h6>
-                    <h6>{event.description}</h6>
-                  </div>
-                </div>
-                <div
-                  className="scrollBtnDiv scrollBtnDivRight"
-                  onClick={scrollRight2}
-                >
-                  <div className="imgDiv">
-                    <img
-                      src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1726216784/right-arrow_k1jiu2.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="clubDetailsTableDiv">
-            <div className="roundDiv">
-              <h4>Clubs Details</h4>
-              <br />
-              <Table striped hover>
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Club Name</th>
-                    <th>No. of Meetings</th>
-                    <th>Club Page</th>
-                    <th>Coordinator Details</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {clubs.map((club, index) => {
-                    // Find the coordinator for the current club
-                    const coordinator = clubCoordinators.find(
-                      (coor) => coor.clubId._id === club._id
-                    );
-
-                    return (
-                      <tr key={index}>
-                        <td>{index + 1}</td>
-                        <td>{club.name}</td>
-                        <td>3333</td>
-                        <td>
-                          <Link href={`/clubs/${club.name}`}>
-                            <Button variant="info">Go to Page</Button>
-                          </Link>
-                        </td>
-                        <td>
-                          {coordinator ? (
-                            <>
-                              <p style={{ margin: "0" }}>
-                                {coordinator.userId.name}
+                              <p>
+                                Date:{" "}
+                                {eventDate.toLocaleDateString("en-GB", {
+                                  day: "2-digit",
+                                  month: "long",
+                                  year: "numeric",
+                                })}
                               </p>
-                              <div>
-                                <i
-                                  onClick={() =>
-                                    handleCoordinatorDetailCopy(
-                                      coordinator.userId.phoneNumber,
-                                      "Phone Number"
-                                    )
-                                  }
-                                  className="fa-solid fa-phone"
-                                ></i>
-                                &nbsp;&nbsp;&nbsp;
-                                <i
-                                  onClick={() =>
-                                    handleCoordinatorDetailCopy(
-                                      coordinator.userId.email,
-                                      "Email"
-                                    )
-                                  }
-                                  className="fa-solid fa-envelope"
-                                ></i>
-                              </div>
-                              <div>
-                                <Button
-                                  onClick={() =>
-                                    handleRemoveCoordinator(
-                                      coordinator._id,
-                                      club._id
-                                    )
-                                  }
-                                  variant="info"
-                                >
-                                  Remove
-                                </Button>
-                              </div>
-                            </>
-                          ) : (
-                            <>
-                              <p>Not Available</p>
-                              <div>
-                                <Button
-                                  onClick={() =>
-                                    handleCoordinatorAdding(club._id)
-                                  }
-                                  variant="info"
-                                >
-                                  Add
-                                </Button>
-                              </div>
-                            </>
-                          )}
-                        </td>
+                              <p>{event.clubName} Club Event</p>
+                              <h6>Time: {eventTime}</h6>
+                              <h6>{event.description.Introduction}</h6>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    <div className="card" key={event._id}>
+                      <div className="imageDiv">
+                        <img src={event.eventImageUrl} alt={event.name} />
+                      </div>
+                      <br />
+                      <Button variant="primary">RSVP Received : 105</Button>
+                      <br />
+                      <Button variant="dark">Get Excel</Button>
+                      <br />
+                      <div className="textBody">
+                        <h5>{event.name}</h5>
+                        <p>Date: {event.date}</p>
+                        <h6>Time: {event.eventTime}</h6>
+                        <h6>{event.description}</h6>
+                      </div>
+                    </div>
+                    <div className="card" key={event._id}>
+                      <div className="imageDiv">
+                        <img src={event.eventImageUrl} alt={event.name} />
+                      </div>
+                      <br />
+                      <Button variant="primary">RSVP Received : 105</Button>
+                      <br />
+                      <Button variant="dark">Get Excel</Button>
+
+                      <br />
+                      <div className="textBody">
+                        <h5>{event.name}</h5>
+                        <p>Date: {event.date}</p>
+                        <h6>Time: {event.eventTime}</h6>
+                        <h6>{event.description}</h6>
+                      </div>
+                    </div>
+
+                    <div
+                      className="scrollBtnDiv scrollBtnDivRight"
+                      onClick={scrollRight}
+                    >
+                      <div className="imgDiv">
+                        <img
+                          src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1726216784/right-arrow_k1jiu2.png"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="previousEvents">
+                <br />
+                <div className="titleLine">
+                  <h4>Previous Events</h4>
+                </div>
+                {/* using the above template again  */}
+                <div className="upcomingEventsCards">
+                  <div
+                    className="cardsAnnoun"
+                    style={{ backgroundColor: "#b88ea6" }}
+                    ref={containerRef2}
+                  >
+                    <div
+                      className="scrollBtnDiv scrollBtnDivLeft"
+                      onClick={scrollLeft2}
+                    >
+                      <div className="imgDiv">
+                        <img
+                          src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1726216763/left-arrow_exqxhq.png"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+
+                    {allEvents
+                      .filter((event) => {
+                        const eventDate = new Date(event.date);
+                        return eventDate < new Date(); // Filter events that have already occurred
+                      })
+                      .sort((a, b) => new Date(b.date) - new Date(a.date)) // Sort by date, latest first
+                      .map((event) => {
+                        const eventDate = new Date(event.date); // Convert date to Date object
+                        const eventTime = eventDate.toLocaleTimeString(
+                          "en-GB",
+                          {
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          }
+                        ); // Extract the time
+                        return (
+                          <div className="card" key={event._id}>
+                            <div className="imageDiv">
+                              <img src={event.eventImageUrl} alt={event.name} />
+                            </div>
+                            <br />
+                            <Button variant="dark">Event Synopsis</Button>
+                            <br />
+                            <div className="textBody">
+                              <h5>{event.name}</h5>
+                              <p>
+                                <i>{event.clubName} Club Event</i>
+                              </p>
+                              <p>
+                                Date:{" "}
+                                {eventDate.toLocaleDateString("en-GB", {
+                                  day: "2-digit",
+                                  month: "long",
+                                  year: "numeric",
+                                })}
+                              </p>
+                              <h6>Time: {eventTime}</h6>
+                              <h6>{event.description.Introduction}</h6>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    <div className="card" key={event._id}>
+                      <div className="imageDiv">
+                        <img src={event.eventImageUrl} alt={event.name} />
+                      </div>
+                      <br />
+                      <Button variant="dark">Event Synopsis</Button>
+                      <br />
+                      <div className="textBody">
+                        <h5>{event.name}</h5>
+                        <p>Date: {event.date}</p>
+                        <h6>Time: {event.eventTime}</h6>
+                        <h6>{event.description}</h6>
+                      </div>
+                    </div>
+                    <div className="card" key={event._id}>
+                      <div className="imageDiv">
+                        <img src={event.eventImageUrl} alt={event.name} />
+                      </div>
+                      <br />
+                      <Button variant="dark">Event Synopsis</Button>
+                      <br />
+                      <div className="textBody">
+                        <h5>{event.name}</h5>
+                        <p>Date: {event.date}</p>
+                        <h6>Time: {event.eventTime}</h6>
+                        <h6>{event.description}</h6>
+                      </div>
+                    </div>
+                    <div
+                      className="scrollBtnDiv scrollBtnDivRight"
+                      onClick={scrollRight2}
+                    >
+                      <div className="imgDiv">
+                        <img
+                          src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1726216784/right-arrow_k1jiu2.png"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="clubDetailsTableDiv">
+                <div className="roundDiv">
+                  <h4>Clubs Details</h4>
+                  <br />
+                  <Table striped hover>
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Club Name</th>
+                        <th>No. of Meetings</th>
+                        <th>Club Page</th>
+                        <th>Coordinator Details</th>
                       </tr>
-                    );
-                  })}
-                </tbody>
-              </Table>
+                    </thead>
+                    <tbody>
+                      {clubs.map((club, index) => {
+                        // Find the coordinator for the current club
+                        const coordinator = clubCoordinators.find(
+                          (coor) => coor.clubId._id === club._id
+                        );
+
+                        return (
+                          <tr key={index}>
+                            <td>{index + 1}</td>
+                            <td>{club.name}</td>
+                            <td>3333</td>
+                            <td>
+                              <Link href={`/clubs/${club.name}`}>
+                                <Button variant="info">Go to Page</Button>
+                              </Link>
+                            </td>
+                            <td>
+                              {coordinator ? (
+                                <>
+                                  <p style={{ margin: "0" }}>
+                                    {coordinator.userId.gender == "Male"
+                                      ? "Mr. "
+                                      : "Ms. "}
+                                    {coordinator.userId.name}
+                                  </p>
+                                  <div>
+                                    <i
+                                      onClick={() =>
+                                        handleCoordinatorDetailCopy(
+                                          coordinator.userId.phoneNumber,
+                                          "Phone Number"
+                                        )
+                                      }
+                                      className="fa-solid fa-phone"
+                                    ></i>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <i
+                                      onClick={() =>
+                                        handleCoordinatorDetailCopy(
+                                          coordinator.userId.email,
+                                          "Email"
+                                        )
+                                      }
+                                      className="fa-solid fa-envelope"
+                                    ></i>
+                                  </div>
+                                  <div>
+                                    <Button
+                                      onClick={() =>
+                                        handleRemoveCoordinator(
+                                          coordinator._id,
+                                          club._id
+                                        )
+                                      }
+                                      variant="info"
+                                    >
+                                      Remove
+                                    </Button>
+                                  </div>
+                                </>
+                              ) : (
+                                <>
+                                  <p>Not Available</p>
+                                  <div>
+                                    <Button
+                                      onClick={() =>
+                                        handleCoordinatorAdding(club._id)
+                                      }
+                                      variant="info"
+                                    >
+                                      Add
+                                    </Button>
+                                  </div>
+                                </>
+                              )}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </Table>
+                </div>
+              </div>
+              <div className="siteMapDiv">
+                <div className="roundDiv">
+                  <img
+                    src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1727014834/Screenshot_2024-09-22_at_7.50.27_PM_ra2yly.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div className="reportDownloadDiv">
+                <div className="roundDiv">
+                  <h4>SWC Dynamic Reports : </h4>
+                  <div className="btnsDiv">
+                    <Button
+                      variant="danger"
+                      className="btn btn-lg"
+                      onClick={downloadReport}
+                    >
+                      Download SWC Report
+                    </Button>
+                    <Link href="/report">
+                      <Button variant="danger" className="btn btn-lg">
+                        View SWC Report
+                      </Button>
+                    </Link>
+                    <Button variant="danger" className="btn btn-lg">
+                      Download Clubs Report
+                    </Button>
+                    <Button variant="danger" className="btn btn-lg">
+                      Download Cells Report
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="siteMapDiv">
-            <div className="roundDiv">
-              <img
-                src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1727014834/Screenshot_2024-09-22_at_7.50.27_PM_ra2yly.png"
-                alt=""
-              />
-            </div>
-          </div>
-          <div className="reportDownloadDiv">
-            <div className="roundDiv">
-              <h4>SWC Dynamic Reports : </h4>
-              <div className="btnsDiv">
-                <Button
-                  variant="danger"
-                  className="btn btn-lg"
-                  onClick={downloadReport}
-                >
-                  Download SWC Report
-                </Button>
-                <Link href="/report">
-                  <Button variant="danger" className="btn btn-lg">
-                    View SWC Report
+          )}
+          {currentRightSide === "Students" && (
+            <div className="Students  rightSideView">Students Content</div>
+          )}
+          {currentRightSide === "Faculties" && (
+            <div className="Faculties rightSideView">Faculties Content</div>
+          )}
+          {currentRightSide === "Events" && (
+            <div className="Events rightSideView">
+              <div className="roundDiv ">
+                <h1>Add New Event</h1>
+                <Form onSubmit={handleAddEvent}>
+                  <Form.Control
+                    placeholder="Event Name"
+                    type="text"
+                    name="name"
+                    required
+                  />
+                  <Form.Control
+                    placeholder="Date"
+                    type="date"
+                    name="date"
+                    required
+                  />
+                  <Form.Control
+                    placeholder="Time"
+                    type="time"
+                    name="time"
+                    required
+                  />
+                  <Form.Select name="clubName" required>
+                    <option>Select Club Name</option>
+                    <option value="General">General</option>
+                    <option value="CyberSecurity">CyberSecurity</option>
+                    <option value="Book">Book</option>
+                    <option value="Poetry">Poetry</option>
+                    <option value="Civil Services">Civil Services</option>
+                    <option value="Music">Music</option>
+                    <option value="Dance">Dance</option>
+                    <option value="Art and Craft">Art and Craft</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Debate">Debate</option>
+                    <option value="Cinematography">Cinematography</option>
+                    <option value="Fashion">Fashion</option>
+                    <option value="Yoga">Yoga</option>
+                    <option value="Travellers">Travellers</option>
+                    <option value="History">History</option>
+                    <option value="Economics">Economics</option>
+                    <option value="Psychology">Psychology</option>
+                    <option value="Philosophy">Philosophy</option>
+                    <option value="Content Writing">Content Writing</option>
+                    <option value="Vlogging">Vlogging</option>
+                    <option value="Legal">Legal</option>
+                  </Form.Select>
+                  <Form.Control
+                    placeholder="Event Description"
+                    type="text"
+                    name="description"
+                    required
+                  />
+                  <Form.Control
+                    type="text"
+                    required
+                    name="venue"
+                    placeholder="Enter Venue"
+                  />
+                  <CldUploadWidget
+                    options={{ sources: ["local"], multiple: false }}
+                    signatureEndpoint="/api/sign-image"
+                    onSuccess={(result, { widget }) => {
+                      setPosterLink(result.info.secure_url);
+                      setIsImageUploaded(true);
+                    }}
+                    onError={(error, { widget }) => {
+                      alert(
+                        "Failed to upload : File Size is larger than 10MB !"
+                      );
+                    }}
+                    onQueuesEnd={(result, { widget }) => {
+                      widget.close();
+                    }}
+                  >
+                    {({ open }) => {
+                      return (
+                        <Button
+                          onClick={() => open()}
+                          variant="info"
+                          disabled={isImageUploaded}
+                        >
+                          {isImageUploaded
+                            ? "Poster upload successfull."
+                            : "Upload Poster (Optional)"}
+                        </Button>
+                      );
+                    }}
+                  </CldUploadWidget>
+                  <Button
+                    variant={loading ? "light" : "dark"}
+                    type="submit"
+                    disabled={loading}
+                  >
+                    {loading ? "Adding..." : "Add Event"}
                   </Button>
-                </Link>
-                <Button variant="danger" className="btn btn-lg">
-                  Download Clubs Report
-                </Button>
-                <Button variant="danger" className="btn btn-lg">
-                  Download Cells Report
+                </Form>
+              </div>
+              <div className="roundDiv ">
+                <h1>Show Event RSVPs</h1>
+                <Form.Select
+                  name="clubName"
+                  onChange={(e) => {
+                    setEventForRsvp(e.target.value);
+                  }}
+                  required
+                >
+                  <option value="" selected disabled>
+                    Select Event
+                  </option>
+                  {allEvents?.map((event) => (
+                    <option key={event._id} value={event._id}>
+                      {event.name}
+                    </option>
+                  ))}
+                </Form.Select>
+                <Button variant="primary" onClick={handleEventRsvpCheck}>
+                  Show Event RSVPs
                 </Button>
               </div>
             </div>
-          </div>
+          )}
+          {currentRightSide === "Planner" && (
+            <div className="Planner rightSideView">Planner Content</div>
+          )}
+          {currentRightSide === "Gallery" && (
+            <div className="Gallery rightSideView">Gallery Content</div>
+          )}
+          {currentRightSide === "Rising Stars" && (
+            <div className="RisingStars rightSideView">
+              <div className="roundDiv ">
+                <h1>Add A Rising Star</h1>
+                <Form onSubmit={handleAddRisingStar}>
+                  <Form.Control
+                    placeholder="Email"
+                    type="email"
+                    name="email"
+                    required
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
+                  />
+                  <Form.Control
+                    placeholder="Reason for Listing"
+                    type="text"
+                    name="reasonForListing"
+                    required
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        reasonForListing: e.target.value,
+                      })
+                    }
+                  />
+                  <Button variant="primary" type="submit">
+                    Add Rising Star
+                  </Button>
+                </Form>
+              </div>
+              <div className="roundDiv">
+                <h1>Remove A Rising Star</h1>
+                <Form onSubmit={handleRemoveRisingStar}>
+                  <Form.Control
+                    placeholder="Email"
+                    type="email"
+                    name="email"
+                    required
+                  />
+                  <Button variant="danger" type="submit">
+                    Remove Rising Star
+                  </Button>
+                </Form>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </>

@@ -10,13 +10,16 @@ const ClubSchema = new mongoose.Schema(
     bgImageUrl: {
       type: String,
     },
-    nextMeetingOn: {
-      type: Date,
-    },
-    nextMeetingLocation: {
+    thisMonthTarget: {
       type: String,
     },
-    thisMonthMotto: {
+    motto: {
+      type: String,
+    },
+    whatsappUrl: {
+      type: String,
+    },
+    instaUrl: {
       type: String,
     },
   },

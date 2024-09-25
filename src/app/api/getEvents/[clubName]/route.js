@@ -4,32 +4,50 @@ import Club from "../../../../lib/modals/club";
 import { NextResponse } from "next/server";
 
 export async function GET(req, { params }) {
-  if (req.method === "GET") {
-    try {
-      await dbConnect();
-      const { clubName } = params;
-      let pastMeetings = await Event.find({ clubName: clubName });
+  try {
+    await dbConnect();
+    const { clubName } = params;
 
-      let club = await Club.findOne({ name: clubName });
-      let nextMeeting = club.nextMeetingOn;
-      let nextMeetingLocation = club.nextMeetingLocation;
-      let thisMonthMotto = club.thisMonthMotto;
+    // Fetch all events for the club
+    let allClubEvents = await Event.find({ clubName: clubName });
 
-      if (pastMeetings) {
-        return NextResponse.json({
-          pastMeetings,
-          thisMonthMotto,
-          nextMeeting,
-          nextMeetingLocation,
-          status: 200,
-        });
-      } else {
-        return NextResponse.json({ message: "Event not found", status: 404 });
-      }
-    } catch (error) {
-      return NextResponse.json({ error: error.message, status: 400 });
-    }
-  } else {
-    return NextResponse.json({ message: "Method not allowed", status: 405 });
+    // Get the current date and time
+    const currentDate = new Date();
+
+    // Separate past and upcoming events
+    const pastMeetings = allClubEvents.filter(
+      (event) => event.date < currentDate
+    );
+    const nextMeetings = allClubEvents.filter(
+      (event) => event.date >= currentDate
+    );
+
+    // Send response with both past and next meetings
+    return NextResponse.json({
+      pastMeetings: pastMeetings.map((event) => ({
+        name: event.name,
+        date: event.date,
+        description: event.description.Introduction,
+        location: event.location,
+        eventImageUrl: event.eventImageUrl,
+        rsvps: event.rsvps,
+        attendees: event.attendees,
+        eventGalleryImages: event.eventGalleryImages,
+      })),
+      nextMeetings: nextMeetings.map((event) => ({
+        _id: event._id,
+        name: event.name,
+        date: event.date,
+        description: event.description.Introduction,
+        location: event.location,
+        clubName: event.clubName,
+        eventImageUrl: event.eventImageUrl,
+        rsvps: event.rsvps,
+        attendees: event.attendees,
+        eventGalleryImages: event.eventGalleryImages,
+      })),
+    });
+  } catch (error) {
+    return NextResponse.json({ error: error.message, status: 400 });
   }
 }

@@ -5,14 +5,15 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
-import Image from "next/image";
 
 const Account = () => {
   const { data: session, status } = useSession();
   const [isUserRegistered, setIsUserRegistered] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [course, setCourse] = useState("");
   const [enrollNo, setEnrollNo] = useState("");
   const [birthdate, setBirthdate] = useState("");
+  const [gender, setGender] = useState("");
   const [bloodGroup, setBloodGroup] = useState("");
   const [quote, setQuote] = useState("");
   const [quoteAuthor, setQuoteAuthor] = useState("");
@@ -22,22 +23,9 @@ const Account = () => {
     "School of Cybersecurity and Digital Forensics"
   );
   const [courses, setCourses] = useState([]);
-
-  const getUserData = async () => {
-    const response = await fetch(`/api/getUser?email=${session?.user?.email}`);
-    const data = await response.json();
-    if (data.status == 200) {
-      setPhoneNumber(data.result.phoneNumber);
-      setEnrollNo(data.result.enrollNo);
-      const formattedBirthdate = new Date(data.result.birthdate)
-        .toISOString()
-        .split("T")[0];
-      setBirthdate(formattedBirthdate);
-      setBloodGroup(data.result.bloodGroup);
-    } else {
-      console.log(data);
-    }
-  };
+  const [otpSent, setOtpSent] = useState(false);
+  const [otp, setOtp] = useState("");
+  const [otpVerified, setOtpVerified] = useState(false);
 
   //fetching a new quote from the backend
   useEffect(() => {
@@ -56,6 +44,24 @@ const Account = () => {
 
   //setting isRegistered state and getting the user data
   useEffect(() => {
+    const getUserData = async () => {
+      const response = await fetch(
+        `/api/getUser?email=${session?.user?.email}`
+      );
+      const data = await response.json();
+      if (data.status == 200) {
+        setPhoneNumber(data.result.phoneNumber);
+        setEnrollNo(data.result.enrollNo);
+        const formattedBirthdate = new Date(data.result.birthdate)
+          .toISOString()
+          .split("T")[0];
+        setBirthdate(formattedBirthdate);
+        setBloodGroup(data.result.bloodGroup);
+        setGender(data.result.gender);
+      } else {
+        console.log(data);
+      }
+    };
     if (status !== "loading" && session?.user?.isRegistered !== undefined) {
       setIsUserRegistered(session.user.isRegistered);
       getUserData();
@@ -74,37 +80,52 @@ const Account = () => {
 
   //handle regis form
   const handleSubmit = async () => {
-    const phoneNumber = document.querySelector("#phoneinput").value;
-    const school = document.querySelector("#schoolinput").value;
-    const course = document.querySelector("#courseinput").value;
-    const enrollNo = document.querySelector("#enrollinput").value;
-    const birthdate = document.querySelector("#dobinput").value;
-    const bloodGroup = document.querySelector("#bloodGroup").value;
+    if (!otpVerified) {
+      alert("Please verify OTP first.");
+      return;
+    }
+    if (!phoneNumber || !selectedSchool || !course || !enrollNo || !birthdate) {
+      alert("Please fill all the fields.");
+      return;
+    }
+    if (!session?.user?.email) {
+      alert("Please sign in to register.");
+      return;
+    }
 
-    const response = await fetch("/api/createUser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: session.user.name,
-        email: session.user.email,
-        profileImageUrl: session.user.image,
-        phoneNumber,
-        course,
-        school,
-        enrollNo,
-        birthdate,
-        bloodGroup,
-      }),
-    });
+    try {
+      const response = await fetch("/api/createUser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: session?.user?.name,
+          email: session?.user?.email,
+          profileImageUrl: session?.user?.image,
+          phoneNumber,
+          course,
+          school: selectedSchool,
+          enrollNo,
+          birthdate,
+          bloodGroup,
+          gender,
+        }),
+      });
 
-    const data = await response.json();
-    console.log(data);
-    if (data.status != 200) {
-      alert("Error registering user : \n" + data.error);
-    } else {
+      // Check for HTTP response status
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(
+          `Error registering user ( Are these credentials yours truly? ): ${data.error}`
+        );
+      }
+
+      // If the response is successful, set user as registered
       setIsUserRegistered(true);
+      alert("User registered successfully!");
+    } catch (error) {
+      alert(error.message);
     }
   };
 
@@ -141,6 +162,47 @@ const Account = () => {
         setAdminButtonText("Contact Admin");
       }, 3000); // Reset text after 3 seconds
     });
+  };
+
+  const handleOtpSend = async () => {
+    const response = await fetch(`/api/sendOtp?email=${session?.user?.email}`);
+    const data = await response.json();
+    if (data.status == 200) {
+      setOtpSent(true);
+    } else {
+      alert("Error sending OTP : " + data.error);
+    }
+  };
+
+  const handleOtpVerify = async () => {
+    if (!otp) {
+      alert("Please enter the OTP");
+      return;
+    }
+
+    if (!session?.user?.email) {
+      alert("Session is unavailable. Please log in again.");
+      return;
+    }
+    try {
+      const response = await fetch(
+        `/api/verifyOtp?email=${session.user.email}&otp=${otp}`
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to verify OTP");
+      }
+
+      const data = await response.json();
+
+      if (data.status === 200) {
+        setOtpVerified(true);
+      } else {
+        alert("Invalid OTP");
+      }
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   // Share functions
@@ -209,6 +271,7 @@ const Account = () => {
                   <p>Phone No. : {phoneNumber}</p>
                   <p>Enroll No. : {enrollNo}</p>
                   <p>Birthdate : {birthdate}</p>
+                  <p>Gender : {gender}</p>
                   <p>Blood Group : {bloodGroup}</p>
                 </div>
                 <div className="bottomPart">
@@ -422,7 +485,12 @@ const Account = () => {
                 <p>Dear {session?.user?.name}, </p>
                 <p>Please Complete Your Registration :</p>
                 <div className="inputFieldsDiv">
-                  <Form onSubmit={handleSubmit}>
+                  <Form
+                    onSubmit={(e) => {
+                      e.preventDefault(); // Prevent default form submission behavior
+                      handleSubmit();
+                    }}
+                  >
                     <div className="inputField">
                       1.
                       <Form.Control
@@ -430,6 +498,8 @@ const Account = () => {
                         placeholder="Phone No."
                         type="tel"
                         name="phoneNumber"
+                        value={phoneNumber}
+                        onChange={(e) => setPhoneNumber(e.target.value)}
                         required
                       />
                     </div>
@@ -440,6 +510,7 @@ const Account = () => {
                         placeholder="School Name"
                         name="school"
                         required
+                        value={selectedSchool}
                         onChange={(e) => setSelectedSchool(e.target.value)}
                       >
                         <option>Select School</option>
@@ -484,6 +555,8 @@ const Account = () => {
                         id="courseinput"
                         placeholder="Course Name"
                         name="course"
+                        value={course}
+                        onChange={(e) => setCourse(e.target.value)}
                         required
                       >
                         <option>Select Course</option>
@@ -500,6 +573,8 @@ const Account = () => {
                         id="enrollinput"
                         placeholder="Enroll No."
                         name="enrollNo"
+                        value={enrollNo}
+                        onChange={(e) => setEnrollNo(e.target.value)}
                         required
                       />
                     </div>
@@ -508,6 +583,8 @@ const Account = () => {
                       <Form.Control
                         id="dobinput"
                         type="date"
+                        value={birthdate}
+                        onChange={(e) => setBirthdate(e.target.value)}
                         name="birthdate"
                         required
                       />
@@ -515,9 +592,27 @@ const Account = () => {
                     <div className="inputField">
                       6.{" "}
                       <Form.Select
+                        id="gender"
+                        placeholder="Gender"
+                        name="gender"
+                        value={gender}
+                        onChange={(e) => setGender(e.target.value)}
+                        required
+                      >
+                        <option>Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                      </Form.Select>
+                    </div>
+                    <div className="inputField">
+                      7.{" "}
+                      <Form.Select
                         id="bloodGroup"
                         placeholder="Blood Group"
                         name="bloodGroup"
+                        value={bloodGroup}
+                        onChange={(e) => setBloodGroup(e.target.value)}
                         required
                       >
                         <option>Select Blood Group</option>
@@ -531,7 +626,34 @@ const Account = () => {
                         <option value="O-">O-</option>
                       </Form.Select>
                     </div>
-                    <Button variant="outline-success" type="submit">
+                    <div className="inputField">
+                      8.{" "}
+                      <Form.Control
+                        id="otp"
+                        placeholder={otpSent ? "Enter OTP" : "Request an OTP"}
+                        name="otp"
+                        value={otp}
+                        onChange={(e) => setOtp(e.target.value)}
+                        required
+                        disabled={!otpSent}
+                      />
+                      <Button
+                        disabled={otpVerified}
+                        onClick={otpSent ? handleOtpVerify : handleOtpSend}
+                        variant={otpSent ? "primary" : "outline-warning"}
+                      >
+                        {otpSent
+                          ? otpVerified
+                            ? "Verified"
+                            : "Verify OTP"
+                          : "Send OTP to Email"}
+                      </Button>
+                    </div>
+                    <Button
+                      disabled={!otpVerified}
+                      variant="outline-success"
+                      type="submit"
+                    >
                       Submit
                     </Button>
                   </Form>

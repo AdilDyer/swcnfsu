@@ -127,7 +127,7 @@ const Report = () => {
               students have access to all necessary support services. This
               includes mental health counseling, career guidance, financial aid,
               and overall wellbeing programs. Various
-              welfare programs were initiated for students' academic,
+              welfare programs were initiated for students&apos; academic,
               personal, and professional growth. A total of 492 students
               participated in welfare programs, and 81 workshops and events were
               conducted to promote mental and physical well-being. 100+

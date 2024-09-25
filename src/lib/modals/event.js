@@ -12,15 +12,34 @@ const EventSchema = new mongoose.Schema(
       type: String,
     },
     description: {
-      type: String,
+      Introduction: {
+        type: String,
+      },
+      Agendas: {
+        type: String,
+      },
+      DetailedPoints: {
+        type: String,
+      },
+      InsightsShared: {
+        type: String,
+      },
+      GroupFindings: {
+        type: String,
+      },
+      KeyTakeaways: {
+        type: String,
+      },
+      FinalThoughts: {
+        type: String,
+      },
     },
     location: {
       type: String,
     },
     eventImageUrl: {
       type: String,
-      default:
-        "https://res.cloudinary.com/ddxv0iwcs/image/upload/v1720791800/Screenshot_2024-07-12_at_7.11.05_PM_ahw1gt.png",
+      default: "https://guwahati.nfsu.ac.in/img/logo.png",
     },
     rsvps: {
       type: [

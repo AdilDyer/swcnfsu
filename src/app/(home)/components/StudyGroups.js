@@ -37,7 +37,7 @@ const StudyGroups = ({ allClubs }) => {
         <div className="cardsContainer">
           {allClubs.map((club) => (
             <>
-              <Link href="/bookclub">
+              <Link href={`/clubs/${club.name}`}>
                 <div
                   className="card"
                   style={{

@@ -64,28 +64,32 @@ const RisingStar = ({ allRisingStars }) => {
                   />
                 </div>
               </div>
-              {allRisingStars
-                .sort(
-                  (a, b) =>
-                    new Date(b.dateOfDeclaration) -
-                    new Date(a.dateOfDeclaration)
-                ) // Sort by date, latest first
-                .map((star) => {
-                  return (
-                    <>
-                      <div className="card">
-                        <div className="imageDiv">
-                          <img src={star.profileImageUrl} alt="" />
+              {allRisingStars ? (
+                allRisingStars
+                  .sort(
+                    (a, b) =>
+                      new Date(b.dateOfDeclaration) -
+                      new Date(a.dateOfDeclaration)
+                  ) // Sort by date, latest first
+                  .map((star) => {
+                    return (
+                      <>
+                        <div className="card">
+                          <div className="imageDiv">
+                            <img src={star.profileImageUrl} alt="" />
+                          </div>
+                          <br />
+                          <div className="textBody">
+                            <h5>{star.name}</h5>
+                            <p>{star.reasonForListing}</p>
+                          </div>
                         </div>
-                        <br />
-                        <div className="textBody">
-                          <h5>{star.name}</h5>
-                          <p>{star.reasonForListing}</p>
-                        </div>
-                      </div>
-                    </>
-                  );
-                })}
+                      </>
+                    );
+                  })
+              ) : (
+                <></>
+              )}
               <div className="card">
                 <div className="imageDiv">
                   <img

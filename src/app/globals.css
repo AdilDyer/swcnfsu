@@ -371,8 +371,7 @@ html::-webkit-scrollbar {
   color: black;
   padding: 4rem 2rem;
   background: #a2d2ff;
-  margin: 7rem 0;
-  margin-top: 0;
+  margin: 0 0;
 }
 .studygroups .cardsContainer {
   background-color: white;
@@ -421,6 +420,7 @@ html::-webkit-scrollbar {
   height: fit-content;
   padding: 2rem;
   padding-top: 0;
+  margin-top: 5rem;
   text-align: center;
 }
 .supportServicesDiv .outerDiv {
@@ -723,7 +723,7 @@ html::-webkit-scrollbar {
   opacity: 0.7;
 }
 .bookClubDiv .secondCover .oneCardDiv {
-  padding: 5rem;
+  padding: 0rem;
 }
 .bookClubDiv .secondCover .oneCardDiv .announcements {
   height: fit-content;
@@ -752,9 +752,8 @@ html::-webkit-scrollbar {
   overflow-x: scroll;
   white-space: nowrap;
   display: flex;
-  padding: 10px 0;
-  padding-left: calc(50% - 13.2rem);
-  padding-right: calc(50% - 13.2rem);
+  padding: 2rem 5rem;
+  scroll-behavior: smooth;
 }
 .bookClubDiv .secondCover .scroll-menu .announcements {
   all: initial;
@@ -780,8 +779,50 @@ html::-webkit-scrollbar {
   align-items: center;
   flex-direction: column;
 }
+.upcomingEventsCover {
+  color: blanchedalmond;
+  .upcomingEventsCards {
+    width: 100%;
+    height: fit-content;
+    overflow: hidden;
+    .cardsAnnoun {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      display: flex;
+      padding: 3rem 6rem;
+      gap: 2rem;
+      overflow: scroll;
+      scroll-behavior: smooth;
+      position: relative;
+      background-color: #1b263b;
+    }
+    .cardsAnnoun .card {
+      min-width: 25rem;
+      height: fit-content;
+      background-color: white;
+      border: none;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+      border-radius: 0;
+      padding: 1rem;
+    }
+    .cardsAnnoun .card .imageDiv {
+      height: 15rem;
+      background-color: black;
+      width: 100%;
+    }
+    .cardsAnnoun .card .imageDiv img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cardsAnnoun .card .textBody {
+      height: 40%;
+      width: 100%;
+    }
+  }
+}
 
-.bookClubDiv .thirdCover {
+.thirdCover {
   min-height: 130vh;
   background-color: rgb(21, 21, 21);
   display: flex;
@@ -927,6 +968,7 @@ html::-webkit-scrollbar {
         background-color: rgba(25, 25, 112, 0.649);
         border: none;
         padding: 0 1.5rem;
+        cursor: pointer;
       }
       button,
       input {
@@ -940,6 +982,49 @@ html::-webkit-scrollbar {
         border: none;
       }
     }
+  }
+}
+
+.fifthCover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 5rem;
+  background-color: #1b263b;
+  width: 100%;
+  height: fit-content;
+  .cardsAnnoun {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    scroll-behavior: smooth;
+    columns: 3;
+  }
+  .cardsAnnoun .card {
+    width: 25rem;
+    height: 40rem;
+    background-color: white;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+    border-radius: 0;
+    padding: 1rem;
+  }
+  .cardsAnnoun .card .imageDiv {
+    min-height: 60%;
+    background-color: black;
+    width: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .cardsAnnoun .card .textBody {
+    height: 40%;
+    width: 100%;
   }
 }
 
@@ -1146,7 +1231,7 @@ html::-webkit-scrollbar {
 }
 .accountBig .notRegisteredDiv {
   width: 100%;
-  height: 110vh;
+  height: 130vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1373,6 +1458,7 @@ html::-webkit-scrollbar {
   min-height: 100vh;
   gap: 2rem;
 }
+
 .adminBig h1 {
   margin: 2rem;
   margin-top: 10rem;
@@ -1494,256 +1580,315 @@ html::-webkit-scrollbar {
     flex-direction: column;
     background-color: #e3e2ff;
     padding: 2rem;
-    .topRoundDivs {
-      display: flex;
-      gap: 1rem;
-      .noOfMeetings {
-        padding: 1rem;
-        border-radius: 1rem;
-        background-color: #8b9cff;
-        color: blanchedalmond;
-        font-weight: bold;
+    .rightSideView {
+      width: 100%;
+      height: 100%;
+    }
+    .Dashboard {
+      .topRoundDivs {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0 0 8px rgba(169, 169, 169, 0.266);
-        i {
-          margin: 0 0.5rem;
+        gap: 1rem;
+        .noOfMeetings {
+          padding: 1rem;
+          border-radius: 1rem;
+          background-color: midnightblue;
+          color: blanchedalmond;
+          font-weight: bold;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          box-shadow: 0 0 8px rgba(169, 169, 169, 0.266);
+          i {
+            margin: 0 0.5rem;
+          }
         }
       }
-    }
 
-    .lineTwo {
-      padding: 1rem 0;
-      display: flex;
-      gap: 1rem;
-      width: 100%;
-      height: 27rem;
-      .leftPart {
-        width: fit-content;
-        height: 100%;
-        .roundDiv {
-          padding: 1rem;
-          border-radius: 1rem;
-          height: 100%;
-          background-color: #8b9cff;
-          color: blanchedalmond;
-          font-weight: bold;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          box-shadow: 0 0 8px rgba(169, 169, 169, 0.266);
-        }
-        .genderDoughnutChart {
-          display: flex;
-          flex-direction: column;
-        }
-      }
-      .rightPart {
-        width: 100%;
-        height: 100%;
-        padding: 0;
-        .roundDiv {
-          border-radius: 1rem;
-          height: 100%;
-          background-color: #8b9cff;
-          color: blanchedalmond;
-          font-weight: bold;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          box-shadow: 0 0 8px rgba(169, 169, 169, 0.266);
-          padding: 2rem;
-        }
-        .previousMeetingDetailsDiv {
-          width: 100%;
-          overflow: hidden;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-      }
-    }
-    .upcomingEvents {
-      width: 100%;
-      .titleLine {
+      .lineTwo {
         padding: 1rem 0;
-        text-align: center;
-        color: midnightblue;
-      }
-      .upcomingEventsCards {
-        width: 100%;
-        height: fit-content;
-        overflow: hidden;
-        .cardsAnnoun {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-          display: flex;
-          padding: 3rem 6rem;
-          gap: 2rem;
-          overflow: scroll;
-          scroll-behavior: smooth;
-          position: relative;
-          border-radius: 1rem;
-          background-color: #8b9cff;
-        }
-        .cardsAnnoun .card {
-          min-width: 25rem;
-          height: fit-content;
-          background-color: white;
-          border: none;
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
-          border-radius: 0;
-          padding: 1rem;
-        }
-        .cardsAnnoun .card .imageDiv {
-          height: 15rem;
-          background-color: black;
-          width: 100%;
-        }
-        .cardsAnnoun .card .imageDiv img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .cardsAnnoun .card .textBody {
-          height: 40%;
-          width: 100%;
-        }
-      }
-    }
-    .previousEvents {
-      width: 100%;
-      .titleLine {
-        padding: 1rem 0;
-        text-align: center;
-        color: midnightblue;
-      }
-      .upcomingEventsCards {
-        width: 100%;
-        height: fit-content;
-        overflow: hidden;
-        .cardsAnnoun {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-          display: flex;
-          padding: 3rem 6rem;
-          gap: 2rem;
-          overflow: scroll;
-          scroll-behavior: smooth;
-          position: relative;
-          border-radius: 1rem;
-          background-color: #8b9cff;
-        }
-        .cardsAnnoun .card {
-          min-width: 25rem;
-          height: fit-content;
-          background-color: white;
-          border: none;
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
-          border-radius: 0;
-          padding: 1rem;
-        }
-        .cardsAnnoun .card .imageDiv {
-          height: 15rem;
-          background-color: black;
-          width: 100%;
-        }
-        .cardsAnnoun .card .imageDiv img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .cardsAnnoun .card .textBody {
-          height: 40%;
-          width: 100%;
-        }
-      }
-    }
-    .clubDetailsTableDiv {
-      width: 100%;
-      margin: 1rem 0;
-      .roundDiv {
-        border-radius: 1rem;
-        height: 100%;
-        background-color: #8b9cff;
-        color: blanchedalmond;
-        font-weight: bold;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0 0 8px rgba(169, 169, 169, 0.266);
-        padding: 1rem;
-        h4 {
-          margin: 0.5rem 0;
-          text-align: center;
+        gap: 1rem;
+        width: 100%;
+        height: 27rem;
+        .leftPart {
+          width: fit-content;
+          height: 100%;
+          .roundDiv {
+            padding: 1rem;
+            border-radius: 1rem;
+            height: 100%;
+            background-color: #8b9cff;
+            color: blanchedalmond;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 0 8px rgba(169, 169, 169, 0.266);
+          }
+          .genderDoughnutChart {
+            display: flex;
+            flex-direction: column;
+          }
         }
-        table {
-          border-radius: 1rem;
+        .rightPart {
+          width: 100%;
+          height: 100%;
+          padding: 0;
+          .roundDiv {
+            border-radius: 1rem;
+            height: 100%;
+            background-color: #8b9cff;
+            color: blanchedalmond;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 0 8px rgba(169, 169, 169, 0.266);
+            padding: 2rem;
+          }
+          .previousMeetingDetailsDiv {
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+      .upcomingEvents {
+        width: 100%;
+        .titleLine {
+          padding: 1rem 0;
+          text-align: center;
+          color: midnightblue;
+        }
+        .upcomingEventsCards {
+          width: 100%;
+          height: fit-content;
           overflow: hidden;
-          td,
-          th {
+          .cardsAnnoun {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            display: flex;
+            padding: 3rem 6rem;
+            gap: 2rem;
+            overflow: scroll;
+            scroll-behavior: smooth;
+            position: relative;
+            border-radius: 1rem;
+            background-color: #8b9cff;
+          }
+          .cardsAnnoun .card {
+            min-width: 25rem;
+            height: fit-content;
+            background-color: white;
+            border: none;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+            border-radius: 0;
+            padding: 1rem;
+          }
+          .cardsAnnoun .card .imageDiv {
+            height: 15rem;
+            background-color: black;
+            width: 100%;
+          }
+          .cardsAnnoun .card .imageDiv img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          .cardsAnnoun .card .textBody {
+            height: 40%;
+            width: 100%;
+          }
+        }
+      }
+      .previousEvents {
+        width: 100%;
+        .titleLine {
+          padding: 1rem 0;
+          text-align: center;
+          color: midnightblue;
+        }
+        .upcomingEventsCards {
+          width: 100%;
+          height: fit-content;
+          overflow: hidden;
+          .cardsAnnoun {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            display: flex;
+            padding: 3rem 6rem;
+            gap: 2rem;
+            overflow: scroll;
+            scroll-behavior: smooth;
+            position: relative;
+            border-radius: 1rem;
+            background-color: #8b9cff;
+          }
+          .cardsAnnoun .card {
+            min-width: 25rem;
+            height: fit-content;
+            background-color: white;
+            border: none;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+            border-radius: 0;
+            padding: 1rem;
+          }
+          .cardsAnnoun .card .imageDiv {
+            height: 15rem;
+            background-color: black;
+            width: 100%;
+          }
+          .cardsAnnoun .card .imageDiv img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          .cardsAnnoun .card .textBody {
+            height: 40%;
+            width: 100%;
+          }
+        }
+      }
+      .clubDetailsTableDiv {
+        width: 100%;
+        margin: 1rem 0;
+        .roundDiv {
+          border-radius: 1rem;
+          height: 100%;
+          background-color: #8b9cff;
+          color: blanchedalmond;
+          font-weight: bold;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          box-shadow: 0 0 8px rgba(169, 169, 169, 0.266);
+          padding: 1rem;
+          h4 {
+            margin: 0.5rem 0;
             text-align: center;
-            vertical-align: middle;
+          }
+          table {
+            border-radius: 1rem;
+            overflow: hidden;
+            td,
+            th {
+              text-align: center;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+      .siteMapDiv {
+        width: 100%;
+        margin: 1rem 0;
+        .roundDiv {
+          width: 100%;
+          border-radius: 1rem;
+          height: 100%;
+          background-color: white;
+          color: blanchedalmond;
+          font-weight: bold;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          box-shadow: 0 0 8px rgba(169, 169, 169, 0.266);
+          padding: 1rem;
+          h4 {
+            margin: 0.5rem 0;
+            text-align: center;
+          }
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1rem;
+            box-shadow: 0 0 20px rgba(169, 169, 169, 0.256);
+          }
+        }
+      }
+      .reportDownloadDiv {
+        width: 100%;
+        margin: 1rem 0;
+        .roundDiv {
+          width: 100%;
+          border-radius: 1rem;
+          height: 100%;
+          background-color: #8b9cff;
+          color: midnightblue;
+          font-weight: bold;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: start;
+          box-shadow: 0 0 8px rgba(169, 169, 169, 0.266);
+          padding: 1rem;
+          h4 {
+            margin: 0.5rem 0;
+            text-align: center;
+          }
+          .btnsDiv {
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
           }
         }
       }
     }
-    .siteMapDiv {
+    .RisingStars {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      align-items: center;
       width: 100%;
-      margin: 1rem 0;
+      height: fit-content;
       .roundDiv {
-        width: 100%;
+        width: 50%;
+        padding: 1rem;
         border-radius: 1rem;
-        height: 100%;
-        background-color: white;
+        height: 60vh;
+        background-color: #b88ea6;
         color: blanchedalmond;
         font-weight: bold;
         display: flex;
+        gap: 1rem;
         flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
         box-shadow: 0 0 8px rgba(169, 169, 169, 0.266);
-        padding: 1rem;
-        h4 {
-          margin: 0.5rem 0;
-          text-align: center;
-        }
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border-radius: 1rem;
-          box-shadow: 0 0 20px rgba(169, 169, 169, 0.256);
+        form {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
         }
       }
     }
-    .reportDownloadDiv {
+    .Events {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      justify-content: center;
+      align-items: center;
       width: 100%;
-      margin: 1rem 0;
+      height: fit-content;
       .roundDiv {
         width: 100%;
+        padding: 1rem;
         border-radius: 1rem;
-        height: 100%;
+        height: fit-content;
         background-color: #8b9cff;
-        color: midnightblue;
+        color: blanchedalmond;
         font-weight: bold;
         display: flex;
+        gap: 1rem;
         flex-direction: column;
-        justify-content: space-between;
-        align-items: start;
         box-shadow: 0 0 8px rgba(169, 169, 169, 0.266);
-        padding: 1rem;
-        h4 {
-          margin: 0.5rem 0;
-          text-align: center;
-        }
-        .btnsDiv {
+        form {
           display: flex;
-          gap: 2rem;
-          padding: 2rem;
+          flex-direction: column;
+          gap: 1rem;
         }
       }
     }
@@ -1849,9 +1994,223 @@ html::-webkit-scrollbar {
   }
 }
 
+.clubCoordinatorDash {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  padding-top: 8rem;
+  background-color: #e3e2ff;
+  .titleDiv {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-.clubCoordinatorDash{
-  
+    h3 {
+      width: 80%;
+      background-color: rgba(255, 255, 0, 0.557);
+      box-shadow: 0 0 20px rgb(205, 205, 0);
+      padding: 1rem;
+      border-radius: 1rem;
+      text-align: center;
+      color: black;
+      border: dashed thick midnightblue;
+    }
+  }
+  .topRoundDivs {
+    padding: 2rem;
+    display: flex;
+    gap: 1rem;
+    .noOfMeetings {
+      padding: 1rem;
+      border-radius: 1rem;
+      background-color: black;
+      color: blanchedalmond;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 0 8px rgba(169, 169, 169, 0.266);
+      i {
+        margin: 0 0.5rem;
+      }
+    }
+  }
+  .lineTwo {
+    padding: 1rem 0;
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    height: 27rem;
+    .leftPart {
+      width: fit-content;
+      height: 100%;
+      .roundDiv {
+        padding: 1rem;
+        border-radius: 1rem;
+        height: 100%;
+        background-color: #8b9cff;
+        color: blanchedalmond;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 0 8px rgba(169, 169, 169, 0.266);
+      }
+      .genderDoughnutChart {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    .rightPart {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      .roundDiv {
+        border-radius: 1rem;
+        height: 100%;
+        background-color: #8b9cff;
+        color: blanchedalmond;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 0 8px rgba(169, 169, 169, 0.266);
+        padding: 2rem;
+      }
+      .previousMeetingDetailsDiv {
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  .upcomingEvents {
+    width: 100%;
+    .titleLine {
+      padding: 1rem 0;
+      text-align: center;
+      color: midnightblue;
+    }
+    .upcomingEventsCards {
+      width: 100%;
+      height: fit-content;
+      overflow: hidden;
+      .cardsAnnoun {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        display: flex;
+        padding: 3rem 6rem;
+        gap: 2rem;
+        overflow: scroll;
+        scroll-behavior: smooth;
+        position: relative;
+        border-radius: 1rem;
+        background-color: #8b9cff;
+      }
+      .cardsAnnoun .card {
+        min-width: 25rem;
+        height: fit-content;
+        background-color: white;
+        border: none;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+        border-radius: 0;
+        padding: 1rem;
+      }
+      .cardsAnnoun .card .imageDiv {
+        height: 15rem;
+        background-color: black;
+        width: 100%;
+      }
+      .cardsAnnoun .card .imageDiv img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .cardsAnnoun .card .textBody {
+        height: 40%;
+        width: 100%;
+      }
+    }
+  }
+  .previousEvents {
+    width: 100%;
+    .titleLine {
+      padding: 1rem 0;
+      text-align: center;
+      color: midnightblue;
+    }
+    .upcomingEventsCards {
+      width: 100%;
+      height: fit-content;
+      overflow: hidden;
+      .cardsAnnoun {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        display: flex;
+        padding: 3rem 6rem;
+        gap: 2rem;
+        overflow: scroll;
+        scroll-behavior: smooth;
+        position: relative;
+        border-radius: 1rem;
+        background-color: #8b9cff;
+      }
+      .cardsAnnoun .card {
+        min-width: 25rem;
+        height: fit-content;
+        background-color: white;
+        border: none;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+        border-radius: 0;
+        padding: 1rem;
+      }
+      .cardsAnnoun .card .imageDiv {
+        height: 15rem;
+        background-color: black;
+        width: 100%;
+      }
+      .cardsAnnoun .card .imageDiv img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .cardsAnnoun .card .textBody {
+        height: 40%;
+        width: 100%;
+      }
+    }
+  }
+  .basicClubDetails {
+    border-radius: 1rem;
+    background-color: #b88ea6;
+    width: 100%;
+    height: fit-content;
+    margin: 2rem;
+    padding: 2rem;
+    color: blanchedalmond;
+    .basicField {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+  .nextMeetingDetails {
+    border-radius: 1rem;
+    background-color: #8b9cff;
+    width: 100%;
+    height: fit-content;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    color: blanchedalmond;
+  }
 }
 
 @media (max-width: 1024px) {

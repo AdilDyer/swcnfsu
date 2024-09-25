@@ -32,16 +32,22 @@ const checkIsClubCoordinator = async (email) => {
     await dbConnect(); // Ensure DB connection
 
     // Fetch coordinator by user email
-    const result = await ClubCoordinator.findOne({}).populate({
-      path: "userId", // Populates the user data
-      match: { email }, // Filters by the user's email
-    });
+    const result = await ClubCoordinator.findOne({})
+      .populate({
+        path: "userId", // Populates the user data
+        match: { email }, // Filters by the user's email
+      })
+      .populate("clubId"); // Populates the club data (including name)
 
     // If userId is populated and found, the user is a club coordinator
-    if (result && result.userId) {
-      return true;
+    // If userId and clubId are found, return the club name
+    if (result && result.userId && result.clubId) {
+      return {
+        isClubCoordinator: true,
+        clubName: result.clubId.name, // Assuming `name` field exists in the Club schema
+      };
     } else {
-      return false;
+      return { isClubCoordinator: false, clubName: null };
     }
   } catch (error) {
     console.error("Error checking club coordinator status:", error);
@@ -69,9 +75,14 @@ export const authOptions = {
         // Add course information if available
         session.user.course = await addCourseIfAvailable(session.user.email);
 
-        session.user.isClubCoordinator = await checkIsClubCoordinator(
+        // Check if the user is a club coordinator and get the club name
+        const { isClubCoordinator, clubName } = await checkIsClubCoordinator(
           session.user.email
         );
+
+        // Update session object with club information
+        session.user.isClubCoordinator = isClubCoordinator;
+        session.user.clubName = clubName;
 
         return session; // Return modified session
       } catch (error) {
