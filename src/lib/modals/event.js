@@ -39,7 +39,8 @@ const EventSchema = new mongoose.Schema(
     },
     eventImageUrl: {
       type: String,
-      default: "https://guwahati.nfsu.ac.in/img/logo.png",
+      default:
+        "https://res.cloudinary.com/ddxv0iwcs/image/upload/v1727417136/Screenshot_2024-09-27_at_11.35.29_AM_rl2ket.png",
     },
     rsvps: {
       type: [

@@ -1,14 +1,14 @@
-"use client"
+"use client";
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const Footer = () => {
-    const pathname = usePathname();
-    if (pathname === "/report") {
-      return null;
-    }
+  const pathname = usePathname();
+  if (pathname === "/report") {
+    return null;
+  }
   return (
     <div className="footer">
       <h1>Join the SWC Club today ! </h1>
@@ -33,9 +33,11 @@ const Footer = () => {
         <div className="allLinksContainer">
           <div className="linksDiv">
             <span>SWC</span>
-            <Link href="https://www.nfsu.ac.in/" target="_blank">NFSU Main Page</Link>
-            <Link href="#">NSS</Link>
+            <Link href="https://www.nfsu.ac.in/" target="_blank">
+              NFSU Main Page
+            </Link>
             <Link href="#aboutRedirectsHere">About</Link>
+            <Link href="#">NSS</Link>
             <Link href="/ourteam">Our Team</Link>
             <Link href="#">Privacy</Link>
             <Link href="/grievance">Forum</Link>
@@ -44,9 +46,10 @@ const Footer = () => {
           </div>
 
           <div className="linksDiv">
-            <span>Divisions</span>
-            <Link href="#">Mentorship</Link>
-            <Link href="#">Operational</Link>
+            <span>Conveners</span>
+            <Link href="#">Faculty Coordinators</Link>
+            <Link href="#">Student Representatives</Link>
+            <Link href="#">Club Coordinators</Link>
           </div>
 
           <div className="linksDiv">
@@ -66,7 +69,7 @@ const Footer = () => {
             <Link href="#">Study Groups</Link>
             <Link href="#">Video Guide</Link>
             <Link href="#">Blog</Link>
-            <Link href="/grievance">Download Certificate</Link>
+            {/* <Link href="/grievance">Download Certificate</Link> */}
             <Link href="/contact">Contact Us</Link>
           </div>
         </div>

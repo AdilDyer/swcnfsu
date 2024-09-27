@@ -2,24 +2,19 @@ import dbConnect from "../../../lib/db";
 import Event from "../../../lib/modals/event";
 import { NextResponse } from "next/server";
 
-async function handler(req, res) {
-  if (req.method === "GET") {
-    try {
-      await dbConnect();
+export async function GET() {
+  try {
+    await dbConnect();
 
-      let result = await Event.find({});
+    // Find events and populate the rsvps field
+    const result = await Event.find({}).populate("rsvps").exec();
 
-      if (result) {
-        return NextResponse.json({ result, status: 200 });
-      } else {
-        return NextResponse.json({ message: "User not found", status: 404 });
-      }
-    } catch (error) {
-      return NextResponse.json({ error: error.message, status: 400 });
+    if (result) {
+      return NextResponse.json({ result, status: 200 });
+    } else {
+      return NextResponse.json({ message: "Events not found", status: 404 });
     }
-  } else {
-    return NextResponse.json({ message: "Method not allowed", status: 405 });
+  } catch (error) {
+    return NextResponse.json({ error: error.message, status: 400 });
   }
 }
-
-export { handler as GET };

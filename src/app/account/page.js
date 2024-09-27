@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import Link from "next/link";
 
 const Account = () => {
   const { data: session, status } = useSession();
@@ -26,7 +27,9 @@ const Account = () => {
   const [otpSent, setOtpSent] = useState(false);
   const [otp, setOtp] = useState("");
   const [otpVerified, setOtpVerified] = useState(false);
-
+  const [rsvpEvents, setRsvpEvents] = useState([]);
+  const [attendedEvents, setAttendedEvents] = useState([]);
+  const [userId, setUserId] = useState("");
   //fetching a new quote from the backend
   useEffect(() => {
     const fetchQuote = async () => {
@@ -50,6 +53,7 @@ const Account = () => {
       );
       const data = await response.json();
       if (data.status == 200) {
+        setUserId(data.result._id);
         setPhoneNumber(data.result.phoneNumber);
         setEnrollNo(data.result.enrollNo);
         const formattedBirthdate = new Date(data.result.birthdate)
@@ -77,6 +81,21 @@ const Account = () => {
     }
     fetchCourses();
   }, [selectedSchool]);
+
+  useEffect(() => {
+    const fetchAllEvents = async () => {
+      try {
+        const response = await fetch(`/api/getEvents/users/${userId}`);
+        const data = await response.json();
+        setAttendedEvents(data.attendedEvents);
+        setRsvpEvents(data.rsvpEvents);
+      } catch (error) {
+        console.error("Error fetching all events:", error);
+      }
+    };
+
+    fetchAllEvents();
+  }, [session]);
 
   //handle regis form
   const handleSubmit = async () => {
@@ -243,17 +262,6 @@ const Account = () => {
     return null; // No session
   }
 
-  // Event data before dynamic loading starts
-  const event = {
-    _id: "1",
-    name: "Event Name",
-    date: "2022-12-12",
-    description: "Event Description",
-    eventImageUrl:
-      "https://res.cloudinary.com/ddxv0iwcs/image/upload/v1726216784/right-arrow_k1jiu2.png",
-    eventTime: "12:00 PM",
-  };
-
   return (
     <div className="accountBig">
       {session ? (
@@ -309,7 +317,7 @@ const Account = () => {
               <div className="rightPart">
                 <div className="noOfMeetings">
                   <h5>Total No. of Events Attended : </h5>
-                  <h5>10</h5>
+                  <h5>{attendedEvents?.length}</h5>
                 </div>
                 <div className="titleLine">
                   <h4>Upcoming RSVPied Events </h4>
@@ -328,54 +336,51 @@ const Account = () => {
                       </div>
                     </div>
 
-                    <div className="card" key={event._id}>
-                      <div className="imageDiv">
-                        <img src={event.eventImageUrl} alt={event.name} />
-                      </div>
-                      <br />
-                      <Button variant="primary" disabled>
-                        RSVP Done
-                      </Button>
-                      <br />
-                      <div className="textBody">
-                        <h5>{event.name}</h5>
-                        <p>Date: {event.date}</p>
-                        <h6>Time: {event.eventTime}</h6>
-                        <h6>{event.description}</h6>
-                      </div>
-                    </div>
-                    <div className="card" key={event._id}>
-                      <div className="imageDiv">
-                        <img src={event.eventImageUrl} alt={event.name} />
-                      </div>
-                      <br />
-                      <Button variant="primary" disabled>
-                        RSVP Done
-                      </Button>
-                      <br />
-                      <div className="textBody">
-                        <h5>{event.name}</h5>
-                        <p>Date: {event.date}</p>
-                        <h6>Time: {event.eventTime}</h6>
-                        <h6>{event.description}</h6>
-                      </div>
-                    </div>
-                    <div className="card" key={event._id}>
-                      <div className="imageDiv">
-                        <img src={event.eventImageUrl} alt={event.name} />
-                      </div>
-                      <br />
-                      <Button variant="primary" disabled>
-                        RSVP Done
-                      </Button>
-                      <br />
-                      <div className="textBody">
-                        <h5>{event.name}</h5>
-                        <p>Date: {event.date}</p>
-                        <h6>Time: {event.eventTime}</h6>
-                        <h6>{event.description}</h6>
-                      </div>
-                    </div>
+                    {rsvpEvents?.length > 0 &&
+                      rsvpEvents
+                        .sort((a, b) => new Date(a.date) - new Date(b.date)) // Sort by date, earliest first
+                        .map((event) => {
+                          const istDate = new Date(event.date);
+
+                          const eventDateTime = istDate.toLocaleString(
+                            "en-GB",
+                            {
+                              weekday: "short",
+                              day: "numeric",
+                              month: "short",
+                              year: "numeric",
+                              hour: "2-digit",
+                              minute: "2-digit",
+                              hour12: true,
+                              timeZone: "Asia/Kolkata",
+                            }
+                          );
+
+                          return (
+                            <div className="card" key={event._id}>
+                              <div className="imageDiv">
+                                <img
+                                  src={event.eventImageUrl}
+                                  alt={event.name}
+                                />
+                              </div>
+                              <br />
+                              <Button variant="primary" disabled>
+                                RSVP Done
+                              </Button>
+                              <br />
+
+                              <div className="textBody">
+                                <h5>{event.name}</h5>
+
+                                <p>{event.clubName} Club Event</p>
+                                <h6>Date: {eventDateTime}</h6>
+                                <h6>{event.description.Introduction}</h6>
+                              </div>
+                            </div>
+                          );
+                        })}
+
 
                     <div
                       className="scrollBtnDiv scrollBtnDivRight"
@@ -412,51 +417,53 @@ const Account = () => {
                       </div>
                     </div>
 
-                    <div className="card" key={event._id}>
-                      <div className="imageDiv">
-                        <img src={event.eventImageUrl} alt={event.name} />
-                      </div>
-                      <br />
-                      <Button variant="dark">Event Synopsis</Button>
-                      <br /> <Button variant="dark">Download Cerificate</Button>
-                      <br />
-                      <div className="textBody">
-                        <h5>{event.name}</h5>
-                        <p>Date: {event.date}</p>
-                        <h6>Time: {event.eventTime}</h6>
-                        <h6>{event.description}</h6>
-                      </div>
-                    </div>
-                    <div className="card" key={event._id}>
-                      <div className="imageDiv">
-                        <img src={event.eventImageUrl} alt={event.name} />
-                      </div>
-                      <br />
-                      <Button variant="dark">Event Synopsis</Button>
-                      <br /> <Button variant="dark">Download Cerificate</Button>
-                      <br />
-                      <div className="textBody">
-                        <h5>{event.name}</h5>
-                        <p>Date: {event.date}</p>
-                        <h6>Time: {event.eventTime}</h6>
-                        <h6>{event.description}</h6>
-                      </div>
-                    </div>
-                    <div className="card" key={event._id}>
-                      <div className="imageDiv">
-                        <img src={event.eventImageUrl} alt={event.name} />
-                      </div>
-                      <br />
-                      <Button variant="dark">Event Synopsis</Button>
-                      <br /> <Button variant="dark">Download Cerificate</Button>
-                      <br />
-                      <div className="textBody">
-                        <h5>{event.name}</h5>
-                        <p>Date: {event.date}</p>
-                        <h6>Time: {event.eventTime}</h6>
-                        <h6>{event.description}</h6>
-                      </div>
-                    </div>
+                    {attendedEvents?.length > 0 &&
+                      attendedEvents
+                        .sort((a, b) => new Date(b.date) - new Date(a.date)) // Sort by date, latest first
+                        .map((event) => {
+                          const istDate = new Date(event.date);
+
+                          const eventDateTime = istDate.toLocaleString(
+                            "en-GB",
+                            {
+                              weekday: "short",
+                              day: "numeric",
+                              month: "short",
+                              year: "numeric",
+                              hour: "2-digit",
+                              minute: "2-digit",
+                              hour12: true,
+                              timeZone: "Asia/Kolkata",
+                            }
+                          );
+                          return (
+                            <div className="card" key={event._id}>
+                              <div className="imageDiv">
+                                <img
+                                  src={event.eventImageUrl}
+                                  alt={event.name}
+                                />
+                              </div>
+                              <br />
+                              <Link
+                                href={`/clubs/${event.clubName}/${event._id}`}
+                              >
+                                <Button variant="dark">Event Synopsis</Button>
+                              </Link>
+                              <br />
+                              <div className="textBody">
+                                <h5>{event.name}</h5>
+                                <p>
+                                  <i>{event.clubName} Club Event</i>
+                                </p>
+
+                                <h6>Date: {eventDateTime}</h6>
+                                <h6>{event.description.Introduction}</h6>
+                              </div>
+                            </div>
+                          );
+                        })}
+
                     <div
                       className="scrollBtnDiv scrollBtnDivRight"
                       onClick={scrollRight2}

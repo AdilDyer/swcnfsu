@@ -12,7 +12,7 @@ import RisingStar from "./components/RisingStar";
 import Gallery from "./components/Gallery";
 import { useEffect, useState } from "react";
 import ThirdCover from "../clubs/components/ThirdCover";
-
+import SiteMap from "./components/SiteMap";
 const Home = () => {
   const [allEvents, setAllEvents] = useState([]);
   const [allRisingStars, setAllRisingStars] = useState([]);
@@ -33,9 +33,7 @@ const Home = () => {
   useEffect(() => {
     const fetchAllRisingStars = async () => {
       try {
-        const response = await fetch(
-          "/api/getAllRisingStars"
-        );
+        const response = await fetch("/api/getAllRisingStars");
         const data = await response.json();
         setAllRisingStars(data.result);
       } catch (error) {
@@ -71,6 +69,7 @@ const Home = () => {
       <ThirdCover clubName={"Book"} />
       <SupportServices />
       <Qbon />
+      <SiteMap />
     </>
   );
 };

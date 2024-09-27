@@ -21,107 +21,6 @@ import { CldUploadWidget } from "next-cloudinary";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-function YourChartComponentDoughnut() {
-  let data = [
-    {
-      label: "Girls",
-      value: 55,
-      color: "rgba(0, 43, 73, 1)",
-      cutout: "50%",
-    },
-    {
-      label: "Boys",
-      value: 80,
-      color: "rgba(83, 217, 217, 1)",
-      cutout: "50%",
-    },
-    {
-      label: "Others",
-      value: 10,
-      color: "rgba(0, 103, 160, 1)",
-      cutout: "50%",
-    },
-  ];
-
-  const options = {
-    plugins: {
-      responsive: true,
-    },
-    cutout: data.map((item) => item.cutout),
-  };
-
-  const finalData = {
-    labels: data.map((item) => item.label),
-    datasets: [
-      {
-        data: data.map((item) => Math.round(item.value)),
-        backgroundColor: data.map((item) => item.color),
-        borderColor: data.map((item) => item.color),
-        borderWidth: 1,
-        dataVisibility: new Array(data.length).fill(true),
-      },
-    ],
-  };
-
-  return <Doughnut data={finalData} options={options} />;
-}
-function YourChartComponentDoughnut2() {
-  let data = [
-    {
-      label: "Btech Mtech Cybersecurity",
-      value: 55,
-      color: "#0082c5",
-      cutout: "50%",
-    },
-    {
-      label: "Law and Forensic Science",
-      value: 80,
-      color: "#6bcffe",
-      cutout: "50%",
-    },
-    {
-      label: "Bsc Msc Cybersecurity",
-      value: 10,
-      color: "#c4edff",
-      cutout: "50%",
-    },
-    {
-      label: "Mtech Cybersecurity",
-      value: 50,
-      color: "#aa5e32",
-      cutout: "50%",
-    },
-    {
-      label: "Pyschology",
-      value: 30,
-      color: "#f3e8d7",
-      cutout: "50%",
-    },
-  ];
-
-  const options = {
-    plugins: {
-      responsive: true,
-    },
-    cutout: data.map((item) => item.cutout),
-  };
-
-  const finalData = {
-    labels: data.map((item) => item.label),
-    datasets: [
-      {
-        data: data.map((item) => Math.round(item.value)),
-        backgroundColor: data.map((item) => item.color),
-        borderColor: data.map((item) => item.color),
-        borderWidth: 1,
-        dataVisibility: new Array(data.length).fill(true),
-      },
-    ],
-  };
-
-  return <Doughnut data={finalData} options={options} />;
-}
-
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -132,137 +31,6 @@ ChartJS.register(
   Legend,
   Filler
 );
-
-const MyBarChart = () => {
-  const labels = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "April",
-    "May",
-    "June",
-    "July",
-    "Aug",
-    "Sep",
-  ];
-  const datasets = [12, 45, 67, 43, 89, 34, 67, 43, 55];
-  const data = {
-    labels: labels,
-    datasets: [
-      {
-        // Title of Graph
-        label: "Number of Events",
-        data: datasets,
-        backgroundColor: [
-          "rgba(255, 99, 132, 02)",
-          "rgba(255, 159, 64, 02)",
-          "rgba(255, 205, 86, 02)",
-          "rgba(75, 192, 192, 02)",
-        ],
-        borderColor: [
-          "rgb(255, 99, 132)",
-          "rgb(255, 159, 64)",
-          "rgb(255, 205, 86)",
-          "rgb(75, 192, 192)",
-        ],
-        borderWidth: 1,
-        barPercentage: 1,
-        borderRadius: {
-          topLeft: 5,
-          topRight: 50,
-        },
-      },
-      // insert similar in dataset object for making multi bar chart
-    ],
-  };
-  const options = {
-    scales: {
-      y: {
-        title: {
-          display: true,
-          text: "Number of Events",
-        },
-        display: true,
-        beginAtZero: true,
-        max: 100,
-      },
-      x: {
-        title: {
-          display: true,
-          text: "Months",
-        },
-        display: true,
-      },
-    },
-  };
-  return <Bar data={data} options={options} />;
-};
-
-const MyBarChart2 = () => {
-  const labels = [
-    "Book",
-    "Debate",
-    "Civil Services",
-    "Music",
-    "Sports",
-    "Drama",
-    "Yoga",
-    "Cinematography",
-    "Content Writing",
-    "Vlogging",
-  ];
-  const datasets = [89, 67, 67, 55, 45, 43, 43, 34, 12];
-  const data = {
-    labels: labels,
-    datasets: [
-      {
-        // Title of Graph
-        label: "Number of Meetings",
-        data: datasets,
-        backgroundColor: [
-          "rgba(255, 99, 132, 02)",
-          "rgba(255, 159, 64, 02)",
-          "rgba(255, 205, 86, 02)",
-          "rgba(75, 192, 192, 02)",
-        ],
-        borderColor: [
-          "rgb(255, 99, 132)",
-          "rgb(255, 159, 64)",
-          "rgb(255, 205, 86)",
-          "rgb(75, 192, 192)",
-        ],
-        borderWidth: 1,
-        barPercentage: 1,
-        borderRadius: {
-          topLeft: 5,
-          topRight: 50,
-        },
-      },
-      // insert similar in dataset object for making multi bar chart
-    ],
-  };
-  const options = {
-    scales: {
-      y: {
-        title: {
-          display: true,
-          text: "Number of Meetings",
-        },
-        display: true,
-        beginAtZero: true,
-        max: 100,
-      },
-      x: {
-        title: {
-          display: true,
-          text: "Months",
-        },
-        display: true,
-      },
-    },
-  };
-  return <Bar data={data} options={options} />;
-};
 
 const ClubCoordinatorDashboard = () => {
   const { data: session, status } = useSession();
@@ -280,7 +48,61 @@ const ClubCoordinatorDashboard = () => {
   const [eventPosterUploaded, setEventPosterUploaded] = useState(false);
   const [otherEventImagesUploaded, setOtherEventImagesUploaded] =
     useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [currentEvent, setCurrentEvent] = useState("");
+  const [loadingForAttendace, setLoadingForAttendace] = useState(false);
+  const [maleStudents, setMaleStudents] = useState(0);
+  const [femaleStudents, setFemaleStudents] = useState(0);
+  const [otherStudents, setOtherStudents] = useState(0);
+  const [allUsersData, setAllUsersData] = useState([]);
+  const [checkAll, setCheckAll] = useState(false);
 
+  const fetchStudentGenderRatio = async () => {
+    try {
+      const response = await fetch("/api/getUser/gender");
+      let data = await response.json();
+      setMaleStudents(data?.genderCount[0]?.count);
+      setFemaleStudents(data?.genderCount[1]?.count);
+      setOtherStudents(data?.genderCount[2]?.count);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+  const getCurrentEvent = (events, clubName) => {
+    // Get current IST time
+    const currentIST = new Date(
+      new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" })
+    );
+
+    // Filter events for the specific club
+    const clubEvents = events.filter((event) => event.clubName === clubName);
+
+    // Find the current event
+    const currentEvent = clubEvents.find((event) => {
+      const eventTime = new Date(event.date); // eventTime is in ist
+      const twoHoursBefore = new Date(eventTime.getTime() - 2 * 60 * 60 * 1000);
+      const fiveHoursAfter = new Date(eventTime.getTime() + 5 * 60 * 60 * 1000);
+
+      return currentIST >= twoHoursBefore && currentIST <= fiveHoursAfter;
+    });
+
+    return currentEvent || null;
+  };
+
+  const fetchAllUsersData = async () => {
+    try {
+      const response = await fetch("/api/getUser/allForAdmin");
+      let data = await response.json();
+      setAllUsersData(data.result);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchStudentGenderRatio();
+    fetchAllUsersData();
+  }, []);
   useEffect(() => {
     if (session) {
       setClubName(session?.user?.clubName);
@@ -290,6 +112,7 @@ const ClubCoordinatorDashboard = () => {
         const response = await fetch("/api/getEvents");
         const data = await response.json();
         setAllEvents(data.result);
+        setCurrentEvent(getCurrentEvent(data.result, clubName));
       } catch (error) {
         console.error("Error fetching all events:", error);
       }
@@ -312,6 +135,263 @@ const ClubCoordinatorDashboard = () => {
     fetchClubDetails();
   }, [session, monthlyTarget, whatsappLink, instaLink, clubName]);
 
+  function YourChartComponentDoughnut() {
+    let data = [
+      {
+        label: "Girls",
+        value: femaleStudents,
+        color: "rgba(0, 43, 73, 1)",
+        cutout: "50%",
+      },
+      {
+        label: "Boys",
+        value: maleStudents,
+        color: "rgba(83, 217, 217, 1)",
+        cutout: "50%",
+      },
+      {
+        label: "Others",
+        value: otherStudents,
+        color: "rgba(0, 103, 160, 1)",
+        cutout: "50%",
+      },
+    ];
+
+    const options = {
+      plugins: {
+        responsive: true,
+      },
+      cutout: data.map((item) => item.cutout),
+    };
+
+    const finalData = {
+      labels: data.map((item) => item.label),
+      datasets: [
+        {
+          data: data.map((item) => Math.round(item.value)),
+          backgroundColor: data.map((item) => item.color),
+          borderColor: data.map((item) => item.color),
+          borderWidth: 1,
+          dataVisibility: new Array(data.length).fill(true),
+        },
+      ],
+    };
+
+    return <Doughnut data={finalData} options={options} />;
+  }
+
+  function YourChartComponentDoughnut2({ usersData }) {
+    const getRandomColor = () => {
+      const letters = "0123456789ABCDEF";
+      let color = "#";
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    };
+    // Function to process users data and get course-wise counts
+    const getCourseData = (users) => {
+      const courseCounts = {};
+
+      users.forEach((user) => {
+        if (user.course) {
+          const course = user.course;
+          if (courseCounts[course]) {
+            courseCounts[course] += 1;
+          } else {
+            courseCounts[course] = 1; // Initialize count
+          }
+        }
+      });
+
+      return courseCounts;
+    };
+
+    const courseCounts = getCourseData(usersData);
+    const data = Object.keys(courseCounts).map((course) => ({
+      label: course,
+      value: courseCounts[course],
+      color: getRandomColor(), // Function to get random color for each course
+      cutout: "50%",
+    }));
+
+    const options = {
+      plugins: {
+        responsive: true,
+        legend: {
+          display: false, // Disable the legend to hide labels
+        },
+      },
+    };
+
+    const finalData = {
+      labels: data.map((item) => item.label),
+      datasets: [
+        {
+          data: data.map((item) => Math.round(item.value)),
+          backgroundColor: data.map((item) => item.color),
+          borderColor: data.map((item) => item.color),
+          borderWidth: 1,
+          dataVisibility: new Array(data.length).fill(true),
+        },
+      ],
+    };
+
+    return <Doughnut data={finalData} options={options} />;
+  }
+
+  const MyBarChart = ({ allEvents }) => {
+    // Initialize count array for each month (0 for January to 11 for December)
+    const monthlyEventCount = Array(12).fill(0);
+
+    // Process allEvents to count events per month
+    allEvents
+      .filter((event) => {
+        return event.clubName == clubName;
+      })
+      .forEach((event) => {
+        const eventDate = new Date(event.date);
+        const month = eventDate.getMonth(); // Get month (0-11)
+
+        if (eventDate < new Date()) {
+          // Only consider past events
+          monthlyEventCount[month] += 1; // Increment the count for that month
+        }
+      });
+    const labels = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "April",
+      "May",
+      "June",
+      "July",
+      "Aug",
+      "Sep",
+    ];
+    const datasets = [12, 45, 67, 43, 89, 34, 67, 43, 55];
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          // Title of Graph
+          label: "Number of Events",
+          data: monthlyEventCount,
+          backgroundColor: [
+            "rgba(255, 99, 132, 02)",
+            "rgba(255, 159, 64, 02)",
+            "rgba(255, 205, 86, 02)",
+            "rgba(75, 192, 192, 02)",
+          ],
+          borderColor: [
+            "rgb(255, 99, 132)",
+            "rgb(255, 159, 64)",
+            "rgb(255, 205, 86)",
+            "rgb(75, 192, 192)",
+          ],
+          borderWidth: 1,
+          barPercentage: 1,
+          borderRadius: {
+            topLeft: 5,
+            topRight: 50,
+          },
+        },
+        // insert similar in dataset object for making multi bar chart
+      ],
+    };
+    const options = {
+      scales: {
+        y: {
+          title: {
+            display: true,
+            text: "Number of Events",
+          },
+          display: true,
+          beginAtZero: true,
+          max: Math.max(...monthlyEventCount) + 5, // Dynamic max
+        },
+        x: {
+          title: {
+            display: true,
+            text: "Months",
+          },
+          display: true,
+        },
+      },
+    };
+    return <Bar data={data} options={options} />;
+  };
+
+  const MyBarChart2 = ({ allEvents }) => {
+    // Initialize an object to count events for each club
+    const clubEventCount = {};
+
+    // Process allEvents to count events per club
+    allEvents.forEach((event) => {
+      const clubName = event.clubName;
+
+      // Increment the count for that club
+      if (clubEventCount[clubName]) {
+        clubEventCount[clubName] += 1;
+      } else {
+        clubEventCount[clubName] = 1; // Initialize if the club is not already in the object
+      }
+    });
+    // Extract labels and datasets from the clubEventCount object
+    const labels = Object.keys(clubEventCount);
+    const datasets = Object.values(clubEventCount);
+    // const datasets = [89, 67, 67, 55, 45, 43, 43, 34, 12];
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          // Title of Graph
+          label: "Number of Events",
+          data: datasets,
+          backgroundColor: [
+            "rgba(255, 99, 132, 02)",
+            "rgba(255, 159, 64, 02)",
+            "rgba(255, 205, 86, 02)",
+            "rgba(75, 192, 192, 02)",
+          ],
+          borderColor: [
+            "rgb(255, 99, 132)",
+            "rgb(255, 159, 64)",
+            "rgb(255, 205, 86)",
+            "rgb(75, 192, 192)",
+          ],
+          borderWidth: 1,
+          barPercentage: 1,
+          borderRadius: {
+            topLeft: 5,
+            topRight: 50,
+          },
+        },
+        // insert similar in dataset object for making multi bar chart
+      ],
+    };
+    const options = {
+      scales: {
+        y: {
+          title: {
+            display: true,
+            text: "Number of Events",
+          },
+          display: true,
+          beginAtZero: true,
+          max: Math.max(...datasets) + 5, // Dynamic max based on data
+        },
+        x: {
+          title: {
+            display: true,
+            text: "Clubs",
+          },
+          display: true,
+        },
+      },
+    };
+    return <Bar data={data} options={options} />;
+  };
   //left right scroll btns
   const containerRef = useRef(null);
   const containerRef2 = useRef(null);
@@ -394,12 +474,15 @@ const ClubCoordinatorDashboard = () => {
     // Format the IST date if needed
     let formattedISTDate = istDate.toISOString().slice(0, 19).replace("T", " "); // Format as "YYYY-MM-DD HH:MM:SS"
 
+    let DescData = {
+      Introduction: formData.get("description"),
+    };
     const eventData = {
       name: formData.get("name"),
       date: formattedISTDate,
       clubName: clubName,
       location: formData.get("venue"),
-      description: formData.get("description"),
+      description: DescData,
       eventImageUrl: "",
     };
 
@@ -472,6 +555,109 @@ const ClubCoordinatorDashboard = () => {
     }
   };
 
+  // Handle RSVP check/uncheck
+
+  const handleAttendanceToggle = async (eventId, studentId, isChecked) => {
+    try {
+      setLoadingForAttendace(true);
+      const method = isChecked ? "POST" : "DELETE";
+      const response = await fetch(`/api/updateAttendees`, {
+        method,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ studentId, eventId }),
+      });
+      const data = await response.json();
+      if (data.status === 200) {
+        // Update the current event's attendees
+        const updatedEvent = { ...currentEvent };
+        if (isChecked) {
+          updatedEvent.attendees.push(studentId);
+        } else {
+          updatedEvent.attendees = updatedEvent.attendees.filter(
+            (id) => id != studentId
+          );
+        }
+        setCurrentEvent(updatedEvent);
+      }
+      setLoadingForAttendace(false);
+    } catch (error) {
+      console.error("Error updating attendees:", error);
+    }
+  };
+
+  // Handle search query input
+  const handleSearch = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  // Filter RSVPs based on the search query
+  const filterRSVPs = (rsvps) => {
+    const search = searchQuery.toLowerCase();
+    return rsvps.filter((student) => {
+      return (
+        student?.name.toLowerCase().includes(search) ||
+        student?.enrollNo.toString().includes(search) || // Convert number to string
+        student?.email.toLowerCase().includes(search)
+      );
+    });
+  };
+
+  const handleEventRsvpCheck = async (eventId = null) => {
+    try {
+      let response = await fetch("/api/getEventRsvps?eventId=" + eventId);
+
+      if (response.ok) {
+        // Create a Blob from the response
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+
+        // Create a link element to trigger download
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `Event_RSVPs.csv`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+
+        // Clean up the URL object
+        window.URL.revokeObjectURL(url);
+      } else {
+        console.error("Failed to fetch CSV");
+      }
+    } catch (error) {
+      console.error("Error downloading RSVPs:", error);
+    }
+  };
+  const handleCheckAll = () => {
+    // Toggle checkAll state
+    const newCheckAllState = !checkAll;
+    setCheckAll(newCheckAllState);
+
+    // Optionally, handle attendance toggle for all students
+    currentEvent.rsvps.forEach((student) => {
+      handleAttendanceToggle(currentEvent._id, student._id, newCheckAllState);
+    });
+  };
+  if (status === "loading") {
+    return (
+      <>
+        <div
+          style={{
+            width: "100%",
+            height: "100vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <p>Loading...</p>
+        </div>
+      </>
+    ); // This covers the loading case
+  }
+
   return (
     <div className="clubCoordinatorDash">
       <div className="titleDiv">
@@ -483,22 +669,43 @@ const ClubCoordinatorDashboard = () => {
         </h3>
       </div>
       <div className="topRoundDivs">
-        <div
-          className="noOfMeetings"
-          style={{ backgroundColor: "midnightBlue" }}
-        >
-          Take Attendance
+        <div className="noOfMeetings">
+          Total Upcoming Events <i class="fa-brands fa-connectdevelop"></i>
+          {
+            allEvents
+              .filter((event) => {
+                return event.clubName == clubName;
+              })
+              .filter((event) => {
+                const eventDate = new Date(event.date);
+                return eventDate > new Date(); // Filter events that will occur in the future
+              }).length
+          }
         </div>
         <div className="noOfMeetings">
-          Total Upcoming Events <i class="fa-brands fa-connectdevelop"></i> 59
-        </div>
-        <div className="noOfMeetings">
-          Total Moments Captured
-          <i class="fa-brands fa-connectdevelop"></i> 12
+          Total Moments Captured by SWC
+          <i class="fa-brands fa-connectdevelop"></i>
+          {allEvents.reduce((total, event) => {
+            const galleryImagesCount = event.eventGalleryImages
+              ? event.eventGalleryImages.length
+              : 0;
+            const posterImageCount = event.eventImageUrl ? 1 : 0;
+            return total + galleryImagesCount + posterImageCount;
+          }, 0)}
         </div>
         <div className="noOfMeetings">
           Total Previous Events
-          <i class="fa-brands fa-connectdevelop"></i> 1230
+          <i class="fa-brands fa-connectdevelop"></i>
+          {
+            allEvents
+              .filter((event) => {
+                return event.clubName == clubName;
+              })
+              .filter((event) => {
+                const eventDate = new Date(event.date);
+                return eventDate < new Date(); // Filter events that occurred in the past
+              }).length
+          }
         </div>
         <Link href={`/clubs/${clubName}`} style={{ textDecoration: "none" }}>
           <div className="noOfMeetings">
@@ -507,6 +714,51 @@ const ClubCoordinatorDashboard = () => {
           </div>
         </Link>
       </div>
+      {currentEvent && (
+        <div className="markAttendanceList">
+          <h2>Attendance for {currentEvent.name}</h2>
+          <div className="searchBox">
+            <Form.Control
+              size="lg"
+              type="text"
+              placeholder="Search for Student... (Name, Enroll, Email)"
+              value={searchQuery}
+              onChange={handleSearch}
+            />
+          </div>
+          <div className="attendanceList">
+            <Button onClick={handleCheckAll} variant="dark">
+              {checkAll
+                ? "Uncheck All Students"
+                : `Check All Students ${String.fromCharCode(10003)}`}
+            </Button>
+            <br /> <br />
+            {currentEvent?.rsvps?.length > 0 ? (
+              filterRSVPs(currentEvent.rsvps).map((student, index) => (
+                <Form.Check
+                  key={index}
+                  type="checkbox"
+                  label={
+                    loadingForAttendace
+                      ? "Updating Attendance..."
+                      : `${student.name} :: ${student.enrollNo} :: ${student.email}`
+                  }
+                  checked={currentEvent.attendees.includes(student._id)}
+                  onChange={(e) =>
+                    handleAttendanceToggle(
+                      currentEvent._id,
+                      student._id,
+                      e.target.checked
+                    )
+                  }
+                />
+              ))
+            ) : (
+              <p>No Results found</p>
+            )}
+          </div>
+        </div>
+      )}
       <div className="lineTwo">
         <div className="leftPart">
           <div className="roundDiv genderDoughnutChart">
@@ -516,8 +768,8 @@ const ClubCoordinatorDashboard = () => {
         </div>
         <div className="rightPart">
           <div className="roundDiv previousMeetingDetailsDiv">
-            <h4>Previous Events History</h4>
-            <MyBarChart />
+            <h4>Previous Events History of {clubName} Club</h4>
+            <MyBarChart allEvents={allEvents} />
           </div>
         </div>
       </div>
@@ -525,13 +777,13 @@ const ClubCoordinatorDashboard = () => {
         <div className="rightPart">
           <div className="roundDiv previousMeetingDetailsDiv">
             <h4>Top Performing Clubs</h4>
-            <MyBarChart2 />
+            <MyBarChart2 allEvents={allEvents} />
           </div>
         </div>
         <div className="leftPart">
           <div className="roundDiv genderDoughnutChart">
             <h4>Course-wise Student Ratio</h4>
-            <YourChartComponentDoughnut2 />
+            <YourChartComponentDoughnut2 usersData={allUsersData} />
           </div>
         </div>
       </div>{" "}
@@ -570,35 +822,42 @@ const ClubCoordinatorDashboard = () => {
               })
               .sort((a, b) => new Date(a.date) - new Date(b.date)) // Sort by date, earliest first
               .map((event) => {
-                const eventDate = new Date(event.date); // Convert date to Date object
-                const eventTime = eventDate.toLocaleTimeString("en-GB", {
+                const istDate = new Date(event.date);
+
+                const eventDateTime = istDate.toLocaleString("en-GB", {
+                  weekday: "short",
+                  day: "numeric",
+                  month: "short",
+                  year: "numeric",
                   hour: "2-digit",
                   minute: "2-digit",
-                }); // Extract the time
-
+                  hour12: true,
+                  timeZone: "Asia/Kolkata",
+                });
                 return (
                   <div className="card" key={event._id}>
                     <div className="imageDiv">
                       <img src={event.eventImageUrl} alt={event.name} />
                     </div>
                     <br />
-                    <Button variant="primary">RSVP Received : 105</Button>
+                    <Button variant="primary">
+                      RSVP Received : {event.rsvps.length}
+                    </Button>
                     <br />
-                    <Button variant="dark">Get Excel</Button>
+                    <Button
+                      onClick={() => {
+                        handleEventRsvpCheck(event._id);
+                      }}
+                      variant="dark"
+                    >
+                      Get Excel
+                    </Button>
                     <br />
                     <div className="textBody">
                       <h5>{event.name}</h5>
 
-                      <p>
-                        Date:{" "}
-                        {eventDate.toLocaleDateString("en-GB", {
-                          day: "2-digit",
-                          month: "long",
-                          year: "numeric",
-                        })}
-                      </p>
                       <p>{event.clubName} Club Event</p>
-                      <h6>Time: {eventTime}</h6>
+                      <h6>Date: {eventDateTime}</h6>
                       <h6>{event.description.Introduction}</h6>
                     </div>
                   </div>
@@ -646,33 +905,35 @@ const ClubCoordinatorDashboard = () => {
               })
               .sort((a, b) => new Date(b.date) - new Date(a.date)) // Sort by date, latest first
               .map((event) => {
-                const eventDate = new Date(event.date); // Convert date to Date object
-                const eventTime = eventDate.toLocaleTimeString("en-GB", {
+                const istDate = new Date(event.date);
+
+                const eventDateTime = istDate.toLocaleString("en-GB", {
+                  weekday: "short",
+                  day: "numeric",
+                  month: "short",
+                  year: "numeric",
                   hour: "2-digit",
                   minute: "2-digit",
-                }); // Extract the time
+                  hour12: true,
+                  timeZone: "Asia/Kolkata",
+                });
                 return (
                   <div className="card" key={event._id}>
                     <div className="imageDiv">
                       <img src={event.eventImageUrl} alt={event.name} />
                     </div>
                     <br />
-                    <Button variant="dark">Event Synopsis</Button>
+                    <Link href={`/clubs/${event.clubName}/${event._id}/`}>
+                      <Button variant="dark">Event Synopsis</Button>
+                    </Link>
                     <br />
                     <div className="textBody">
                       <h5>{event.name}</h5>
                       <p>
                         <i>{event.clubName} Club Event</i>
                       </p>
-                      <p>
-                        Date:{" "}
-                        {eventDate.toLocaleDateString("en-GB", {
-                          day: "2-digit",
-                          month: "long",
-                          year: "numeric",
-                        })}
-                      </p>
-                      <h6>Time: {eventTime}</h6>
+
+                      <h6>Date: {eventDateTime}</h6>
                       <h6>{event.description.Introduction}</h6>
                     </div>
                   </div>

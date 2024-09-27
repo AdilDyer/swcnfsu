@@ -1,30 +1,72 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 
-const EventPage = () => {
+const EventPage = ({ params }) => {
+  const [clubName, setClubName] = useState(params.clubName);
+  const [eventDetails, setEventDetails] = useState([]);
+  useEffect(() => {
+    const fetchMeetingsDetails = async () => {
+      try {
+        const response = await fetch(
+          `/api/getEvents/${params.clubName}/${params.id}`
+        );
+        const data = await response.json();
+        setEventDetails(data.givenEvent);
+      } catch (error) {
+        console.error("Error fetching past meetings:", error);
+      }
+    };
+    fetchMeetingsDetails();
+  }, [params.clubName, params.id]);
+
+  if (!eventDetails) {
+    return (
+      <div
+        style={{
+          width: "100%",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        Loading event details...
+      </div>
+    );
+  }
   return (
     <>
       <div className="eventPage">
         <div className="imageDiv">
-          <img
-            src="https://sc0.blr1.digitaloceanspaces.com/inline/864062-ydtpxgavpm-1515235604.jpg"
-            alt=""
-          />
+          {eventDetails?.eventImageUrl ? (
+            <img src={eventDetails.eventImageUrl} alt="Event Cover" />
+          ) : (
+            <img
+              src="https://sc0.blr1.digitaloceanspaces.com/inline/864062-ydtpxgavpm-1515235604.jpg"
+              alt=""
+            />
+          )}
         </div>
         <div className="contentDiv">
-          <h1>~ Core theme ~ </h1>
+          <h1>~ Topic ~ </h1>
           <br />
-          <p>Discovering new Genres !</p>
+          <p>
+            {" "}
+            {eventDetails?.name} <br />
+          </p>
           <br />
           <h4>~ Discussions ~</h4>
           <br />
           <p>
             <span>Introduction</span>
+            {eventDetails?.description?.Introduction}
             The latest book club meeting was held under the expansive sky of our
             college&apos;s open area, setting the perfect backdrop for an
             enriching discussion on &quot;Discovering New Genres.&quot; The
             session was filled with excitement as members gathered to explore
             the vast and diverse world of literary genres.
             <span>Agenda</span>
+            {eventDetails?.description?.Agendas}
             <ol>
               <li>Introduction to Literary Genres</li>
               <li>Exploring Unfamiliar Genres</li>
@@ -32,6 +74,7 @@ const EventPage = () => {
               <li>Group Discussions</li>
               <li>Conclusions and Takeaways</li>
             </ol>
+            {eventDetails?.description?.DetailedPoints}
             <span> 1. Introduction to Literary Genres</span> We began the
             meeting with a brief introduction to the concept of literary genres.
             Genres are categories that define a book based on its narrative
@@ -88,6 +131,7 @@ const EventPage = () => {
             Members shared their personal experiences with the new genres they
             explored. This was a highly interactive session where we learned
             from each other&apos;s reading journeys.
+            {eventDetails?.description?.InsightsShared}
             <span>Insights:</span>
             <ul>
               <li>
@@ -111,6 +155,7 @@ const EventPage = () => {
                 storytelling.
               </li>
             </ul>
+            {eventDetails?.description?.GroupFindings}
             <span>4. Group Discussions</span>
             In smaller groups, we discussed the potential impact of these genres
             on our perspectives and reading habits. Each group was tasked with
@@ -131,6 +176,7 @@ const EventPage = () => {
                 more genres and discover new favorite authors and books.
               </li>
             </ul>
+            {eventDetails?.description?.KeyTakeaways}
             <span>5. Conclusions and Takeaways</span>
             We concluded the meeting by summarizing our discoveries and
             discussing how we could incorporate this newfound knowledge into our
@@ -152,6 +198,7 @@ const EventPage = () => {
               </li>
             </ul>
             <span>
+              {eventDetails?.description?.FinalThoughts}
               Final Thoughts <br />
               <br /> The meeting was a resounding success, with everyone leaving
               inspired to continue exploring new genres. The open-air setting of
@@ -166,6 +213,10 @@ const EventPage = () => {
           <br />
           <br />
           <div className="eventGallery">
+            {eventDetails?.eventGalleryImages?.map((image, index) => (
+              <img key={index} src={image} alt={`Image ${index + 1}`} />
+            ))}
+
             <img
               src="https://sc0.blr1.digitaloceanspaces.com/inline/864062-smykotglty-1515235963.jpg"
               alt=""

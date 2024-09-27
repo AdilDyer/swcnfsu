@@ -30,6 +30,10 @@ html::-webkit-scrollbar {
   border-radius: 1rem;
 }
 
+.MainTitleShadow {
+  text-shadow: -4px 4px rgba(168, 168, 168, 0.334);
+}
+
 .BigScrollContainer {
   position: fixed;
   top: 0;
@@ -78,8 +82,8 @@ html::-webkit-scrollbar {
   transition: all 0.2s;
 }
 .nav .leftPart a:hover {
-  color: dodgerblue;
-  transform: scale(1.05);
+  color: darkred;
+  transform: translateY(-2px);
 }
 .nav .leftPart .profileImgDiv {
   margin: 1rem;
@@ -472,6 +476,31 @@ html::-webkit-scrollbar {
 .supportServicesDiv .outerDiv .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.siteMapDiv {
+  width: 100%;
+  height: fit-content;
+  padding: 5rem 10rem;
+  /* background-color: #1b263b;
+  color: blanchedalmond; */
+  background-color: #f5f7f8;
+  color: midnightblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  img {
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: middle;
+  }
 }
 
 .footer {
@@ -1091,56 +1120,6 @@ html::-webkit-scrollbar {
 .eventGallery img:hover {
   width: min(30rem, 100%);
 }
-/*
-@keyframes galleryScroll-x-pos {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes galleryScroll-x-neg {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(100%);
-  }
-}
-
- .galleryLinesDiv {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  overflow: hidden;
-  padding: 1rem 0;
-  .eventGallery {
-    flex-wrap: nowrap;
-    overflow: hidden;
-    img {
-      box-shadow: none;
-    }
-    img:hover {
-      width: 20rem;
-    }
-  }
-  .eventGallery:nth-child(odd) {
-    animation: galleryScroll-x-pos 150s linear infinite;
-  }
-  .eventGallery:nth-child(even) {
-    animation: galleryScroll-x-neg 150s linear infinite;
-  }
-  .eventGallery img:nth-child(odd) {
-    width: 33rem !important;
-  }
-} */
-
-/*  */
-/*  */
 
 .galleryLinesDiv {
   .galleryButton {
@@ -1162,14 +1141,6 @@ html::-webkit-scrollbar {
     white-space: nowrap;
     animation: bannermove 30s linear infinite;
   }
-
-  /* #container:nth-child(odd) {
-  animation: bannermove 30s linear infinite;
-
-}
-#container:nth-child(even) {
-  animation: bannermove 30s linear infinite;
-} */
 
   .photobanner img {
     margin: 0.5em;
@@ -1194,25 +1165,6 @@ html::-webkit-scrollbar {
     transform: translate(-50%, 0);
   }
 }
-/* @keyframes bannermove-left {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(-50%, 0);
-  }
-}
-@keyframes bannermove-right {
-  0% {
-    transform: translate(50%, 0);
-  }
-  100% {
-    transform: translate(0%, 0);
-  }
-} */
-
-/*  */
-/*  */
 
 .galleryPageDiv {
   display: flex;
@@ -1323,6 +1275,12 @@ html::-webkit-scrollbar {
       h5 {
         margin: 0;
       }
+      h5:nth-child(2) {
+        border-radius: 30%;
+        padding: 1rem;
+        background-color: midnightblue;
+        color: white;
+      }
     }
     .titleLine {
       padding: 1.5rem;
@@ -1343,6 +1301,11 @@ html::-webkit-scrollbar {
         position: relative;
         border-radius: 2rem;
         background-color: #8b9cff;
+        a {
+          button {
+            width: 100% !important;
+          }
+        }
       }
       .cardsAnnoun .card {
         min-width: 25rem;
@@ -1819,7 +1782,7 @@ html::-webkit-scrollbar {
           border-radius: 1rem;
           height: 100%;
           background-color: #8b9cff;
-          color: midnightblue;
+          color: blanchedalmond;
           font-weight: bold;
           display: flex;
           flex-direction: column;
@@ -2012,13 +1975,13 @@ html::-webkit-scrollbar {
     justify-content: center;
 
     h3 {
-      width: 80%;
+      width: 50%;
       background-color: rgba(255, 255, 0, 0.557);
       box-shadow: 0 0 20px rgb(205, 205, 0);
       padding: 1rem;
       border-radius: 1rem;
       text-align: center;
-      color: black;
+      color: midnightblue;
       border: dashed thick midnightblue;
     }
   }
@@ -2029,7 +1992,7 @@ html::-webkit-scrollbar {
     .noOfMeetings {
       padding: 1rem;
       border-radius: 1rem;
-      background-color: black;
+      background-color: midnightblue;
       color: blanchedalmond;
       font-weight: bold;
       display: flex;
@@ -2038,6 +2001,21 @@ html::-webkit-scrollbar {
       box-shadow: 0 0 8px rgba(169, 169, 169, 0.266);
       i {
         margin: 0 0.5rem;
+      }
+    }
+  }
+  .markAttendanceList {
+    width: 100%;
+    height: 50rem;
+    background-color: blanchedalmond;
+    border-radius: 1rem;
+    padding: 2rem;
+    .searchBox {
+      input {
+        border: none;
+        margin: 2rem 0;
+        color: blanchedalmond;
+        background-color: #8b9cff;
       }
     }
   }

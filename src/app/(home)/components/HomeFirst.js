@@ -58,9 +58,10 @@ const HomeFirst = () => {
           )}
           <p>Greetings from</p>
           <br />
-
-          <h1 className="popoutOpacity"> <div className="homePageHeading">The Student Welfare Committee</div></h1>
-
+          <h1 className="popoutOpacity">
+            {" "}
+            <div className="">The Student Welfare Committee</div>
+          </h1>
           <br />
           <h3>
             <span>

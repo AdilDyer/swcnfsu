@@ -61,14 +61,26 @@ const PastEvents = ({ allEvents }) => {
                 />
               </div>
             </div>
-            {allEvents
+            {allEvents?.length > 0 &&
+              allEvents
               .filter((event) => {
                 const eventDate = new Date(event.date);
                 return eventDate < new Date(); // Filter events that have already occurred
               })
               .sort((a, b) => new Date(b.date) - new Date(a.date)) // Sort by date, latest first
               .map((event) => {
-                const eventDate = new Date(event.date); // Convert date to Date object
+               const istDate = new Date(event.date);
+
+               const eventDateTime = istDate.toLocaleString("en-GB", {
+                 weekday: "short",
+                 day: "numeric",
+                 month: "short",
+                 year: "numeric",
+                 hour: "2-digit",
+                 minute: "2-digit",
+                 hour12: true,
+                 timeZone: "Asia/Kolkata",
+               });
 
                 return (
                   <Link href="#" key={event.name}>
@@ -82,14 +94,7 @@ const PastEvents = ({ allEvents }) => {
                         <p>
                           <i>{event.clubName} Club Event</i>
                         </p>
-                        <p>
-                          Date:{" "}
-                          {eventDate.toLocaleDateString("en-GB", {
-                            day: "2-digit",
-                            month: "long",
-                            year: "numeric",
-                          })}
-                        </p>
+                        <p>Date: {eventDateTime}</p>
                         <h6>{event.description.Introduction} </h6>
                       </div>
                     </div>

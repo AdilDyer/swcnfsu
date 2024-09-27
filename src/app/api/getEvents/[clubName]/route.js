@@ -26,6 +26,7 @@ export async function GET(req, { params }) {
     return NextResponse.json({
       pastMeetings: pastMeetings.map((event) => ({
         name: event.name,
+        _id: event._id,
         date: event.date,
         description: event.description.Introduction,
         location: event.location,

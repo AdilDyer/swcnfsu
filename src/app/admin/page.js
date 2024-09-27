@@ -18,6 +18,7 @@ import {
   Filler,
 } from "chart.js";
 import { Doughnut, Bar } from "react-chartjs-2";
+import { useSession } from "next-auth/react";
 
 ChartJS.register(
   ArcElement,
@@ -33,7 +34,7 @@ ChartJS.register(
 
 const Admin = () => {
   // Add event
-
+  const { data: session, status } = useSession();
   const [loading, setLoading] = useState(false);
   let [posterLink, setPosterLink] = useState("");
   const [isImageUploaded, setIsImageUploaded] = useState(false);
@@ -43,9 +44,19 @@ const Admin = () => {
   const [femaleStudents, setFemaleStudents] = useState(0);
   const [otherStudents, setOtherStudents] = useState(0);
   const [totalStudents, setTotalStudents] = useState(0);
-  const [totalFaculties, setTotalFaculties] = useState(0);
+  const [totalFaculties, setTotalFaculties] = useState(6);
   const [currentRightSide, setCurrentRightSide] = useState("Dashboard");
+  const [allUsersData, setAllUsersData] = useState([]);
 
+  const fetchAllUsersData = async () => {
+    try {
+      const response = await fetch("/api/getUser/allForAdmin");
+      let data = await response.json();
+      setAllUsersData(data.result);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
   //get student ration of genders
   const fetchStudentGenderRatio = async () => {
     try {
@@ -90,9 +101,9 @@ const Admin = () => {
     fetchClubCoordinators();
     fetchClubs();
     fetchStudentGenderRatio();
+    fetchAllUsersData();
   }, []);
 
-  console.log(maleStudents, femaleStudents, otherStudents);
   //graphs
   function YourChartComponentDoughnut() {
     let data = [
@@ -138,45 +149,49 @@ const Admin = () => {
 
     return <Doughnut data={finalData} options={options} />;
   }
-  function YourChartComponentDoughnut2() {
-    let data = [
-      {
-        label: "Btech Mtech Cybersecurity",
-        value: 55,
-        color: "#0082c5",
-        cutout: "50%",
-      },
-      {
-        label: "Law and Forensic Science",
-        value: 80,
-        color: "#6bcffe",
-        cutout: "50%",
-      },
-      {
-        label: "Bsc Msc Cybersecurity",
-        value: 10,
-        color: "#c4edff",
-        cutout: "50%",
-      },
-      {
-        label: "Mtech Cybersecurity",
-        value: 50,
-        color: "#aa5e32",
-        cutout: "50%",
-      },
-      {
-        label: "Pyschology",
-        value: 30,
-        color: "#f3e8d7",
-        cutout: "50%",
-      },
-    ];
+
+  function YourChartComponentDoughnut2({ usersData }) {
+    const getRandomColor = () => {
+      const letters = "0123456789ABCDEF";
+      let color = "#";
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    };
+    // Function to process users data and get course-wise counts
+    const getCourseData = (users) => {
+      const courseCounts = {};
+
+      users.forEach((user) => {
+        if (user.course) {
+          const course = user.course;
+          if (courseCounts[course]) {
+            courseCounts[course] += 1;
+          } else {
+            courseCounts[course] = 1; // Initialize count
+          }
+        }
+      });
+
+      return courseCounts;
+    };
+
+    const courseCounts = getCourseData(usersData);
+    const data = Object.keys(courseCounts).map((course) => ({
+      label: course,
+      value: courseCounts[course],
+      color: getRandomColor(), // Function to get random color for each course
+      cutout: "50%",
+    }));
 
     const options = {
       plugins: {
         responsive: true,
+        legend: {
+          display: false, // Disable the legend to hide labels
+        },
       },
-      cutout: data.map((item) => item.cutout),
     };
 
     const finalData = {
@@ -195,7 +210,20 @@ const Admin = () => {
     return <Doughnut data={finalData} options={options} />;
   }
 
-  const MyBarChart = () => {
+  const MyBarChart = ({ allEvents }) => {
+    // Initialize count array for each month (0 for January to 11 for December)
+    const monthlyEventCount = Array(12).fill(0);
+
+    // Process allEvents to count events per month
+    allEvents.forEach((event) => {
+      const eventDate = new Date(event.date);
+      const month = eventDate.getMonth(); // Get month (0-11)
+
+      if (eventDate < new Date()) {
+        // Only consider past events
+        monthlyEventCount[month] += 1; // Increment the count for that month
+      }
+    });
     const labels = [
       "Jan",
       "Feb",
@@ -208,6 +236,77 @@ const Admin = () => {
       "Sep",
     ];
     const datasets = [12, 45, 67, 43, 89, 34, 67, 43, 55];
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          // Title of Graph
+          label: "Number of Events",
+          data: monthlyEventCount,
+          backgroundColor: [
+            "rgba(255, 99, 132, 02)",
+            "rgba(255, 159, 64, 02)",
+            "rgba(255, 205, 86, 02)",
+            "rgba(75, 192, 192, 02)",
+          ],
+          borderColor: [
+            "rgb(255, 99, 132)",
+            "rgb(255, 159, 64)",
+            "rgb(255, 205, 86)",
+            "rgb(75, 192, 192)",
+          ],
+          borderWidth: 1,
+          barPercentage: 1,
+          borderRadius: {
+            topLeft: 5,
+            topRight: 50,
+          },
+        },
+        // insert similar in dataset object for making multi bar chart
+      ],
+    };
+    const options = {
+      scales: {
+        y: {
+          title: {
+            display: true,
+            text: "Number of Events",
+          },
+          display: true,
+          beginAtZero: true,
+          max: Math.max(...monthlyEventCount) + 5, // Dynamic max
+        },
+        x: {
+          title: {
+            display: true,
+            text: "Months",
+          },
+          display: true,
+        },
+      },
+    };
+    return <Bar data={data} options={options} />;
+  };
+
+  const MyBarChart2 = ({ allEvents }) => {
+    // Initialize an object to count events for each club
+    const clubEventCount = {};
+
+    // Process allEvents to count events per club
+    allEvents.forEach((event) => {
+      const clubName = event.clubName;
+
+      // Increment the count for that club
+      if (clubEventCount[clubName]) {
+        clubEventCount[clubName] += 1;
+      } else {
+        clubEventCount[clubName] = 1; // Initialize if the club is not already in the object
+      }
+    });
+    // Extract labels and datasets from the clubEventCount object
+    const labels = Object.keys(clubEventCount);
+    const datasets = Object.values(clubEventCount);
+    // const datasets = [89, 67, 67, 55, 45, 43, 43, 34, 12];
     const data = {
       labels: labels,
       datasets: [
@@ -246,78 +345,12 @@ const Admin = () => {
           },
           display: true,
           beginAtZero: true,
-          max: 100,
+          max: Math.max(...datasets) + 5, // Dynamic max based on data
         },
         x: {
           title: {
             display: true,
-            text: "Months",
-          },
-          display: true,
-        },
-      },
-    };
-    return <Bar data={data} options={options} />;
-  };
-
-  const MyBarChart2 = () => {
-    const labels = [
-      "Book",
-      "Debate",
-      "Civil Services",
-      "Music",
-      "Sports",
-      "Drama",
-      "Yoga",
-      "Cinematography",
-      "Content Writing",
-      "Vlogging",
-    ];
-    const datasets = [89, 67, 67, 55, 45, 43, 43, 34, 12];
-    const data = {
-      labels: labels,
-      datasets: [
-        {
-          // Title of Graph
-          label: "Number of Meetings",
-          data: datasets,
-          backgroundColor: [
-            "rgba(255, 99, 132, 02)",
-            "rgba(255, 159, 64, 02)",
-            "rgba(255, 205, 86, 02)",
-            "rgba(75, 192, 192, 02)",
-          ],
-          borderColor: [
-            "rgb(255, 99, 132)",
-            "rgb(255, 159, 64)",
-            "rgb(255, 205, 86)",
-            "rgb(75, 192, 192)",
-          ],
-          borderWidth: 1,
-          barPercentage: 1,
-          borderRadius: {
-            topLeft: 5,
-            topRight: 50,
-          },
-        },
-        // insert similar in dataset object for making multi bar chart
-      ],
-    };
-    const options = {
-      scales: {
-        y: {
-          title: {
-            display: true,
-            text: "Number of Meetings",
-          },
-          display: true,
-          beginAtZero: true,
-          max: 100,
-        },
-        x: {
-          title: {
-            display: true,
-            text: "Months",
+            text: "Clubs",
           },
           display: true,
         },
@@ -402,19 +435,23 @@ const Admin = () => {
 
     let combinedDateTime = new Date(`${inputDate}T${inputTime}:00.000Z`);
 
-    // Convert the combined date and time to IST
-    let istOffset = 5.5 * 60 * 60 * 1000; // IST is UTC +5:30
-    let istDate = new Date(combinedDateTime.getTime() + istOffset);
+    // // Convert the combined date and time to IST
+    // let istOffset = 5.5 * 60 * 60 * 1000; // IST is UTC +5:30
+    // let istDate = new Date(combinedDateTime.getTime() + istOffset);
 
-    // Format the IST date if needed
-    let formattedISTDate = istDate.toISOString().slice(0, 19).replace("T", " "); // Format as "YYYY-MM-DD HH:MM:SS"
+    // // Format the IST date if needed
+    // let formattedISTDate = istDate.toISOString().slice(0, 19).replace("T", " "); // Format as "YYYY-MM-DD HH:MM:SS"
 
+    let DescData = {
+      Introduction: formData.get("description"),
+    };
     const eventData = {
       name: formData.get("name"),
-      date: formattedISTDate,
+      // date: formattedISTDate,
+      date: combinedDateTime,
       clubName: formData.get("clubName"),
       location: formData.get("venue"),
-      description: formData.get("description"),
+      description: DescData,
       eventImageUrl: posterLink,
     };
 
@@ -431,6 +468,7 @@ const Admin = () => {
       if (res.status === 200) {
         alert("Event added successfully!");
         e.target.reset();
+        fetchAllEvents();
       } else {
         alert("Failed to add event" + JSON.stringify(res));
       }
@@ -440,37 +478,39 @@ const Admin = () => {
       setLoading(false);
     }
   };
-
+  const fetchAllEvents = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/getEvents");
+      const data = await response.json();
+      setAllEvents(data.result);
+    } catch (error) {
+      console.error("Error fetching all events:", error);
+    }
+  };
   //Show event rsvps
   const [eventForRsvpId, setEventForRsvp] = useState("");
   const [allEvents, setAllEvents] = useState([]);
   useEffect(() => {
-    const fetchAllEvents = async () => {
-      try {
-        const response = await fetch("http://localhost:3000/api/getEvents");
-        const data = await response.json();
-        setAllEvents(data.result);
-      } catch (error) {
-        console.error("Error fetching all events:", error);
-      }
-    };
-
     fetchAllEvents();
   }, []);
 
   const handleTabClick = (tabName) => {
     setCurrentRightSide(tabName); // Change the state based on clicked tab
   };
-  const handleEventRsvpCheck = async () => {
-    if (!eventForRsvpId) {
+  const handleEventRsvpCheck = async (eventId = null) => {
+    if (!eventForRsvpId && !eventId) {
       alert("Please select an event");
       return;
     }
 
     try {
-      const response = await fetch(
-        "/api/getEventRsvps?eventId=" + eventForRsvpId
-      );
+      let response;
+      if (eventId) {
+        response = await fetch("/api/getEventRsvps?eventId=" + eventId);
+      } else {
+        response = await fetch("/api/getEventRsvps?eventId=" + eventForRsvpId);
+      }
+
       if (response.ok) {
         // Create a Blob from the response
         const blob = await response.blob();
@@ -582,147 +622,55 @@ const Admin = () => {
     a.click();
   };
 
-  const event = {
-    _id: "1",
-    name: "Event Name",
-    date: "2022-12-12",
-    description: "Event Description",
-    eventImageUrl:
-      "https://res.cloudinary.com/ddxv0iwcs/image/upload/v1726216784/right-arrow_k1jiu2.png",
-    eventTime: "12:00 PM",
+  const handleDeleteEvent = async (eventId) => {
+    // Show a confirmation dialog
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this event? This action cannot be undone."
+    );
+
+    // If the admin confirms deletion, proceed with the delete request
+    if (confirmDelete) {
+      try {
+        // Make the delete request to the API
+        const response = await fetch(`/api/deleteEvent/${eventId}`, {
+          method: "DELETE",
+        });
+
+        if (response.ok) {
+          alert("Event deleted successfully.");
+          // Optionally, refresh the list of events after deletion
+          fetchAllEvents();
+        } else {
+          const errorData = await response.json();
+          console.error("Error deleting event:", errorData.message);
+          alert("Failed to delete the event. Please try again.");
+        }
+      } catch (error) {
+        console.error("Error deleting event:", error);
+        alert("An error occurred. Please try again.");
+      }
+    }
   };
 
+  if (status === "loading") {
+    return (
+      <>
+        <div
+          style={{
+            width: "100%",
+            height: "100vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <p>Loading...</p>
+        </div>
+      </>
+    ); // This covers the loading case
+  }
+
   return (
-    // <div className="adminBig">
-    //   <h1>Welcome to the Admin Dashboard!</h1>
-
-    //   <div className="adminAddEvent">
-    //     <h3>Add New Event:</h3>
-    //     <Form onSubmit={handleAddEvent}>
-    //       <Form.Control
-    //         placeholder="Event Name"
-    //         type="text"
-    //         name="name"
-    //         required
-    //       />
-    //       <Form.Control placeholder="Date" type="date" name="date" required />
-    //       <Form.Control placeholder="Time" type="time" name="time" required />
-    //       <Form.Select name="clubName" required>
-    //         <option value="" selected disabled>
-    //           Select Club Name
-    //         </option>
-    //         <option value="general">General</option>
-    //         <option value="cybersecurityclub">Cybersecurity Club</option>
-    //         <option value="bookclub">Book Club</option>
-    //         <option value="civilservicesclub">Civil Services Club</option>
-    //         <option value="poetryclub">Poetry Club</option>
-    //         <option value="cinematographyclub">Cinematography Club</option>
-    //         <option value="artandcraftclub">Art and Craft Club</option>
-    //         <option value="journalingclub">Journaling and Politics Club</option>
-    //         <option value="documentationclub">Documentation Club</option>
-    //       </Form.Select>
-    //       <Form.Control
-    //         placeholder="Event Description"
-    //         type="text"
-    //         name="description"
-    //         required
-    //       />
-    //       <CldUploadWidget
-    //         signatureEndpoint="/api/sign-image"
-    //         onSuccess={(result, { widget }) => {
-    //           setPosterLink(result.info.secure_url);
-    //           setIsImageUploaded(true);
-    //         }}
-    //       >
-    //         {({ open }) => {
-    //           return (
-    //             <Button
-    //               onClick={() => open()}
-    //               variant="info"
-    //               disabled={isImageUploaded}
-    //             >
-    //               {isImageUploaded
-    //                 ? "Poster upload successfull."
-    //                 : "Upload Poster"}
-    //             </Button>
-    //           );
-    //         }}
-    //       </CldUploadWidget>
-    //       <Button
-    //         variant={loading ? "light" : "dark"}
-    //         type="submit"
-    //         disabled={loading}
-    //       >
-    //         {loading ? "Adding..." : "Add Event"}
-    //       </Button>
-    //     </Form>
-    //   </div>
-
-    //   <div className="adminDownloadEventInfo">
-    //     <h2>Show Event RSVPs</h2>
-    //     <Form.Select
-    //       name="clubName"
-    //       onChange={(e) => {
-    //         setEventForRsvp(e.target.value);
-    //       }}
-    //       required
-    //     >
-    //       <option value="" selected disabled>
-    //         Select Event
-    //       </option>
-    //       {allEvents?.map((event) => (
-    //         <option key={event._id} value={event._id}>
-    //           {event.name}
-    //         </option>
-    //       ))}
-    //     </Form.Select>
-    //     <Button variant="primary" onClick={handleEventRsvpCheck}>
-    //       Show Event RSVPs
-    //     </Button>
-    //   </div>
-    //   <div className="adminRisingStarAddOrRemove">
-    //     <div className="adminAddRisingStar">
-    //       <h2>Add a Rising Star</h2>
-    //       <Form onSubmit={handleAddRisingStar}>
-    //         <Form.Control
-    //           placeholder="Email"
-    //           type="email"
-    //           name="email"
-    //           required
-    //           onChange={(e) =>
-    //             setFormData({ ...formData, email: e.target.value })
-    //           }
-    //         />
-    //         <Form.Control
-    //           placeholder="Reason for Listing"
-    //           type="text"
-    //           name="reasonForListing"
-    //           required
-    //           onChange={(e) =>
-    //             setFormData({ ...formData, reasonForListing: e.target.value })
-    //           }
-    //         />
-    //         <Button variant="primary" type="submit">
-    //           Add Rising Star
-    //         </Button>
-    //       </Form>
-    //     </div>
-    //     <div className="adminRemoveRisingStar">
-    //       <h2>Remove a Rising Star</h2>
-    //       <Form onSubmit={handleRemoveRisingStar}>
-    //         <Form.Control
-    //           placeholder="Email"
-    //           type="email"
-    //           name="email"
-    //           required
-    //         />
-    //         <Button variant="danger" type="submit">
-    //           Remove Rising Star
-    //         </Button>
-    //       </Form>
-    //     </div>
-    //   </div>
-    // </div>
     <>
       <div className="adminBig">
         <div className="leftPart">
@@ -769,15 +717,34 @@ const Admin = () => {
                 </div>
                 <div className="noOfMeetings">
                   Total Upcoming Events
-                  <i class="fa-brands fa-connectdevelop"></i> 12
+                  <i class="fa-brands fa-connectdevelop"></i>
+                  {
+                    allEvents.filter((event) => {
+                      const eventDate = new Date(event.date);
+                      return eventDate > new Date(); // Filter events that will occur in the future
+                    }).length
+                  }
                 </div>
                 <div className="noOfMeetings">
                   Total Moments Captured
-                  <i class="fa-brands fa-connectdevelop"></i> 1230
+                  <i class="fa-brands fa-connectdevelop"></i>{" "}
+                  {allEvents.reduce((total, event) => {
+                    const galleryImagesCount = event.eventGalleryImages
+                      ? event.eventGalleryImages.length
+                      : 0;
+                    const posterImageCount = event.eventImageUrl ? 1 : 0;
+                    return total + galleryImagesCount + posterImageCount;
+                  }, 0)}
                 </div>
                 <div className="noOfMeetings">
                   Total Previous Events
-                  <i class="fa-brands fa-connectdevelop"></i> 42
+                  <i class="fa-brands fa-connectdevelop"></i>{" "}
+                  {
+                    allEvents.filter((event) => {
+                      const eventDate = new Date(event.date);
+                      return eventDate < new Date(); // Filter events that occurred in the past
+                    }).length
+                  }
                 </div>
               </div>
               <div className="lineTwo">
@@ -790,7 +757,7 @@ const Admin = () => {
                 <div className="rightPart">
                   <div className="roundDiv previousMeetingDetailsDiv">
                     <h4>Previous Events History</h4>
-                    <MyBarChart />
+                    <MyBarChart allEvents={allEvents} />
                   </div>
                 </div>
               </div>
@@ -798,13 +765,13 @@ const Admin = () => {
                 <div className="rightPart">
                   <div className="roundDiv previousMeetingDetailsDiv">
                     <h4>Top Performing Clubs</h4>
-                    <MyBarChart2 />
+                    <MyBarChart2 allEvents={allEvents} />
                   </div>
                 </div>
                 <div className="leftPart">
                   <div className="roundDiv genderDoughnutChart">
-                    <h4>Course-wise Student Ratio</h4>
-                    <YourChartComponentDoughnut2 />
+                    <h4>Course-Wise Student Ratio</h4>
+                    <YourChartComponentDoughnut2 usersData={allUsersData} />
                   </div>
                 </div>
               </div>{" "}
@@ -832,14 +799,18 @@ const Admin = () => {
                       })
                       .sort((a, b) => new Date(a.date) - new Date(b.date)) // Sort by date, earliest first
                       .map((event) => {
-                        const eventDate = new Date(event.date); // Convert date to Date object
-                        const eventTime = eventDate.toLocaleTimeString(
-                          "en-GB",
-                          {
-                            hour: "2-digit",
-                            minute: "2-digit",
-                          }
-                        ); // Extract the time
+                        const istDate = new Date(event.date);
+
+                        const eventDateTime = istDate.toLocaleString("en-GB", {
+                          weekday: "short",
+                          day: "numeric",
+                          month: "short",
+                          year: "numeric",
+                          hour: "2-digit",
+                          minute: "2-digit",
+                          hour12: true,
+                          timeZone: "Asia/Kolkata",
+                        });
 
                         return (
                           <div className="card" key={event._id}>
@@ -848,62 +819,34 @@ const Admin = () => {
                             </div>
                             <br />
                             <Button variant="primary">
-                              RSVP Received : 105
+                              RSVP Received : {event.rsvps.length}
                             </Button>
                             <br />
-                            <Button variant="dark">Get Excel</Button>
+                            <Button
+                              onClick={() => {
+                                handleEventRsvpCheck(event._id);
+                              }}
+                              variant="dark"
+                            >
+                              Get Excel
+                            </Button>
+                            <br />
+                            <Button
+                              variant="danger"
+                              onClick={() => handleDeleteEvent(event._id)}
+                            >
+                              Delete Event
+                            </Button>
                             <br />
                             <div className="textBody">
                               <h5>{event.name}</h5>
-
-                              <p>
-                                Date:{" "}
-                                {eventDate.toLocaleDateString("en-GB", {
-                                  day: "2-digit",
-                                  month: "long",
-                                  year: "numeric",
-                                })}
-                              </p>
                               <p>{event.clubName} Club Event</p>
-                              <h6>Time: {eventTime}</h6>
+                              <h6>Date : {eventDateTime} </h6>
                               <h6>{event.description.Introduction}</h6>
                             </div>
                           </div>
                         );
                       })}
-                    <div className="card" key={event._id}>
-                      <div className="imageDiv">
-                        <img src={event.eventImageUrl} alt={event.name} />
-                      </div>
-                      <br />
-                      <Button variant="primary">RSVP Received : 105</Button>
-                      <br />
-                      <Button variant="dark">Get Excel</Button>
-                      <br />
-                      <div className="textBody">
-                        <h5>{event.name}</h5>
-                        <p>Date: {event.date}</p>
-                        <h6>Time: {event.eventTime}</h6>
-                        <h6>{event.description}</h6>
-                      </div>
-                    </div>
-                    <div className="card" key={event._id}>
-                      <div className="imageDiv">
-                        <img src={event.eventImageUrl} alt={event.name} />
-                      </div>
-                      <br />
-                      <Button variant="primary">RSVP Received : 105</Button>
-                      <br />
-                      <Button variant="dark">Get Excel</Button>
-
-                      <br />
-                      <div className="textBody">
-                        <h5>{event.name}</h5>
-                        <p>Date: {event.date}</p>
-                        <h6>Time: {event.eventTime}</h6>
-                        <h6>{event.description}</h6>
-                      </div>
-                    </div>
 
                     <div
                       className="scrollBtnDiv scrollBtnDivRight"
@@ -950,69 +893,43 @@ const Admin = () => {
                       })
                       .sort((a, b) => new Date(b.date) - new Date(a.date)) // Sort by date, latest first
                       .map((event) => {
-                        const eventDate = new Date(event.date); // Convert date to Date object
-                        const eventTime = eventDate.toLocaleTimeString(
-                          "en-GB",
-                          {
-                            hour: "2-digit",
-                            minute: "2-digit",
-                          }
-                        ); // Extract the time
+                        const istDate = new Date(event.date);
+
+                        const eventDateTime = istDate.toLocaleString("en-GB", {
+                          weekday: "short",
+                          day: "numeric",
+                          month: "short",
+                          year: "numeric",
+                          hour: "2-digit",
+                          minute: "2-digit",
+                          hour12: true,
+                          timeZone: "Asia/Kolkata",
+                        });
+
                         return (
                           <div className="card" key={event._id}>
                             <div className="imageDiv">
                               <img src={event.eventImageUrl} alt={event.name} />
                             </div>
                             <br />
-                            <Button variant="dark">Event Synopsis</Button>
+                            <Link
+                              href={`/clubs/${event.clubName}/${event._id}/`}
+                            >
+                              <Button variant="dark">Event Synopsis</Button>
+                            </Link>
                             <br />
                             <div className="textBody">
                               <h5>{event.name}</h5>
                               <p>
                                 <i>{event.clubName} Club Event</i>
                               </p>
-                              <p>
-                                Date:{" "}
-                                {eventDate.toLocaleDateString("en-GB", {
-                                  day: "2-digit",
-                                  month: "long",
-                                  year: "numeric",
-                                })}
-                              </p>
-                              <h6>Time: {eventTime}</h6>
+                              <h6>Date: {eventDateTime}</h6>
                               <h6>{event.description.Introduction}</h6>
                             </div>
                           </div>
                         );
                       })}
-                    <div className="card" key={event._id}>
-                      <div className="imageDiv">
-                        <img src={event.eventImageUrl} alt={event.name} />
-                      </div>
-                      <br />
-                      <Button variant="dark">Event Synopsis</Button>
-                      <br />
-                      <div className="textBody">
-                        <h5>{event.name}</h5>
-                        <p>Date: {event.date}</p>
-                        <h6>Time: {event.eventTime}</h6>
-                        <h6>{event.description}</h6>
-                      </div>
-                    </div>
-                    <div className="card" key={event._id}>
-                      <div className="imageDiv">
-                        <img src={event.eventImageUrl} alt={event.name} />
-                      </div>
-                      <br />
-                      <Button variant="dark">Event Synopsis</Button>
-                      <br />
-                      <div className="textBody">
-                        <h5>{event.name}</h5>
-                        <p>Date: {event.date}</p>
-                        <h6>Time: {event.eventTime}</h6>
-                        <h6>{event.description}</h6>
-                      </div>
-                    </div>
+
                     <div
                       className="scrollBtnDiv scrollBtnDivRight"
                       onClick={scrollRight2}
@@ -1036,7 +953,7 @@ const Admin = () => {
                       <tr>
                         <th>#</th>
                         <th>Club Name</th>
-                        <th>No. of Meetings</th>
+                        <th>No. of Events</th>
                         <th>Club Page</th>
                         <th>Coordinator Details</th>
                       </tr>
@@ -1048,11 +965,15 @@ const Admin = () => {
                           (coor) => coor.clubId._id === club._id
                         );
 
+                        const numberOfEvents = allEvents.filter(
+                          (event) => event.clubName === club.name
+                        ).length;
+
                         return (
                           <tr key={index}>
                             <td>{index + 1}</td>
                             <td>{club.name}</td>
-                            <td>3333</td>
+                            <td>{numberOfEvents}</td>
                             <td>
                               <Link href={`/clubs/${club.name}`}>
                                 <Button variant="info">Go to Page</Button>
@@ -1128,7 +1049,7 @@ const Admin = () => {
               <div className="siteMapDiv">
                 <div className="roundDiv">
                   <img
-                    src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1727014834/Screenshot_2024-09-22_at_7.50.27_PM_ra2yly.png"
+                    src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1727424802/Screenshot_2024-09-27_at_1.43.09_PM_iv6w2d.png"
                     alt=""
                   />
                 </div>
@@ -1191,28 +1112,13 @@ const Admin = () => {
                   />
                   <Form.Select name="clubName" required>
                     <option>Select Club Name</option>
-                    <option value="General">General</option>
-                    <option value="CyberSecurity">CyberSecurity</option>
-                    <option value="Book">Book</option>
-                    <option value="Poetry">Poetry</option>
-                    <option value="Civil Services">Civil Services</option>
-                    <option value="Music">Music</option>
-                    <option value="Dance">Dance</option>
-                    <option value="Art and Craft">Art and Craft</option>
-                    <option value="Sports">Sports</option>
-                    <option value="Drama">Drama</option>
-                    <option value="Debate">Debate</option>
-                    <option value="Cinematography">Cinematography</option>
-                    <option value="Fashion">Fashion</option>
-                    <option value="Yoga">Yoga</option>
-                    <option value="Travellers">Travellers</option>
-                    <option value="History">History</option>
-                    <option value="Economics">Economics</option>
-                    <option value="Psychology">Psychology</option>
-                    <option value="Philosophy">Philosophy</option>
-                    <option value="Content Writing">Content Writing</option>
-                    <option value="Vlogging">Vlogging</option>
-                    <option value="Legal">Legal</option>
+                    {clubs.map((club, index) => {
+                      return (
+                        <option key={index} value={club.name}>
+                          {club.name}
+                        </option>
+                      );
+                    })}
                   </Form.Select>
                   <Form.Control
                     placeholder="Event Description"

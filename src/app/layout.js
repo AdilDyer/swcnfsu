@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
-            crossOrigin
+            crossorigin="anonymous"
           ></link>
           <link
             href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap"
@@ -55,7 +55,7 @@ export default function RootLayout({ children }) {
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
-            crossOrigin
+            crossorigin="anonymous"
           ></link>
           <link
             href="https://fonts.googleapis.com/css2?family=Kristi&display=swap"
