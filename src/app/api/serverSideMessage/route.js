@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-
+import ChatMessage from "../../../lib/modals/chatmessage";
 let clients = [];
 
 // Function to add client to the list of SSE clients
@@ -53,6 +53,11 @@ export async function POST(req) {
   try {
     const { user, course, message, club, image } = await req.json();
 
+    // 1. Save message to the database
+    const newMessage = new ChatMessage({ user, course, message, image });
+    await newMessage.save();
+
+    // 2. Send message to all clients
     const formattedMessage = JSON.stringify({ user, course, message, image });
     clients.forEach((client) => {
       client.res.write(

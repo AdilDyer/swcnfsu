@@ -21,7 +21,7 @@ const PastEvents = ({ allEvents }) => {
       <FadeInSection>
         <h1 className="">
           {" "}
-          <span style={{ verticalAlign: "middle" }}>
+          <span className="headingFlowers" style={{ verticalAlign: "middle" }}>
             <img
               style={{
                 width: "2.5rem",
@@ -31,7 +31,7 @@ const PastEvents = ({ allEvents }) => {
             />
           </span>
           &nbsp; <span className="homePageHeading">Previous Events</span> &nbsp;
-          <span style={{ verticalAlign: "middle" }}>
+          <span className="headingFlowers" style={{ verticalAlign: "middle" }}>
             <img
               style={{
                 transform: "scale(-1) rotate(-110deg)",
@@ -63,44 +63,44 @@ const PastEvents = ({ allEvents }) => {
             </div>
             {allEvents?.length > 0 &&
               allEvents
-              .filter((event) => {
-                const eventDate = new Date(event.date);
-                return eventDate < new Date(); // Filter events that have already occurred
-              })
-              .sort((a, b) => new Date(b.date) - new Date(a.date)) // Sort by date, latest first
-              .map((event) => {
-               const istDate = new Date(event.date);
+                .filter((event) => {
+                  const eventDate = new Date(event.date);
+                  return eventDate < new Date(); // Filter events that have already occurred
+                })
+                .sort((a, b) => new Date(b.date) - new Date(a.date)) // Sort by date, latest first
+                .map((event) => {
+                  const istDate = new Date(event.date);
 
-               const eventDateTime = istDate.toLocaleString("en-GB", {
-                 weekday: "short",
-                 day: "numeric",
-                 month: "short",
-                 year: "numeric",
-                 hour: "2-digit",
-                 minute: "2-digit",
-                 hour12: true,
-                 timeZone: "Asia/Kolkata",
-               });
+                  const eventDateTime = istDate.toLocaleString("en-GB", {
+                    weekday: "short",
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    hour12: true,
+                    timeZone: "Asia/Kolkata",
+                  });
 
-                return (
-                  <Link href="#" key={event.name}>
-                    <div className="card">
-                      <div className="imageDiv">
-                        <img src={event.eventImageUrl} alt={event.name} />
+                  return (
+                    <Link href="#" key={event.name}>
+                      <div className="card">
+                        <div className="imageDiv">
+                          <img src={event.eventImageUrl} alt={event.name} />
+                        </div>
+                        <br />
+                        <div className="textBody">
+                          <h5>{event.name}</h5>
+                          <p>
+                            <i>{event.clubName} Club Event</i>
+                          </p>
+                          <p>Date: {eventDateTime}</p>
+                          <h6>{event.description.Introduction} </h6>
+                        </div>
                       </div>
-                      <br />
-                      <div className="textBody">
-                        <h5>{event.name}</h5>
-                        <p>
-                          <i>{event.clubName} Club Event</i>
-                        </p>
-                        <p>Date: {eventDateTime}</p>
-                        <h6>{event.description.Introduction} </h6>
-                      </div>
-                    </div>
-                  </Link>
-                );
-              })}
+                    </Link>
+                  );
+                })}
             <div
               className="scrollBtnDiv scrollBtnDivRight"
               onClick={scrollRight}

@@ -2192,8 +2192,63 @@ html::-webkit-scrollbar {
 }
 
 @media (max-width: 1024px) {
-  h1 {
-    font-size: 1.4rem !important;
+  .nav {
+    width: 100%;
+    padding: 1rem !important;
+    justify-content: space-between;
+    background-color: #b88ea688;
+    flex-wrap: nowrap;
+    .leftPart {
+      font-size: 0.6rem;
+      .dropdown button {
+        font-size: 0.8rem;
+      }
+      #about,
+      #contact,
+      #home {
+        display: none;
+      }
+      .profileImgDiv {
+        margin: 0.3rem;
+      }
+    }
+    .rightPart {
+      justify-content: center;
+      align-items: center;
+      h6 {
+        display: none;
+      }
+    }
+  }
+
+  .homefirst .textDiv {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .nfsuEmblemHomeFirst {
+      width: 5rem !important;
+    }
+    h1 div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-left: 2rem ;
+      font-size: 2rem !important;
+    }
+    span img {
+      width: 1rem !important;
+    }
+    h3 {
+      text-align: center;
+      span {
+        display: block;
+      }
+    }
+    p {
+      padding: 2rem;
+      margin: 0;
+    }
   }
   .collaborationDiv .saying {
     display: none;
@@ -2204,50 +2259,13 @@ html::-webkit-scrollbar {
   .supportServicesDiv .outerDiv {
     flex-wrap: wrap;
   }
-  .nav {
-    padding: 0;
-    justify-content: center;
-  }
-  .nav .leftPart {
-    font-size: 0.8rem;
-    padding: 1rem;
-  }
-  .nav .leftPart .dropdown button {
-    font-size: 0.8rem;
-  }
-  .nav .rightPart {
-    display: none;
-  }
-  .homefirst .textDiv {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  .homefirst h1 {
-    font-size: 1.9rem !important;
-    text-align: center;
-    padding-left: 0.5rem;
-  }
-  .homefirst h3 {
-    text-align: center;
-  }
-  .homefirst h3 span {
-    display: block;
-  }
-  .homefirst p {
-    padding: 2rem;
-    margin: 0;
-  }
-  .homefirst .imageDiv {
-    width: 100%;
-    border-radius: 0;
-  }
   .collaborationDiv {
     padding: 3rem 0;
   }
   .collaborationDiv h1 {
     padding-top: 11rem;
   }
+
   .descriptionDiv {
     padding: 0;
     flex-direction: column !important;
@@ -2269,11 +2287,21 @@ html::-webkit-scrollbar {
     justify-content: center;
   }
   .descriptionDiv h5 {
-    width: 80%;
+    width: 100%;
+    text-align: center;
   }
   .descriptionDiv h5,
   .descriptionDiv span {
     font-size: 1.1rem;
+    text-align: center;
+  }
+  .descriptionDiv .textDiv p {
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+  }
+  .headingFlowers {
+    display: none;
   }
   .calendarofevents {
     margin: 3rem 0rem;
@@ -2282,20 +2310,50 @@ html::-webkit-scrollbar {
     height: 25rem;
   }
   .announcements {
-    padding: 0 1rem;
+    padding: 0 0rem;
+    h6 {
+      padding: 0 1rem;
+    }
+    .scrollBtnDiv {
+      display: none;
+    }
+    .cardsAnnoun {
+      width: 100%;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  .risingStarDiv {
+    .homePageHeading {
+      display: flex;
+    }
   }
   .studygroups .cardsContainer {
-    padding: 0;
+    padding: 1rem 0;
     align-items: center;
     justify-content: center;
+  }
+  .thirdCover {
+    padding: 2rem 1rem;
   }
   .supportServicesDiv {
     margin-top: 5rem;
     height: fit-content;
     margin-bottom: 5rem;
+    .homePageHeading {
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
   .qbon {
+    span {
+      font-size: 2rem;
+    }
     margin-bottom: 8rem;
+  }
+  .siteMapDiv {
+    padding: 5rem 0.5rem;
+    display: flex;
   }
   .footer {
     padding: 1rem;
@@ -2309,11 +2367,24 @@ html::-webkit-scrollbar {
     gap: 3rem;
   }
   .footer .bottomBox .allLinksContainer {
-    text-align: center;
+    text-align: start;
+    gap: 0rem;
     flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
+    justify-content: center;
+    .linksDiv {
+      width: 50%;
+      padding: 1rem;
+      line-height: 2rem;
+    }
+  }
+  .chatContainer {
+    .receivedMsg,
+    .sentMsg {
+      width: 100% !important;
+      img {
+        padding: 0.5rem;
+      }
+    }
   }
   .ourTeamDiv h2,
   .ourTeamDiv h3 {

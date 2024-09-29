@@ -6,7 +6,7 @@ const Calendar = () => {
     <div className="calendarofevents ">
       <FadeInSection>
         <h1>
-          <span style={{ verticalAlign: "middle" }}>
+          <span className="headingFlowers" style={{ verticalAlign: "middle" }}>
             <img
               style={{
                 width: "2.5rem",
@@ -15,8 +15,9 @@ const Calendar = () => {
               alt=""
             />
           </span>
-          &nbsp; <span className="homePageHeading"> Calendar of Events</span>&nbsp;
-          <span style={{ verticalAlign: "middle" }}>
+          &nbsp; <span className="homePageHeading"> Calendar of Events</span>
+          &nbsp;
+          <span className="headingFlowers" style={{ verticalAlign: "middle" }}>
             <img
               style={{
                 transform: "scale(-1) rotate(-110deg)",

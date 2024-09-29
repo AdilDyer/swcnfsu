@@ -19,7 +19,10 @@ const RisingStar = ({ allRisingStars }) => {
       <div className="pastevents">
         <FadeInSection>
           <h1>
-            <span style={{ verticalAlign: "middle" }}>
+            <span
+              className="headingFlowers"
+              style={{ verticalAlign: "middle" }}
+            >
               <img
                 style={{
                   width: "2.5rem",
@@ -31,7 +34,10 @@ const RisingStar = ({ allRisingStars }) => {
             &nbsp;{" "}
             <span className="homePageHeading"> Rising Stars of Our Club</span>{" "}
             &nbsp;
-            <span style={{ verticalAlign: "middle" }}>
+            <span
+              className="headingFlowers"
+              style={{ verticalAlign: "middle" }}
+            >
               <img
                 style={{
                   transform: "scale(-1) rotate(-110deg)",

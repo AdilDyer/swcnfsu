@@ -16,7 +16,6 @@ const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [showModal, setShowModal] = useState(false);
 
-
   const controlNavbar = () => {
     if (window.scrollY > lastScrollY) {
       // if scroll down hide the navbar
@@ -39,7 +38,6 @@ const Navbar = () => {
     };
   }, [lastScrollY]);
 
-
   const handleCloseModal = () => setShowModal(false);
   const handleShowModal = () => setShowModal(true);
   if (pathname === "/report") {
@@ -49,14 +47,21 @@ const Navbar = () => {
     <>
       <div className={`nav active ${show && "hidden"}`}>
         <div className="leftPart">
-          <Link href="/">Home</Link>
-          <Link href="#about">About</Link>
-          <Link href="/contact">Contact</Link>
+          <Link id="home" href="/">
+            Home
+          </Link>
+          <Link id="about" href="#about">
+            About
+          </Link>
+          <Link id="contact" href="/contact">
+            Contact
+          </Link>
           <DropdownButton
             variant="light"
             id="dropdown-basic-button"
             title="Quick Links"
           >
+            <Dropdown.Item href="/">Home</Dropdown.Item>
             <Dropdown.Item href="#/action-1">Calendar of Events</Dropdown.Item>
             <Dropdown.Item href="#studygroups">Study Groups</Dropdown.Item>
             <Dropdown.Item href="#/action-3">Grievance</Dropdown.Item>
