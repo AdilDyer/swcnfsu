@@ -3,7 +3,7 @@ import FadeInSection from "../../components/FadeInSection";
 
 const Calendar = () => {
   return (
-    <div className="calendarofevents ">
+    <div className="calendarofevents" id="calendarofevents">
       <FadeInSection>
         <h1>
           <span className="headingFlowers" style={{ verticalAlign: "middle" }}>

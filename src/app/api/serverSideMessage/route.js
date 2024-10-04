@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import ChatMessage from "../../../lib/modals/chatmessage";
+import ChatMessage from "../../../lib/models/chatmessage";
 let clients = [];
 
 // Function to add client to the list of SSE clients

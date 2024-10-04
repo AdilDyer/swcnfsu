@@ -1,6 +1,6 @@
 import dbConnect from "../../../lib/db";
-import RisingStar from "../../../lib/modals/risingstar";
-import User from "../../../lib/modals/user";
+import RisingStar from "../../../lib/models/risingstar";
+import User from "../../../lib/models/user";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {

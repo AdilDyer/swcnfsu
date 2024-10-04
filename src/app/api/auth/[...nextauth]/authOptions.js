@@ -1,7 +1,7 @@
 import GoogleProvider from "next-auth/providers/google";
-import User from "../../../../lib/modals/user";
+import User from "../../../../lib/models/user";
 import dbConnect from "../../../../lib/db";
-import ClubCoordinator from "../../../../lib/modals/clubcoordinator";
+import ClubCoordinator from "../../../../lib/models/clubcoordinator";
 // Function to check if the user is registered
 const checkIsRegistered = async (email) => {
   try {

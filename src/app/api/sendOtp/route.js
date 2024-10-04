@@ -1,5 +1,5 @@
 import dbConnect from "../../../lib/db";
-import OTP from "../../../lib/modals/otp";
+import OTP from "../../../lib/models/otp";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 

@@ -1,5 +1,5 @@
 import dbConnect from "../../../lib/db";
-import Event from "../../../lib/modals/event";
+import Event from "../../../lib/models/event";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {

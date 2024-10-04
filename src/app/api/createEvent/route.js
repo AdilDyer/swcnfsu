@@ -1,6 +1,6 @@
 import dbConnect from "../../../lib/db";
-import Event from "../../../lib/modals/event";
-import Club from "../../../lib/modals/club";
+import Event from "../../../lib/models/event";
+import Club from "../../../lib/models/club";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {

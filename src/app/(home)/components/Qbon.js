@@ -5,7 +5,7 @@ import FadeInSection from "../../components/FadeInSection";
 
 const Qbon = () => {
   return (
-    <div className="qbon">
+    <div className="qbon" id="qbon">
       <div className="descriptionDiv">
         <div className="imageDiv">
           <div className="imgContainerDiv">

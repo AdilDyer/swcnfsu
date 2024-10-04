@@ -1,7 +1,6 @@
 import dbConnect from "../../../../../lib/db";
-import Event from "../../../../../lib/modals/event";
+import Event from "../../../../../lib/models/event";
 import { NextResponse } from "next/server";
-
 
 export async function GET(req, { params }) {
   try {
@@ -16,7 +15,6 @@ export async function GET(req, { params }) {
       rsvps: userId,
       date: { $gte: currentDate }, // Filter for future events
     });
-   
 
     return NextResponse.json({ attendedEvents, rsvpEvents, status: 200 });
   } catch (error) {

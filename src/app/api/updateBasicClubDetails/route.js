@@ -1,5 +1,5 @@
 import dbConnect from "../../../lib/db";
-import Club from "../../../lib/modals/club";
+import Club from "../../../lib/models/club";
 import { NextResponse } from "next/server";
 import { getToken } from "next-auth/jwt";
 

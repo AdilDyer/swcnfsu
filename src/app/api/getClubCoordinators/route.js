@@ -1,5 +1,5 @@
 import dbConnect from "../../../lib/db";
-import ClubCoordinators from "../../../lib/modals/clubcoordinator";
+import ClubCoordinators from "../../../lib/models/clubcoordinator";
 import { NextResponse } from "next/server";
 
 export async function GET(req, res) {

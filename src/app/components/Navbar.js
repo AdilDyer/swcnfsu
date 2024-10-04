@@ -62,13 +62,15 @@ const Navbar = () => {
             title="Quick Links"
           >
             <Dropdown.Item href="/">Home</Dropdown.Item>
-            <Dropdown.Item href="#/action-1">Calendar of Events</Dropdown.Item>
+            <Dropdown.Item href="#calendarofevents">
+              Calendar of Events
+            </Dropdown.Item>
             <Dropdown.Item href="#studygroups">Study Groups</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Grievance</Dropdown.Item>
-            <Dropdown.Item href="#/action-1">Qbon</Dropdown.Item>
-            <Dropdown.Item href="#/actison-1">Counselling</Dropdown.Item>
-            <Dropdown.Item href="#/action-1">Contact Team</Dropdown.Item>
-            <Dropdown.Item href="#/action-1">Socials</Dropdown.Item>
+            {/* <Dropdown.Item href="#/action-3">Grievance</Dropdown.Item> */}
+            <Dropdown.Item href="#qbon">Qbon</Dropdown.Item>
+            <Dropdown.Item href="#supportServicesDiv">Cells</Dropdown.Item>
+            <Dropdown.Item href="/contact">Contact Team</Dropdown.Item>
+            <Dropdown.Item href="#footer">Socials</Dropdown.Item>
             <Dropdown.Item href="/ourteam">Our Team</Dropdown.Item>
           </DropdownButton>
 

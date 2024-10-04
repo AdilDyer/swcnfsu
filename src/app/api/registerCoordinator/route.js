@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "../../../lib/db";
-import ClubCoordinator from "../../../lib/modals/clubcoordinator";
-import User from "../../../lib/modals/user";
+import ClubCoordinator from "../../../lib/models/clubcoordinator";
+import User from "../../../lib/models/user";
 import mongoose from "mongoose";
 export async function POST(req) {
   await dbConnect();

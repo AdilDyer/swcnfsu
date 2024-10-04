@@ -1,7 +1,6 @@
-
 import { NextResponse } from "next/server";
 import dbConnect from "../../../lib/db";
-import ClubCoordinator from "../../../lib/modals/clubcoordinator";
+import ClubCoordinator from "../../../lib/models/clubcoordinator";
 
 export async function DELETE(req) {
   await dbConnect(); // Connect to the database

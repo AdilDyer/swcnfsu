@@ -1,4 +1,4 @@
-// import User from "../../../lib/modals/user"; // Import your User model
+// import User from "../../../lib/models/user"; // Import your User model
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 

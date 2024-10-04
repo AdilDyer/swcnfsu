@@ -10,7 +10,7 @@ const Footer = () => {
     return null;
   }
   return (
-    <div className="footer">
+    <div className="footer" id="footer">
       <h1>Join the SWC Club today ! </h1>
       <br />
       <p>

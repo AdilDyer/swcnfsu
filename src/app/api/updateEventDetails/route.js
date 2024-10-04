@@ -1,5 +1,5 @@
 import dbConnect from "../../../lib/db"; // Assuming you have a DB connection utility
-import Event from "../../../lib/modals/event"; // Mongoose model for Event
+import Event from "../../../lib/models/event"; // Mongoose model for Event
 import { NextResponse } from "next/server";
 
 export async function POST(req, res) {

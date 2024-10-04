@@ -2225,16 +2225,24 @@ html::-webkit-scrollbar {
     justify-content: center;
     align-items: center;
     text-align: center;
+    overflow: hidden;
+    width: 100%;
+    overflow-x: hidden;
     .nfsuEmblemHomeFirst {
       width: 5rem !important;
     }
+    h1 {
+      text-align: center !important;
+      overflow: hidden;
+    }
     h1 div {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding-left: 2rem ;
-      font-size: 2rem !important;
+      width: 100%;
+      justify-content: center !important;
+      align-items: center !important;
+      text-align: center !important;
+      font-size: 2.9rem !important;
+      letter-spacing: 0;
     }
     span img {
       width: 1rem !important;
@@ -2323,11 +2331,15 @@ html::-webkit-scrollbar {
       padding-right: 2rem;
     }
   }
+  .pastevents #pastEventAnnId {
+    margin-bottom: 0;
+  }
   .risingStarDiv {
-    .homePageHeading {
+    h1{
       display: flex;
     }
   }
+
   .studygroups .cardsContainer {
     padding: 1rem 0;
     align-items: center;

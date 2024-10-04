@@ -1,5 +1,5 @@
 import dbConnect from "../../../lib/db";
-import RisingStar from "../../../lib/modals/risingstar";
+import RisingStar from "../../../lib/models/risingstar";
 import { NextResponse } from "next/server";
 
 async function handler(req, res) {

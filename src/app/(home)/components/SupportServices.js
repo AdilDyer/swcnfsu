@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 
 const SupportServices = () => {
   return (
-    <div className="supportServicesDiv">
+    <div className="supportServicesDiv" id="supportServicesDiv">
       <FadeInSection>
         <h1>
           <span className="headingFlowers" style={{ verticalAlign: "middle" }}>

@@ -47,7 +47,7 @@ const PastEvents = ({ allEvents }) => {
       <br />
       <br />
       <FadeInSection>
-        <div className="announcements">
+        <div className="announcements" id="pastEventAnnId">
           <div
             className="cardsAnnoun"
             style={{ backgroundColor: "pink" }}
