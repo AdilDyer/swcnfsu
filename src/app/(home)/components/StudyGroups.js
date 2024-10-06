@@ -35,7 +35,7 @@ const StudyGroups = ({ allClubs }) => {
       <br />
       <FadeInSection>
         <div className="cardsContainer">
-          {allClubs.map((club) => (
+          {allClubs?.map((club) => (
             <>
               <Link href={`/clubs/${club.name}`}>
                 <div

@@ -2196,7 +2196,7 @@ html::-webkit-scrollbar {
     width: 100%;
     padding: 1rem !important;
     justify-content: space-between;
-    background-color: #b88ea688;
+    /* background-color: #b88ea688; */
     flex-wrap: nowrap;
     .leftPart {
       font-size: 0.6rem;
@@ -2335,7 +2335,7 @@ html::-webkit-scrollbar {
     margin-bottom: 0;
   }
   .risingStarDiv {
-    h1{
+    h1 {
       display: flex;
     }
   }
@@ -2414,6 +2414,11 @@ html::-webkit-scrollbar {
   }
   .ourTeamDiv .cardsAnnoun .card .imageDiv {
     border-radius: 0 !important;
+  }
+  .contactPageDiv {
+    h1 {
+      padding: 0 1rem;
+    }
   }
 }
 

@@ -26,15 +26,15 @@ const Description = () => {
             <h5>
               <span style={{ backgroundColor: "pink" }}>
                 {" "}
-                &nbsp;Transparency&nbsp;{" "}
+                &nbsp;Transparency&nbsp;
               </span>
               ,&nbsp;
               <span style={{ backgroundColor: "pink", color: "black" }}>
-                &nbsp; Approachability&nbsp;{" "}
+                &nbsp;Approachability&nbsp;
               </span>
               &nbsp; &amp; &nbsp;
               <span style={{ backgroundColor: "pink", color: "black" }}>
-                &nbsp; Aspiration &nbsp;
+                &nbsp;Aspiration&nbsp;
               </span>
             </h5>
           </FadeInSection>
@@ -118,7 +118,7 @@ const Description = () => {
               </Button>
             </Link>
           </FadeInSection>
-            <br />
+          <br />
 
           {/* <h5>
             <span style={{ backgroundColor: "powderblue" }}>
