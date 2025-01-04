@@ -15,7 +15,6 @@ const Calendar = () => {
               alt=""
             />
           </span>
-          {/* &nbsp; <span className="homePageHeading"> Calendar of Events</span> */}
           &nbsp; <span className=""> Calendar of Events</span>
           &nbsp;
           <span className="headingFlowers" style={{ verticalAlign: "middle" }}>

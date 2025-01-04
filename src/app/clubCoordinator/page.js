@@ -1081,7 +1081,11 @@ const ClubCoordinatorDashboard = () => {
               })
               .sort((a, b) => new Date(b.date) - new Date(a.date)) // Sort by date, latest first
               .map((event) => {
-                return <option value={event._id}>{event.name}</option>;
+                return (
+                  <option key={event._id} value={event._id}>
+                    {event.name}
+                  </option>
+                );
               })}
           </Form.Select>
         </div>
