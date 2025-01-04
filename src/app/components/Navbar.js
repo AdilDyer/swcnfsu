@@ -32,7 +32,7 @@ const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", controlNavbar);
-    console.log(session.user);
+    console.log(session?.user?.isAdmin);
     // cleanup function
     return () => {
       window.removeEventListener("scroll", controlNavbar);
