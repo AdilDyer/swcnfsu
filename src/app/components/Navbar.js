@@ -32,7 +32,6 @@ const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", controlNavbar);
-    console.log(session?.user?.isAdmin);
     // cleanup function
     return () => {
       window.removeEventListener("scroll", controlNavbar);
@@ -77,7 +76,7 @@ const Navbar = () => {
           </DropdownButton>
 
           <div className="profileImgDiv">
-            {session ? (
+            {session.user ? (
               <>
                 <Dropdown>
                   <Dropdown.Toggle variant="light" id="dropdown-basic">
