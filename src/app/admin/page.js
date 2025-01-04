@@ -98,12 +98,6 @@ const Admin = () => {
       console.error("Error fetching data:", error);
     }
   };
-  useEffect(() => {
-    fetchClubCoordinators();
-    fetchClubs();
-    fetchStudentGenderRatio();
-    fetchAllUsersData();
-  }, []);
 
   //graphs
   function YourChartComponentDoughnut() {
@@ -431,7 +425,9 @@ const Admin = () => {
     if (!email) return; // Exit if no email is provided
 
     // Check if the email already exists among club coordinators
-    const existingEmail = clubCoordinators.find((coor) => coor.email === email);
+    const existingEmail = clubCoordinators?.find(
+      (coor) => coor.email === email
+    );
     if (existingEmail) {
       alert("This email is already associated with a coordinator.");
       return;
@@ -547,9 +543,7 @@ const Admin = () => {
   };
   const fetchAllEvents = async () => {
     try {
-      const response = await fetch(
-        "/api/getEvents"
-      );
+      const response = await fetch("/api/getEvents");
       const data = await response.json();
       setAllEvents(data.result);
     } catch (error) {
@@ -559,9 +553,6 @@ const Admin = () => {
   //Show event rsvps
   const [eventForRsvpId, setEventForRsvp] = useState("");
   const [allEvents, setAllEvents] = useState([]);
-  useEffect(() => {
-    fetchAllEvents();
-  }, []);
 
   const handleTabClick = (tabName) => {
     setCurrentRightSide(tabName); // Change the state based on clicked tab
@@ -720,6 +711,21 @@ const Admin = () => {
       }
     }
   };
+
+  useEffect(() => {
+    fetchClubCoordinators();
+    fetchClubs();
+    fetchStudentGenderRatio();
+    fetchAllUsersData();
+    fetchAllEvents();
+  }, []);
+  if (!session?.user?.isAdmin) {
+    return (
+      <div style={{ textAlign: "center", height: "100vh", paddingTop: "50vh" }}>
+        <h1>Access Denied</h1>
+      </div>
+    );
+  }
   if (isMobile) {
     return (
       <div style={{ textAlign: "center", height: "100vh", paddingTop: "50vh" }}>
@@ -1038,7 +1044,7 @@ const Admin = () => {
                     <tbody>
                       {clubs.map((club, index) => {
                         // Find the coordinator for the current club
-                        const coordinator = clubCoordinators.find(
+                        const coordinator = clubCoordinators?.find(
                           (coor) => coor.clubId._id === club._id
                         );
 
