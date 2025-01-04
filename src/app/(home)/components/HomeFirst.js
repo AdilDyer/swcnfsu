@@ -11,7 +11,7 @@ const HomeFirst = () => {
       if (session?.user?.email) {
         try {
           const response = await fetch(
-            `http://localhost:3000/api/getUser?email=${session.user.email}`
+            `https://swcnfsu.vercel.app/api/getUser?email=${session.user.email}`
           );
           const data = await response.json();
           if (data.status === 200) {

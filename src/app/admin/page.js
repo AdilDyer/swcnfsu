@@ -547,7 +547,9 @@ const Admin = () => {
   };
   const fetchAllEvents = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/getEvents");
+      const response = await fetch(
+        "https://swcnfsu.vercel.app/api/getEvents"
+      );
       const data = await response.json();
       setAllEvents(data.result);
     } catch (error) {
