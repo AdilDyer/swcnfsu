@@ -93,7 +93,6 @@ const Navbar = () => {
 
                   <Dropdown.Menu>
                     <Dropdown.Item
-                      href="#/action-1"
                       onClick={() => signOut({ callbackUrl: "/" })}
                     >
                       Logout
@@ -103,17 +102,21 @@ const Navbar = () => {
                 </Dropdown>
                 {session?.user?.isAdmin && (
                   <Link href="/admin">
-                    <img
+                    <Image
                       src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1712834949/admin_rsgkmd"
                       alt="Admin Dashboard"
+                      width={50}
+                      height={50}
                     />
                   </Link>
                 )}
                 {session?.user?.isClubCoordinator && (
                   <Link href="/clubCoordinator">
-                    <img
+                    <Image
                       src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1727087388/adult-3d-render-icon-illustration-png_ujyhgf.webp"
                       alt="Coordinator Dashboard"
+                      width={50}
+                      height={50}
                     />
                   </Link>
                 )}
