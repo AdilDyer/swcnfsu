@@ -36,8 +36,7 @@ const PastEvents = ({ allEvents }) => {
               alt=""
             />
           </span>
-          &nbsp; <span className="">Previous Event&apos;s Synopses</span>{" "}
-          &nbsp;
+          &nbsp; <span className="">Previous Event&apos;s Synopses</span> &nbsp;
           <span className="headingFlowers" style={{ verticalAlign: "middle" }}>
             <img
               style={{
@@ -50,7 +49,7 @@ const PastEvents = ({ allEvents }) => {
           </span>
         </h1>
       </FadeInSection>
-     
+
       <FadeInSection>
         <div className="announcements" id="pastEventAnnId">
           <div className="cardsAnnoun" ref={containerRef}>

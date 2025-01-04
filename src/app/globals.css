@@ -889,11 +889,6 @@ html::-webkit-scrollbar {
     display: none;
   }
 
-  /* Hide scrollbar for IE, Edge and Firefox */
-  .whiteBgBox {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
   .whiteBgBox {
     background-color: white;
     background: url("https://img.freepik.com/premium-photo/white-checkered-paper-texture-notebook-sheet-with-empty-space_84485-3798.jpg");
