@@ -17,40 +17,37 @@ const Home = () => {
   const [allEvents, setAllEvents] = useState([]);
   const [allRisingStars, setAllRisingStars] = useState([]);
   const [allClubs, setAllClubs] = useState([]);
-  useEffect(() => {
-    const fetchAllEvents = async () => {
-      try {
-        const response = await fetch("/api/getEvents");
-        const data = await response.json();
-        setAllEvents(data.result);
-      } catch (error) {
-        console.error("Error fetching all events:", error);
-      }
-    };
+  const fetchAllEvents = async () => {
+    try {
+      const response = await fetch("/api/getEvents");
+      const data = await response.json();
+      setAllEvents(data.result);
+    } catch (error) {
+      console.error("Error fetching all events:", error);
+    }
+  };
+  const fetchAllRisingStars = async () => {
+    try {
+      const response = await fetch("/api/getAllRisingStars");
+      const data = await response.json();
+      setAllRisingStars(data.result);
+    } catch (error) {
+      console.error("Error fetching all rising stars:", error);
+    }
+  };
 
+  const fetchAllClubs = async () => {
+    try {
+      const response = await fetch("/api/getClubs");
+      const data = await response.json();
+      setAllClubs(data.result);
+    } catch (error) {
+      console.error("Error fetching all clubs:", error);
+    }
+  };
+
+  useEffect(() => {
     fetchAllEvents();
-  }, []);
-  useEffect(() => {
-    const fetchAllRisingStars = async () => {
-      try {
-        const response = await fetch("/api/getAllRisingStars");
-        const data = await response.json();
-        setAllRisingStars(data.result);
-      } catch (error) {
-        console.error("Error fetching all rising stars:", error);
-      }
-    };
-
-    const fetchAllClubs = async () => {
-      try {
-        const response = await fetch("/api/getClubs");
-        const data = await response.json();
-        setAllClubs(data.result);
-      } catch (error) {
-        console.error("Error fetching all clubs:", error);
-      }
-    };
-
     fetchAllRisingStars();
     fetchAllClubs();
   }, []);

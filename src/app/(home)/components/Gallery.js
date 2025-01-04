@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Link from "next/link";
@@ -38,7 +39,7 @@ const Gallery = () => {
     <>
       <div className="galleryLinesDiv">
         <div id="container">
-          <div class="photobanner">
+          <div className="photobanner">
             <img
               src="https://sc0.blr1.digitaloceanspaces.com/inline/864062-smykotglty-1515235963.jpg"
               alt=""
@@ -82,7 +83,7 @@ const Gallery = () => {
           </div>
         </div>
         <div id="container">
-          <div class="photobanner">
+          <div className="photobanner">
             <img
               src="https://sc0.blr1.digitaloceanspaces.com/inline/864062-smykotglty-1515235963.jpg"
               alt=""
@@ -156,7 +157,7 @@ const Gallery = () => {
           </div>
         </div>
         <div id="container">
-          <div class="photobanner">
+          <div className="photobanner">
             <img
               src="https://sc0.blr1.digitaloceanspaces.com/inline/864062-smykotglty-1515235963.jpg"
               alt=""
@@ -200,7 +201,7 @@ const Gallery = () => {
           </div>
         </div>
         <div id="container">
-          <div class="photobanner">
+          <div className="photobanner">
             <img
               src="https://sc0.blr1.digitaloceanspaces.com/inline/864062-smykotglty-1515235963.jpg"
               alt=""
@@ -278,7 +279,7 @@ const Gallery = () => {
           <Link href="/gallery">
             <Button variant="warning">
               More Captured Moments &nbsp;{" "}
-              <i class="fa-solid fa-diamond-turn-right"></i>
+              <i className="fa-solid fa-diamond-turn-right"></i>
             </Button>
           </Link>
         </div>

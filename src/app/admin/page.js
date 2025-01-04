@@ -19,6 +19,7 @@ import {
 } from "chart.js";
 import { Doughnut, Bar } from "react-chartjs-2";
 import { useSession } from "next-auth/react";
+import { isMobile } from "react-device-detect";
 
 ChartJS.register(
   ArcElement,
@@ -287,6 +288,72 @@ const Admin = () => {
     };
     return <Bar data={data} options={options} />;
   };
+
+  // const MyBarChart = () => {
+  //   const [chartData, setChartData] = useState({
+  //     labels: [],
+  //     datasets: [],
+  //   });
+  //   const [loading, setLoading] = useState(true);
+
+  //   // Fetch data from the Python API
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch("http://127.0.0.1:5000/kpis");
+  //       if (!response.ok) {
+  //         throw new Error("Failed to fetch chart data");
+  //       }
+
+  //       const data = await response.json();
+
+  //       // Directly set the fetched data as chartData
+  //       setChartData(data);
+  //       setLoading(false);
+  //     } catch (error) {
+  //       console.error("Error fetching data from API:", error);
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   useEffect(() => {
+  //     fetchData();
+  //   }, []);
+
+  //   useEffect(() => {
+  //     console.log("chartData : ", chartData);
+  //   }, [chartData]);
+
+  //   if (loading) {
+  //     return <p>Loading chart...</p>;
+  //   }
+
+  //   // Chart options
+  //   const options = {
+  //     responsive: true,
+  //     scales: {
+  //       y: {
+  //         title: {
+  //           display: true,
+  //           text: "Number of Events",
+  //         },
+  //         beginAtZero: true,
+  //       },
+  //       x: {
+  //         title: {
+  //           display: true,
+  //           text: "Months",
+  //         },
+  //       },
+  //     },
+  //   };
+  //   // console.log("chartdata : ", chartData);
+  //   // console.log("options : ", options);
+  //   return (
+  //     <div>
+  //       <Bar data={chartData} options={options} />
+  //     </div>
+  //   );
+  // };
 
   const MyBarChart2 = ({ allEvents }) => {
     // Initialize an object to count events for each club
@@ -651,7 +718,15 @@ const Admin = () => {
       }
     }
   };
-
+  if (isMobile) {
+    return (
+      <div style={{ textAlign: "center", height: "100vh", paddingTop: "50vh" }}>
+        <h1>
+          Please open Admin <br /> Dashboard on a <br /> desktop device.
+        </h1>
+      </div>
+    );
+  }
   if (status === "loading") {
     return (
       <>

@@ -85,7 +85,7 @@ const Footer = () => {
         &nbsp; [Btech CSE]
       </span>
       <br />
-      <span>&copy; 2024, SWC NFSU. ALL RIGHTS RESERVED.</span>
+      <span>&copy; 2025, SWC NFSU. ALL RIGHTS RESERVED.</span>
     </div>
   );
 };

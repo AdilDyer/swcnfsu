@@ -109,7 +109,7 @@ const HomeFirst = () => {
       <FadeInSection>
         <div className="imageDiv">
           <img
-            src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1712512910/NFSU_9_All_Equipped_Seminar_Hall_u5ecy8_pv9f4n.jpg"
+            src="https://res.cloudinary.com/ddxv0iwcs/image/upload/v1733588095/WhatsApp_Image_2024-12-07_at_21.43.00_sp3non.jpg"
             alt=""
           />
         </div>

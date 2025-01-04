@@ -17,8 +17,7 @@ const SupportServices = () => {
               alt=""
             />
           </span>
-          &nbsp; <span className="homePageHeading">Services and Support</span>{" "}
-          &nbsp;
+          &nbsp; <span className="">Services and Support</span> &nbsp;
           <span className="headingFlowers" style={{ verticalAlign: "middle" }}>
             <img
               style={{
@@ -36,107 +35,107 @@ const SupportServices = () => {
       <br />
       <FadeInSection>
         <div className="outerDiv">
-          <Link href="#">
-            <div className="card">
-              <div>
-                <div
-                  className="imageDiv"
-                  style={{
-                    background: `url(https://res.cloudinary.com/ddxv0iwcs/image/upload/v1726152837/77164226b124257296a815c17ea97575_rxcl1c.jpg)`,
-                    backgroundPosition: "center",
-                    backgroundSize: "cover",
-                  }}
-                ></div>
-                <div className="textDiv">
-                  <h4>
-                    Counseling and <br /> Anti-ragging Services{" "}
-                  </h4>
-                  <br />
-                  <p>
-                    We understand that your mental and emotional well-being is
-                    crucial for your success and happiness. Our Counseling
-                    Services are designed to provide you with the support you
-                    need to navigate the challenges of college life.
-                  </p>
-                  <br />
-                </div>
+          <div className="card">
+            <div>
+              <div
+                className="imageDiv"
+                style={{
+                  background: `url(https://res.cloudinary.com/ddxv0iwcs/image/upload/v1726152837/77164226b124257296a815c17ea97575_rxcl1c.jpg)`,
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                }}
+              ></div>
+              <div className="textDiv">
+                <h4>
+                  Counseling and <br /> Anti-ragging Services{" "}
+                </h4>
+                <br />
+                <p>
+                  We understand that your mental and emotional well-being is
+                  crucial for your success and happiness. Our Counseling
+                  Services are designed to provide you with the support you need
+                  to navigate the challenges of college life.
+                </p>
+                <br />
               </div>
-              <div className="btnDiv">
+            </div>
+            <div className="btnDiv">
+              <Link href="#">
                 <Button variant="danger">
                   Counselling & Anti-ragging Cell{" "}
                   <i class="fa-solid fa-diamond-turn-right"></i>
                   &nbsp;
                 </Button>
+              </Link>
+            </div>
+          </div>
+          <div className="card">
+            <div>
+              <div
+                className="imageDiv"
+                style={{
+                  background: `url(https://res.cloudinary.com/ddxv0iwcs/image/upload/v1726152844/scholarship-vector-icon-illustration-graduation-cap-money-diploma-education-icon-concept-white-isolated-flat-cartoon-style-suitable-web-landing-page-banner-flyer-sticker-card-background_1033579-104585_agsnwa.avif)`,
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                }}
+              ></div>
+              <div className="textDiv">
+                <h4>Financial Aid and Scholarships</h4>
+                <br />
+                <p>
+                  We believe that financial constraints should never hinder your
+                  educational pursuits. Our Financial Aid and Scholarships
+                  section is dedicated to providing you with the resources and
+                  support you need to navigate your financial journey during
+                  college.
+                </p>
               </div>
             </div>
-          </Link>
-          <Link href="#">
-            <div className="card">
-              <div>
-                <div
-                  className="imageDiv"
-                  style={{
-                    background: `url(https://res.cloudinary.com/ddxv0iwcs/image/upload/v1726152844/scholarship-vector-icon-illustration-graduation-cap-money-diploma-education-icon-concept-white-isolated-flat-cartoon-style-suitable-web-landing-page-banner-flyer-sticker-card-background_1033579-104585_agsnwa.avif)`,
-                    backgroundPosition: "center",
-                    backgroundSize: "cover",
-                  }}
-                ></div>
-                <div className="textDiv">
-                  <h4>Financial Aid and Scholarships</h4>
-                  <br />
-                  <p>
-                    We believe that financial constraints should never hinder
-                    your educational pursuits. Our Financial Aid and
-                    Scholarships section is dedicated to providing you with the
-                    resources and support you need to navigate your financial
-                    journey during college.
-                  </p>
-                </div>
-              </div>
-              <br />
-              <div className="btnDiv">
+            <br />
+            <div className="btnDiv">
+              <Link href="#">
                 <Button variant="success">
                   Financial Aid & Scholarships Cell{" "}
                   <i class="fa-solid fa-diamond-turn-right"></i>
                   &nbsp;
                 </Button>
+              </Link>
+            </div>
+          </div>
+          <div className="card">
+            <div>
+              <div
+                className="imageDiv"
+                style={{
+                  background: `url(https://res.cloudinary.com/ddxv0iwcs/image/upload/v1726152995/Screenshot_2024-09-12_at_8.26.29_PM_zghujx.png)`,
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                }}
+              ></div>
+              <div className="textDiv">
+                <h4>Health and Wellness Programs</h4>
+                <br />
+
+                <p>
+                  SWC&apos;s Health and Wellness Programs are designed to
+                  support your physical, mental, and emotional health, ensuring
+                  you have the resources and guidance needed to thrive both
+                  inside and outside the classroom.
+                </p>
+
+                <br />
               </div>
             </div>
-          </Link>
-          <Link href="#">
-            <div className="card">
-              <div>
-                <div
-                  className="imageDiv"
-                  style={{
-                    background: `url(https://res.cloudinary.com/ddxv0iwcs/image/upload/v1726152995/Screenshot_2024-09-12_at_8.26.29_PM_zghujx.png)`,
-                    backgroundPosition: "center",
-                    backgroundSize: "cover",
-                  }}
-                ></div>
-                <div className="textDiv">
-                  <h4>Health and Wellness Programs</h4>
-                  <br />
-
-                  <p>
-                    SWC&apos;s Health and Wellness Programs are designed to
-                    support your physical, mental, and emotional health,
-                    ensuring you have the resources and guidance needed to
-                    thrive both inside and outside the classroom.
-                  </p>
-
-                  <br />
-                </div>
-              </div>
-              <div className="btnDiv">
+            <div className="btnDiv">
+              <Link href="#">
                 <Button variant="info">
                   Mental-Health & Wellness Cell{" "}
                   <i class="fa-solid fa-diamond-turn-right"></i>
                   &nbsp;
                 </Button>
-              </div>
+              </Link>
             </div>
-          </Link>
+          </div>
         </div>
       </FadeInSection>
     </div>

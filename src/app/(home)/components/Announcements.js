@@ -61,7 +61,7 @@ const Announcements = ({ allEvents }) => {
     <div className="announcements ">
       <FadeInSection>
         <br />
-        <h6>
+        <h6 >
           Join us for our upcoming events and be a part of something special.
           Check out our calendar and register today!
         </h6>
@@ -75,7 +75,9 @@ const Announcements = ({ allEvents }) => {
       <FadeInSection>
         <div
           className="cardsAnnoun"
-          style={{ backgroundColor: "pink" }}
+          style={{
+            backgroundColor: "#1b263b",
+          }}
           ref={containerRef}
         >
           <div className="scrollBtnDiv scrollBtnDivLeft" onClick={scrollLeft}>
@@ -123,7 +125,7 @@ const Announcements = ({ allEvents }) => {
                     <br />
                     <div className="textBody">
                       <h5>{event.name}</h5>
-                      
+
                       <p>{event.clubName} Club Event</p>
                       <h6>Date: {eventDateTime}</h6>
                       <h6>{event.description.Introduction}</h6>

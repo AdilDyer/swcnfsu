@@ -1,7 +1,11 @@
 import React from "react";
 import FadeInSection from "../../components/FadeInSection";
+import { isMobile } from "react-device-detect";
 
 const Collaboration = () => {
+  if (isMobile) {
+    return <div style={{ padding: "1rem 0" }}>&nbsp;</div>;
+  }
   return (
     <FadeInSection>
       <div className="collaborationDiv">

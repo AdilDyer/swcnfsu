@@ -8,6 +8,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const Navbar = () => {
   const { data: session } = useSession();
@@ -43,6 +44,7 @@ const Navbar = () => {
   if (pathname === "/report") {
     return null;
   }
+
   return (
     <>
       <div className={`nav active ${show && "hidden"}`}>
@@ -79,7 +81,14 @@ const Navbar = () => {
               <>
                 <Dropdown>
                   <Dropdown.Toggle variant="light" id="dropdown-basic">
-                    <img src={session?.user?.image} alt="" />
+                    {session?.user?.image && (
+                      <Image
+                        src={session.user.image}
+                        alt="User"
+                        width={50}
+                        height={50}
+                      />
+                    )}
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
@@ -118,13 +127,15 @@ const Navbar = () => {
             )}
           </div>
         </div>
-        <div className="rightPart">
-          <img src="https://guwahati.nfsu.ac.in/img/logo.png" alt="" />
-          <div>
-            <h6>National Forensic Sciences University</h6>
-            <h6>Student Welfare Committee</h6>
+        <Link href="/">
+          <div className="rightPart">
+            <img src="https://guwahati.nfsu.ac.in/img/logo.png" alt="" />
+            <div>
+              <h6>National Forensic Sciences University</h6>
+              <h6>Student Welfare Committee</h6>
+            </div>
           </div>
-        </div>
+        </Link>
       </div>
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>

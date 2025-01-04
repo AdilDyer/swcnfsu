@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Link from "next/link";
+import Image from "next/image";
 
 const Account = () => {
   const { data: session, status } = useSession();
@@ -381,7 +382,6 @@ const Account = () => {
                           );
                         })}
 
-
                     <div
                       className="scrollBtnDiv scrollBtnDivRight"
                       onClick={scrollRight}
@@ -485,7 +485,14 @@ const Account = () => {
           ) : (
             <>
               <div className="notRegisteredDiv">
-                <img src={session?.user?.image} alt="Profile Pic" />
+                {session?.user?.image && (
+                  <Image
+                    src={session.user.image}
+                    alt="User"
+                    width={50}
+                    height={50}
+                  />
+                )}
                 <br />
                 <h1>Welcome to Student Welfare Committee !</h1>
                 <br />

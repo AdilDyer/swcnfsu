@@ -19,8 +19,14 @@ const PastEvents = ({ allEvents }) => {
   return (
     <div className="pastevents">
       <FadeInSection>
-        <h1 className="">
-          {" "}
+        <h1
+          className=""
+          style={{
+            backgroundColor: "#1b263b",
+            color: "white",
+            padding: "1rem ",
+          }}
+        >
           <span className="headingFlowers" style={{ verticalAlign: "middle" }}>
             <img
               style={{
@@ -30,7 +36,8 @@ const PastEvents = ({ allEvents }) => {
               alt=""
             />
           </span>
-          &nbsp; <span className="homePageHeading">Previous Events</span> &nbsp;
+          &nbsp; <span className="">Previous Event&apos;s Synopses</span>{" "}
+          &nbsp;
           <span className="headingFlowers" style={{ verticalAlign: "middle" }}>
             <img
               style={{
@@ -43,16 +50,10 @@ const PastEvents = ({ allEvents }) => {
           </span>
         </h1>
       </FadeInSection>
-      <br />
-      <br />
-      <br />
+     
       <FadeInSection>
         <div className="announcements" id="pastEventAnnId">
-          <div
-            className="cardsAnnoun"
-            style={{ backgroundColor: "pink" }}
-            ref={containerRef}
-          >
+          <div className="cardsAnnoun" ref={containerRef}>
             <div className="scrollBtnDiv scrollBtnDivLeft" onClick={scrollLeft}>
               <div className="imgDiv">
                 <img

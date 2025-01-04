@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useRef } from "react";
 import FadeInSection from "../../components/FadeInSection";
 
@@ -19,7 +19,15 @@ const RisingStar = ({ allRisingStars }) => {
     <div className="risingStarDiv">
       <div className="pastevents">
         <FadeInSection>
-          <h1>
+          <h1
+            className=""
+            style={{
+              backgroundColor: "crimson",
+              color: "white",
+              padding: "1rem ",
+              textAlign: "center",
+            }}
+          >
             <span
               className="headingFlowers"
               style={{ verticalAlign: "middle" }}
@@ -33,7 +41,9 @@ const RisingStar = ({ allRisingStars }) => {
               />
             </span>
             &nbsp;{" "}
-            <span className="homePageHeading"> Rising Stars of Our Club</span>{" "}
+            <span className="">
+              Rising Stars of the Student Welfare Committee
+            </span>{" "}
             &nbsp;
             <span
               className="headingFlowers"
@@ -50,14 +60,11 @@ const RisingStar = ({ allRisingStars }) => {
             </span>
           </h1>
         </FadeInSection>
-        <br />
-        <br />
-        <br />
         <FadeInSection>
           <div className="announcements">
             <div
               className="cardsAnnoun"
-              style={{ backgroundColor: "pink" }}
+              // style={{ backgroundColor: "pink" }}
               ref={containerRef}
             >
               <div
