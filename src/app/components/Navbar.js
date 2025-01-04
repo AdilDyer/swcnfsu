@@ -32,7 +32,7 @@ const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", controlNavbar);
-
+    console.log(session.user);
     // cleanup function
     return () => {
       window.removeEventListener("scroll", controlNavbar);
