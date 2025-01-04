@@ -719,13 +719,6 @@ const Admin = () => {
     fetchAllUsersData();
     fetchAllEvents();
   }, []);
-  if (!session?.user?.isAdmin) {
-    return (
-      <div style={{ textAlign: "center", height: "100vh", paddingTop: "50vh" }}>
-        <h1>Access Denied</h1>
-      </div>
-    );
-  }
   if (isMobile) {
     return (
       <div style={{ textAlign: "center", height: "100vh", paddingTop: "50vh" }}>
@@ -735,6 +728,14 @@ const Admin = () => {
       </div>
     );
   }
+  if (!session?.user?.isAdmin) {
+    return (
+      <div style={{ textAlign: "center", height: "100vh", paddingTop: "50vh" }}>
+        <h1>Access Denied</h1>
+      </div>
+    );
+  }
+
   if (status === "loading") {
     return (
       <>
