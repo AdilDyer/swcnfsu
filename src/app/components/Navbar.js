@@ -76,7 +76,7 @@ const Navbar = () => {
           </DropdownButton>
 
           <div className="profileImgDiv">
-            {session.user ? (
+            {session?.user ? (
               <>
                 <Dropdown>
                   <Dropdown.Toggle variant="light" id="dropdown-basic">
